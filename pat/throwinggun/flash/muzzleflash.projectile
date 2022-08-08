@@ -1,0 +1,19 @@
+{
+	"projectileName" : "pat_throwinggun_muzzleflash",
+	"image" : "muzzleflash.png",
+	"processing" : ".1",
+	"frameNumber" : 3,
+	"animationLoops" : false,
+	"animationCycle" : 0.04,
+	"timeToLive" : 0.12,
+	"flippable" : true,
+	"fullbright" : true,
+	"pointLight" : true,
+	"lightColor" : [90, 90, 0],
+	"speed" : 0,
+	"onlyHitTerrain" : true,
+	"damageType" : "NoDamage",
+	"movementSettings" : {
+		"collisionEnabled" : false
+	}
+}

@@ -1,0 +1,7 @@
+{
+  "input" : [
+		["titaniumbar", 1]
+  ],
+  "output" : ["pat_throwingshotgun", 12],
+  "groups" : [ "craftinganvil2", "consumables", "all" ]
+}

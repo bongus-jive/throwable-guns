@@ -1,0 +1,7 @@
+{
+  "input" : [
+		["durasteelbar", 1]
+  ],
+  "output" : ["pat_throwingassaultrifle", 15],
+  "groups" : [ "craftinganvil2", "consumables", "all" ]
+}

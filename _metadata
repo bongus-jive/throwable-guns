@@ -1,0 +1,10 @@
+{
+  "version" : "patman",
+  "author" : "1.0",
+  "tags" : "Musical Instruments and Songs|Weapons",
+  "description" : "adds guns that you throw\nthey will shoot at nearby enemies when they hit something\n\nmake at tier 2 anvil with stuff\n\n\n[url=https://discord.gg/GdsQSgV][img]https://i.imgur.com/wXjYMqP.gif[/img][/url]\n[url=https://www.patreon.com/pathiccstar][img]https://i.imgur.com/uyG8oTa.gif[/img][/url]\n[url=https://link.clashofclans.com/en?action=OpenClanProfi",
+  "name" : "pat_throwingguns",
+  "friendlyName" : "throwable guns",
+  "steamContentId" : "2846221219",
+  "link" : "steam://url/CommunityFilePage/2846221219"
+}
