@@ -1,10 +1,10 @@
 {
-  "itemName": "pat_throwinggun",
+  "itemName": "pat_throwingassaultrifle",
   "rarity": "Essential",
   "category": "throwableItem",
-  "inventoryIcon": "pistol/pistol.png",
-  "image": "pistol/pistol.png",
-  "shortdescription": "throwing gun",
+  "inventoryIcon": "/pat/throwinggun/projectiles/assaultrifle/assaultrifle.png",
+  "image": "/pat/throwinggun/projectiles/assaultrifle/assaultrifle.png",
+  "shortdescription": "throwing assault rifle",
   "description": "",
 
   "ammoUsage": 1,
@@ -12,7 +12,7 @@
   "windupTime": 0,
   "cooldown": 0.1,
 
-  "projectileType": "pat_throwinggun",
+  "projectileType": "pat_throwingassaultrifle",
   "projectileConfig": {
     "periodicActions": [
       {
