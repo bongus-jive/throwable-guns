@@ -13,6 +13,10 @@
 	"onlyHitTerrain": true,
 	"damageType": "NoDamage",
 	"movementSettings": {
-		"collisionEnabled": false
+		"collisionEnabled": false,
+		"frictionEnabled": false,
+		"gravityEnabled": false,
+		"speedLimit": 0,
+		"physicsEffectCategories": [ ]
 	}
 }
