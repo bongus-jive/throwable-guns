@@ -1,7 +1,6 @@
 {
 	"projectileName": "pat_throwinggun_muzzleflash",
 	"image": "muzzleflash.png",
-	"processing": ".1",
 	"frameNumber": 3,
 	"animationLoops": false,
 	"animationCycle": 0.04,
