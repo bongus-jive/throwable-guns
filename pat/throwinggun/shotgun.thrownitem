@@ -1,25 +1,25 @@
 {
-  "itemName" : "pat_throwingshotgun",
-  "rarity" : "Essential",
-  "category" : "throwableItem",
-  "inventoryIcon" : "shotgun/shotgun.png",
-  "image" : "shotgun/shotgun.png",
-  "shortdescription" : "throwing shotgun",
-  "description" : "",
+  "itemName": "pat_throwingshotgun",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "shotgun/shotgun.png",
+  "image": "shotgun/shotgun.png",
+  "shortdescription": "throwing shotgun",
+  "description": "",
 
-  "ammoUsage" : 1,
-  "edgeTrigger" : true,
-  "windupTime" : 0,
-  "cooldown" : 0.1,
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.1,
 
-  "projectileType" : "pat_throwingshotgun",
-  "projectileConfig" : {
-    "periodicActions" : [
+  "projectileType": "pat_throwingshotgun",
+  "projectileConfig": {
+    "periodicActions": [
       {
-        "time" : 0,
-        "repeat" : false,
-        "action" : "sound",
-        "options" : [ "/sfx/projectiles/throw_item_small.ogg" ]
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_small.ogg" ]
       }
     ]
   }

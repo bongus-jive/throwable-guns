@@ -1,25 +1,25 @@
 {
-  "itemName" : "pat_throwinggun",
-  "rarity" : "Essential",
-  "category" : "throwableItem",
-  "inventoryIcon" : "pistol/pistol.png",
-  "image" : "pistol/pistol.png",
-  "shortdescription" : "throwing gun",
-  "description" : "",
+  "itemName": "pat_throwinggun",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "pistol/pistol.png",
+  "image": "pistol/pistol.png",
+  "shortdescription": "throwing gun",
+  "description": "",
 
-  "ammoUsage" : 1,
-  "edgeTrigger" : true,
-  "windupTime" : 0,
-  "cooldown" : 0.1,
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.1,
 
-  "projectileType" : "pat_throwinggun",
-  "projectileConfig" : {
-    "periodicActions" : [
+  "projectileType": "pat_throwinggun",
+  "projectileConfig": {
+    "periodicActions": [
       {
-        "time" : 0,
-        "repeat" : false,
-        "action" : "sound",
-        "options" : [ "/sfx/projectiles/throw_item_small.ogg" ]
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_small.ogg" ]
       }
     ]
   }

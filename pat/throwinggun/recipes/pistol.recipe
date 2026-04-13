@@ -1,7 +1,7 @@
 {
-  "input" : [
-		["tungstenbar", 1]
+  "input": [
+    [ "tungstenbar", 1 ]
   ],
-  "output" : ["pat_throwinggun", 30],
-  "groups" : [ "craftinganvil2", "consumables", "all" ]
+  "output": [ "pat_throwinggun", 30 ],
+  "groups": [ "craftinganvil2", "consumables", "all" ]
 }
