@@ -1,5 +1,5 @@
 [
-	{ "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwinggun" } },
-	{ "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingshotgun" } },
-	{ "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingassaultrifle" } }
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwinggun" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingshotgun" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingassaultrifle" } }
 ]

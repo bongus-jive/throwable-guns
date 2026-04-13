@@ -1,75 +1,75 @@
 {
-	"projectileName": "pat_throwingassaultrifle",
-	"image": "assaultrifle.png",
-	"timeToLive": 15,
-	"power": 5,
-	"speed": 50,
-	"orientationLocked": true,
-	"bounces": 16,
-	"piercing": true,
-	"damageKind": "foldingchair",
-	"movementSettings": {
-		"mass": 1,
-		"gravityMultiplier": 1.1,
-		"bounceFactor": 0.75,
-		"stopOnFirstBounce": true
-	},
-	"actionOnCollide": [
-		{
-			"action": "sound",
-			"options": [
-				"/sfx/melee/fist_hit_metal1_quiet.ogg", "/sfx/melee/fist_hit_metal2_quiet.ogg", "/sfx/melee/fist_hit_metal3_quiet.ogg",
-				"/sfx/melee/fist_hit_metal4_quiet.ogg", "/sfx/melee/fist_hit_metal5_quiet.ogg", "/sfx/melee/fist_hit_metal6_quiet.ogg"
-			]
-		}
-	],
+  "projectileName": "pat_throwingassaultrifle",
+  "image": "assaultrifle.png",
+  "timeToLive": 15,
+  "power": 5,
+  "speed": 50,
+  "orientationLocked": true,
+  "bounces": 16,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "movementSettings": {
+    "mass": 1,
+    "gravityMultiplier": 1.1,
+    "bounceFactor": 0.75,
+    "stopOnFirstBounce": true
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1_quiet.ogg", "/sfx/melee/fist_hit_metal2_quiet.ogg", "/sfx/melee/fist_hit_metal3_quiet.ogg",
+        "/sfx/melee/fist_hit_metal4_quiet.ogg", "/sfx/melee/fist_hit_metal5_quiet.ogg", "/sfx/melee/fist_hit_metal6_quiet.ogg"
+      ]
+    }
+  ],
 
-	"scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
-	"config": {
-		"rotationSpeed": 20,
+  "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
+  "config": {
+    "rotationSpeed": 20,
 
-		"entityBounces": 4,
-		"entityBounceFactor": 0.65,
-		"entityBounceShoot": true,
+    "entityBounces": 4,
+    "entityBounceFactor": 0.65,
+    "entityBounceShoot": true,
 
-		"shots": 8,
-		"inaccuracy": 0.09,
-		"inheritDamageFactor": 2,
-		"projectileCount": 1,
-		"projectileType": "standardbullet",
-		"projectileParameters": { },
+    "shots": 8,
+    "inaccuracy": 0.09,
+    "inheritDamageFactor": 2,
+    "projectileCount": 1,
+    "projectileType": "standardbullet",
+    "projectileParameters": { },
 
-		"burstCount": 3,
-		"burstTime": 0.025,
+    "burstCount": 3,
+    "burstTime": 0.025,
 
-		"muzzleOffset": [ 2.25, 0 ],
-		"muzzleflash": "pat_throwinggun_muzzleflash",
-		"muzzleflashVariants": 3,
-		"muzzleflashActions": [
-			{ "action": "sound", "options": [ "/sfx/gun/ar6.ogg" ] },
-			{ "action": "particle", "specification": "rocketbarrelpuff" },
-			{
-				"action": "particle",
-				"rotate": true,
-				"specification": {
-					"type": "textured",
-					"image": "/pat/throwinggun/particles/case2.png",
-					"timeToLive": 1.5,
-					"layer": "middle",
-					"rotate": true,
-					"collidesForeground": true,
-					"destructionTime": 0.25,
-					"destructionAction": "shrink",
-					"position": [ -2.25, 0 ],
-					"initialVelocity": [ 0, 6 ],
-					"finalVelocity": [ 0, -100 ],
-					"approach": [ 0, 30 ],
-					"variance": {
-						"angularVelocity": 360,
-						"initialVelocity": [ 8, 4 ]
-					}
-				}
-			}
-		]
-	}
+    "muzzleOffset": [ 2.25, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashVariants": 3,
+    "muzzleflashActions": [
+      { "action": "sound", "options": [ "/sfx/gun/ar6.ogg" ] },
+      { "action": "particle", "specification": "rocketbarrelpuff" },
+      {
+        "action": "particle",
+        "rotate": true,
+        "specification": {
+          "type": "textured",
+          "image": "/pat/throwinggun/particles/case2.png",
+          "timeToLive": 1.5,
+          "layer": "middle",
+          "rotate": true,
+          "collidesForeground": true,
+          "destructionTime": 0.25,
+          "destructionAction": "shrink",
+          "position": [ -2.25, 0 ],
+          "initialVelocity": [ 0, 6 ],
+          "finalVelocity": [ 0, -100 ],
+          "approach": [ 0, 30 ],
+          "variance": {
+            "angularVelocity": 360,
+            "initialVelocity": [ 8, 4 ]
+          }
+        }
+      }
+    ]
+  }
 }
