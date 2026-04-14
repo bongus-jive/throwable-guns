@@ -8,6 +8,7 @@
   "bounces": 16,
   "piercing": true,
   "damageKind": "foldingchair",
+  "damagePoly": [ [ 10, 3 ], [ -10, 3 ], [ -10, -4 ], [ 10, -4 ] ],
   "movementSettings": {
     "mass": 1,
     "gravityMultiplier": 1.1,
