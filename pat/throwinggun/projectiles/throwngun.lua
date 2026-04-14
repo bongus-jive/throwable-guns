@@ -12,6 +12,11 @@ function init()
   
   burstShots = 0
   burstTimer = 0
+  
+  for _, action in ipairs(cfg.muzzleflashActions or {}) do
+    action.time = action.time or 0
+    action["repeat"] = action["repeat"] or false
+  end
 end
 
 function update(dt)
@@ -26,13 +31,6 @@ function update(dt)
       burstShots = burstShots - 1
       burstTimer = cfg.burstTime
       fire(true)
-    end
-  end
-  
-  if cfg.muzzleflashActions then
-    for _,action in ipairs(cfg.muzzleflashActions) do
-      action.time = action.time or 0
-      action["repeat"] = action["repeat"] or false
     end
   end
 end
