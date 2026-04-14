@@ -59,7 +59,7 @@
           "layer": "middle",
           "rotate": true,
           "collidesForeground": true,
-          "destructionTime": 0.25,
+          "destructionTime": 0.5,
           "destructionAction": "shrink",
           "position": [ -2.25, 0 ],
           "initialVelocity": [ 0, 6 ],
