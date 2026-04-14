@@ -101,28 +101,21 @@ function fire(burst)
   world.spawnProjectile(cfg.muzzleflash, firePos, sourceId, vec2.rotate({1,0}, mrot), false, mparams)
 end
 
-function hit(entityId)
-  --nebulox is gay
-  if entityBounces ~= 0 then
-    local estimatedPosition = vec2.mul(mcontroller.position(), mcontroller.velocity())
-    local angle = math.atan(estimatedPosition[2] - world.entityPosition(entityId)[2], estimatedPosition[1] - world.entityPosition(entityId)[1])
-    
-    local topQuarter = (angle < (3 * math.pi/4)) and (angle > (math.pi/4))
-    local bottomQuarter = (angle < (-math.pi/4)) and (angle > (3 * -math.pi/4))
-    local rightQuarter = (angle < (math.pi/4)) and (angle > (-math.pi/4))
-    local leftQuarter = (angle < (3 * -math.pi/4)) and (angle > (-math.pi)) or (angle < (math.pi)) and (angle > (3 * math.pi/4))
-    
-    if rightQuarter or leftQuarter then
-      mcontroller.setXVelocity(mcontroller.xVelocity() * entityBounceFactor)
-    elseif topQuarter or bottomQuarter then
-      mcontroller.setYVelocity(mcontroller.yVelocity() * entityBounceFactor)
-    end
-    if entityBounces > 0 then
-      entityBounces = entityBounces - 1
-    end
-    
-    if cfg.entityBounceShoot then
-      fire()
-    end
-  end
+function hit(id)
+  if entityBounces == 0 then return end
+  if entityBounces ~= -1 then entityBounces = entityBounces - 1 end
+  
+  local vel = mcontroller.velocity()
+  local pos = vec2.sub(mcontroller.position(), vec2.norm(vel))
+  local diff = world.distance(pos, world.entityPosition(id))
+
+  local norm = vec2.norm({diff[2], -diff[1]})
+  local dot = vec2.dot(vel, norm) * 2
+  
+  mcontroller.setVelocity({
+    (vel[1] - dot * norm[1]) * entityBounceFactor,
+    (vel[2] - dot * norm[2]) * entityBounceFactor
+  })
+
+  if cfg.entityBounceShoot then fire() end
 end
