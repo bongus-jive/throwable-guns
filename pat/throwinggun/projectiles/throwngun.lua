@@ -38,10 +38,10 @@ function fire()
 end
 
 function fireRoutine()
-  if Shots == 0 then return end
-  Shots = Shots - 1
-
   for _ = 1, Cfg.burstCount or 1 do
+    if Shots < 1 then return end
+    Shots = Shots - 1
+    
     snapToTarget()
     fireProjectile()
     util.wait(Cfg.burstTime or 0)
@@ -92,6 +92,8 @@ end
 function hit(id)
   if HitBounces == 0 then return end
   if HitBounces ~= -1 then HitBounces = HitBounces - 1 end
+
+  if Cfg.entityBounceAddShots then Shots = Shots + Cfg.entityBounceAddShots end
   
   local vel = mcontroller.velocity()
   local pos = vec2.sub(mcontroller.position(), vec2.norm(vel))

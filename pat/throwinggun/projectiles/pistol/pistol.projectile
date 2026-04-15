@@ -31,6 +31,7 @@
 
     "entityBounces": 2,
     "entityBounceFactor": 0.5,
+    "entityBounceAddShots": 1,
 
     "shots": 1,
     "inaccuracy": 0,

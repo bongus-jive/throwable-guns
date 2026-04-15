@@ -33,7 +33,7 @@
     "entityBounceFactor": 0.65,
     "entityBounceShoot": true,
 
-    "shots": 8,
+    "shots": 20,
     "inaccuracy": 0.09,
     "recoilPower": 1.5,
     "inheritDamageFactor": 2,
