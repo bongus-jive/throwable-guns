@@ -1,19 +1,23 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 
+local sourceId
+
 function init()
   sourceId = projectile.sourceEntity()
-  cfg = config.getParameter("config")
-  
-  shots = cfg.shots or 1
-  rotationSpeed = cfg.rotationSpeed or 1
-  entityBounces = cfg.entityBounces or 0
-  entityBounceFactor = (cfg.entityBounceFactor or 1) * -1
 
-  cfg.targetQueryRange = cfg.targetQueryRange or 100
-  targetQueryOptions = { withoutEntityId = sourceId, order = "nearest", includedTypes = { "creature" } }
+  Cfg = config.getParameter("config")
+  rotationSpeed = Cfg.rotationSpeed or 1
+  shots = Cfg.shots or 1
+
+  HitBounces = Cfg.entityBounces or 0
+  HitBounceFactor = (Cfg.entityBounceFactor or 1) * -1
+
+  Cfg.targetQueryRange = Cfg.targetQueryRange or 100
+  Cfg.targetQueryOptions = sb.jsonMerge({order = "nearest", includedTypes = {"creature"}}, Cfg.targetQueryOptions)
+  Cfg.targetQueryOptions.withoutEntityId = sourceId
   
-  for _, action in ipairs(cfg.muzzleflashActions or {}) do
+  for _, action in ipairs(Cfg.muzzleflashActions or {}) do
     action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
   end
@@ -36,10 +40,10 @@ function fireRoutine()
   if shots == 0 then return end
   shots = shots - 1
 
-  for _ = 1, cfg.burstCount or 1 do
+  for _ = 1, Cfg.burstCount or 1 do
     snapToTarget()
     fireProjectile()
-    util.wait(cfg.burstTime or 0)
+    util.wait(Cfg.burstTime or 0)
   end
 end
 
@@ -47,32 +51,32 @@ function fireProjectile()
   local pos = mcontroller.position()
   local angle = mcontroller.rotation()
   local aimVector = {math.cos(angle), math.sin(angle)}
-  local muzzlePos = vec2.add(pos, vec2.rotate(cfg.muzzleOffset, angle))
+  local muzzlePos = vec2.add(pos, vec2.rotate(Cfg.muzzleOffset, angle))
   local firePos = world.lineCollision(pos, muzzlePos) or muzzlePos
 
   local params = sb.jsonMerge({
     power = projectile.power(),
-    powerMultiplier = projectile.powerMultiplier() / cfg.projectileCount / (cfg.burstCount or 1) * (cfg.inheritDamageFactor or 1),
+    powerMultiplier = projectile.powerMultiplier() / Cfg.projectileCount / (Cfg.burstCount or 1) * (Cfg.inheritDamageFactor or 1),
     damageTeam = entity.damageTeam()
-  }, cfg.projectileParameters)
+  }, Cfg.projectileParameters)
   
-  for _ = 1, cfg.projectileCount do
-    params.speed = util.randomInRange(cfg.projectileParameters.speed)
-    local vec = vec2.rotate(aimVector, sb.nrand(cfg.inaccuracy or 0, 0))
-    world.spawnProjectile(cfg.projectileType, firePos, sourceId, vec, nil, params)
+  for _ = 1, Cfg.projectileCount do
+    params.speed = util.randomInRange(Cfg.projectileParameters.speed)
+    local vec = vec2.rotate(aimVector, sb.nrand(Cfg.inaccuracy or 0, 0))
+    world.spawnProjectile(Cfg.projectileType, firePos, sourceId, vec, nil, params)
   end
   
   
-  local flashParams = { periodicActions = cfg.muzzleflashActions }
-  if cfg.muzzleFlashVariants then
-    flashParams.processing = "."..math.random(cfg.muzzleFlashVariants)
+  local flashParams = { periodicActions = Cfg.muzzleflashActions }
+  if Cfg.muzzleFlashVariants then
+    flashParams.processing = "."..math.random(Cfg.muzzleFlashVariants)
   end
-  world.spawnProjectile(cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, flashParams)
+  world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, flashParams)
 end
 
 function snapToTarget()
   local pos = mcontroller.position()
-  local targets = world.entityQuery(pos, cfg.targetQueryRange, targetQueryOptions)
+  local targets = world.entityQuery(pos, Cfg.targetQueryRange, Cfg.targetQueryOptions)
 
   for _, id in ipairs(targets) do
     local targetPos = world.entityPosition(id)
@@ -85,8 +89,8 @@ function snapToTarget()
 end
 
 function hit(id)
-  if entityBounces == 0 then return end
-  if entityBounces ~= -1 then entityBounces = entityBounces - 1 end
+  if HitBounces == 0 then return end
+  if HitBounces ~= -1 then HitBounces = HitBounces - 1 end
   
   local vel = mcontroller.velocity()
   local pos = vec2.sub(mcontroller.position(), vec2.norm(vel))
@@ -96,11 +100,11 @@ function hit(id)
   local dot = vec2.dot(vel, norm) * 2
   
   mcontroller.setVelocity({
-    (vel[1] - dot * norm[1]) * entityBounceFactor,
-    (vel[2] - dot * norm[2]) * entityBounceFactor
+    (vel[1] - dot * norm[1]) * HitBounceFactor,
+    (vel[2] - dot * norm[2]) * HitBounceFactor
   })
 
-  if cfg.entityBounceShoot then fire() end
+  if Cfg.entityBounceShoot then fire() end
 end
 
 function bounce()
