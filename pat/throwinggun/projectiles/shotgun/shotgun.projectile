@@ -34,6 +34,7 @@
 
     "shots": 1,
     "inaccuracy": 0.16,
+    "recoilPower": 40,
     "inheritDamageFactor": 2,
     "projectileCount": 10,
     "projectileType": "standardbullet",

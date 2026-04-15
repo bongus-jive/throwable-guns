@@ -68,6 +68,11 @@ function fireProjectile()
   end
   
   world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, MuzzleflashParams)
+
+  if Cfg.recoilPower then
+    local recoil = vec2.mul(aimVector, -Cfg.recoilPower)
+    mcontroller.addMomentum(recoil)
+  end
 end
 
 function snapToTarget()
