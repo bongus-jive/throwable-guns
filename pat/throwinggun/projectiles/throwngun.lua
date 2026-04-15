@@ -7,8 +7,8 @@ function init()
   sourceId = projectile.sourceEntity()
 
   Cfg = config.getParameter("config")
-  rotationSpeed = Cfg.rotationSpeed or 1
-  shots = Cfg.shots or 1
+  RotationRate = Cfg.rotationSpeed or 1
+  Shots = Cfg.shots or 1
 
   HitBounces = Cfg.entityBounces or 0
   HitBounceFactor = (Cfg.entityBounceFactor or 1) * -1
@@ -21,6 +21,7 @@ function init()
     action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
   end
+  MuzzleflashParams = {periodicActions = Cfg.muzzleflashActions}
 end
 
 function update(dt)
@@ -28,7 +29,7 @@ function update(dt)
 
   local vel = mcontroller.velocity()
   local dir = vel[1] > 0 and 1 or -1
-  local rotation = (vec2.mag(vel) / 180 * math.pi) * -dir * dt * rotationSpeed
+  local rotation = (vec2.mag(vel) / 180 * math.pi) * -dir * dt * RotationRate
   mcontroller.setRotation(mcontroller.rotation() + rotation)
 end
 
@@ -37,8 +38,8 @@ function fire()
 end
 
 function fireRoutine()
-  if shots == 0 then return end
-  shots = shots - 1
+  if Shots == 0 then return end
+  Shots = Shots - 1
 
   for _ = 1, Cfg.burstCount or 1 do
     snapToTarget()
@@ -66,9 +67,7 @@ function fireProjectile()
     world.spawnProjectile(Cfg.projectileType, firePos, sourceId, vec, nil, params)
   end
   
-  
-  local flashParams = { periodicActions = Cfg.muzzleflashActions }
-  world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, flashParams)
+  world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, MuzzleflashParams)
 end
 
 function snapToTarget()
