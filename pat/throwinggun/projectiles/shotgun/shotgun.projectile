@@ -46,7 +46,7 @@
     "muzzleflashVariants": 3,
     "muzzleflashActions": [
       { "action": "sound", "options": [ "/sfx/gun/shotgun3.ogg" ] },
-      { "action": "sound", "options": [ "/sfx/gun/reload/shotgun_reload_clip3.ogg" ], "time": 0.1 },
+      { "action": "sound", "options": [ "/sfx/gun/reload/shotgun_reload_clip3.ogg" ], "time": 0.15 },
       {
         "action": "loop",
         "count": 4,

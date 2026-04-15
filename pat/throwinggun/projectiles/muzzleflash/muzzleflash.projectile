@@ -4,7 +4,7 @@
   "frameNumber": 3,
   "animationLoops": false,
   "animationCycle": 0.04,
-  "timeToLive": 0.12,
+  "timeToLive": 0.2,
   "flippable": true,
   "fullbright": true,
   "pointLight": true,
