@@ -9,94 +9,79 @@ function init()
   rotationSpeed = cfg.rotationSpeed or 1
   entityBounces = cfg.entityBounces or 0
   entityBounceFactor = (cfg.entityBounceFactor or 1) * -1
-  
-  burstShots = 0
-  burstTimer = 0
+
+  cfg.targetQueryRange = cfg.targetQueryRange or 100
+  targetQueryOptions = { withoutEntityId = sourceId, order = "nearest", includedTypes = { "creature" } }
   
   for _, action in ipairs(cfg.muzzleflashActions or {}) do
-    action.time = action.time or 0
+    action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
   end
 end
 
 function update(dt)
+  FireState:update()
+
   local vel = mcontroller.velocity()
   local dir = vel[1] > 0 and 1 or -1
   local rotation = (vec2.mag(vel) / 180 * math.pi) * -dir * dt * rotationSpeed
   mcontroller.setRotation(mcontroller.rotation() + rotation)
-  
-  if burstTimer > 0 then
-    burstTimer = math.max(0, burstTimer - dt)
-    if burstShots > 0 and burstTimer == 0 then
-      burstShots = burstShots - 1
-      burstTimer = cfg.burstTime
-      fire(true)
-    end
+end
+
+function fire()
+  FireState:set(fireRoutine)
+end
+
+function fireRoutine()
+  if shots == 0 then return end
+  shots = shots - 1
+
+  for _ = 1, cfg.burstCount or 1 do
+    snapToTarget()
+    fireProjectile()
+    util.wait(cfg.burstTime or 0)
   end
 end
 
-function bounce()
-  fire()
+function fireProjectile()
+  local pos = mcontroller.position()
+  local angle = mcontroller.rotation()
+  local aimVector = {math.cos(angle), math.sin(angle)}
+  local muzzlePos = vec2.add(pos, vec2.rotate(cfg.muzzleOffset, angle))
+  local firePos = world.lineCollision(pos, muzzlePos) or muzzlePos
+
+  local params = sb.jsonMerge({
+    power = projectile.power(),
+    powerMultiplier = projectile.powerMultiplier() / cfg.projectileCount / (cfg.burstCount or 1) * (cfg.inheritDamageFactor or 1),
+    damageTeam = entity.damageTeam()
+  }, cfg.projectileParameters)
+  
+  for _ = 1, cfg.projectileCount do
+    params.speed = util.randomInRange(cfg.projectileParameters.speed)
+    local vec = vec2.rotate(aimVector, sb.nrand(cfg.inaccuracy or 0, 0))
+    world.spawnProjectile(cfg.projectileType, firePos, sourceId, vec, nil, params)
+  end
+  
+  
+  local flashParams = { periodicActions = cfg.muzzleflashActions }
+  if cfg.muzzleFlashVariants then
+    flashParams.processing = "."..math.random(cfg.muzzleFlashVariants)
+  end
+  world.spawnProjectile(cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, flashParams)
 end
 
-function fire(burst)
-  if not burst then
-    if shots == 0 then return end
-    if shots > 0 then shots = shots - 1 end
-    
-    if cfg.burstCount and cfg.burstCount > 1 then
-      burstShots = cfg.burstCount - 1
-      burstTimer = cfg.burstTime
+function snapToTarget()
+  local pos = mcontroller.position()
+  local targets = world.entityQuery(pos, cfg.targetQueryRange, targetQueryOptions)
+
+  for _, id in ipairs(targets) do
+    local targetPos = world.entityPosition(id)
+    if world.entityCanDamage(sourceId, id) and not world.lineTileCollision(pos, targetPos) then
+      local angle = vec2.angle(world.distance(targetPos, pos))
+      mcontroller.setRotation(angle)
+      return
     end
   end
-  
-  --targets
-  local mpos = mcontroller.position()
-  local ents = world.entityQuery(mpos, 100, {withoutEntityId = sourceId, order = "nearest", includedTypes = {"creature"}})
-  local target, tpos
-  for _,id in ipairs(ents) do
-    local epos = world.entityPosition(id)
-    if world.entityCanDamage(sourceId, id) and not world.lineTileCollision(mpos, epos) then
-      target = id
-      tpos = epos
-      break
-    end
-  end
-  if target then
-    local angle = vec2.angle(world.distance(tpos, mpos))
-    mcontroller.setRotation(angle)
-    mpos = mcontroller.position()
-  end
-  
-  --projectile
-  local mrot = mcontroller.rotation()
-  local firePos = vec2.add(mpos, vec2.rotate(cfg.muzzleOffset, mrot))
-  
-  local collision = world.lineCollision(mpos, firePos)
-  
-  local params = {
-    power = projectile.power() / cfg.projectileCount / (cfg.burstCount or 1) * (cfg.inheritDamageFactor or 1),
-    powerMultiplier = projectile.powerMultiplier(),
-    damageTeam = world.entityDamageTeam(sourceId)
-  }
-  if cfg.projectileParameters then
-    params = sb.jsonMerge(params, cfg.projectileParameters)
-  end
-  
-  for i = 1, cfg.projectileCount do
-    if cfg.projectileParameters then
-      params.speed = util.randomInRange(cfg.projectileParameters.speed)
-    end
-    local aimVec = vec2.rotate({1,0}, mrot + sb.nrand(cfg.inaccuracy, 0))
-    world.spawnProjectile(cfg.projectileType, collision or firePos, entity.id(), aimVec, false, params)
-  end
-  
-  --muzzleflash
-  local mparams = {periodicActions = cfg.muzzleflashActions}
-  if cfg.muzzleflashVariants and cfg.muzzleflashVariants > 0 then
-    mparams.processing = "."..math.random(1, cfg.muzzleflashVariants)
-  end
-  world.spawnProjectile(cfg.muzzleflash, firePos, sourceId, vec2.rotate({1,0}, mrot), false, mparams)
 end
 
 function hit(id)
@@ -116,4 +101,16 @@ function hit(id)
   })
 
   if cfg.entityBounceShoot then fire() end
+end
+
+function bounce()
+  fire()
+end
+
+
+FireState = FSM:new()
+function FireState:update()
+  if not self.state then return end
+  if coroutine.status(self.state) == "dead" then return self:set() end
+  self:resume()
 end
