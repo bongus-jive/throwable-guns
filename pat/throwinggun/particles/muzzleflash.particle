@@ -5,7 +5,7 @@
     "animation": "/pat/throwinggun/particles/muzzleflash.particle:animation",
     "layer": "front",
     "light": [ 150, 110, 0 ],
-    "fade": 12,
+    "fade": 11,
     "timeToLive": 1,
     "fullbright": true
   },
