@@ -68,9 +68,6 @@ function fireProjectile()
   
   
   local flashParams = { periodicActions = Cfg.muzzleflashActions }
-  if Cfg.muzzleFlashVariants then
-    flashParams.processing = "."..math.random(Cfg.muzzleFlashVariants)
-  end
   world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, flashParams)
 end
 

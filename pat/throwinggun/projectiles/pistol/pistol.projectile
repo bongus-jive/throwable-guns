@@ -43,8 +43,8 @@
 
     "muzzleOffset": [ 1.5, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
-    "muzzleflashVariants": 3,
     "muzzleflashActions": [
+      { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
       { "action": "sound", "options": [ "/sfx/gun/pistol1.ogg" ] },
       {
         "action": "loop",

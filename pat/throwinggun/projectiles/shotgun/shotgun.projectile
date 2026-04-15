@@ -43,8 +43,8 @@
 
     "muzzleOffset": [ 2.0, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
-    "muzzleflashVariants": 3,
     "muzzleflashActions": [
+      { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
       { "action": "sound", "options": [ "/sfx/gun/shotgun3.ogg" ] },
       { "action": "sound", "options": [ "/sfx/gun/reload/shotgun_reload_clip3.ogg" ], "time": 0.15 },
       {
