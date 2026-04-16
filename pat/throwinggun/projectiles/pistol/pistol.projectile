@@ -28,6 +28,7 @@
   "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
   "config": {
     "rotationSpeed": 20,
+    "rotationDeviation": 4,
 
     "entityBounces": 2,
     "entityBounceFactor": 0.5,

@@ -7,7 +7,7 @@ function init()
   sourceId = projectile.sourceEntity()
 
   Cfg = config.getParameter("config")
-  RotationRate = Cfg.rotationSpeed or 1
+  RotationRate = sb.nrand(Cfg.rotationDeviation or 0, Cfg.rotationSpeed or 1)
   Shots = Cfg.shots or 1
 
   HitBounces = Cfg.entityBounces or 0
