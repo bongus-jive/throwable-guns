@@ -19,7 +19,7 @@
         "time": 0,
         "repeat": false,
         "action": "sound",
-        "options": [ "/sfx/projectiles/throw_item_small.ogg" ]
+        "options": [ "/sfx/projectiles/throw_item.ogg" ]
       }
     ]
   }
