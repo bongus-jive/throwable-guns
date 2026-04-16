@@ -10,7 +10,6 @@
   "damageKind": "foldingchair",
   "damagePoly": [ [ 5, 3 ], [ -5, 3 ], [ -5, -5 ], [ 5, -5 ] ],
   "movementSettings": {
-    "mass": 1,
     "gravityMultiplier": 1,
     "bounceFactor": 0.65,
     "stopOnFirstBounce": true
