@@ -35,6 +35,7 @@
     "entityBounceShoot": true,
 
     "shots": 20,
+    "cooldownTime": 0.12,
     "inaccuracy": 0.09,
     "recoilPower": 1.5,
     "inheritDamageFactor": 2,

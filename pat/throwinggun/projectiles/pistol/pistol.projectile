@@ -35,7 +35,8 @@
     "entityBounceAddShots": 1,
 
     "shots": 1,
-    "inaccuracy": 0,
+    "cooldownTime": 0.05,
+    "inaccuracy": 0.01,
     "recoilPower": 12,
     "inheritDamageFactor": 2,
     "projectileCount": 1,

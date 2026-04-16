@@ -10,6 +10,8 @@ function init()
   RotationRate = sb.nrand(Cfg.rotationDeviation or 0, Cfg.rotationSpeed or 1)
   Shots = Cfg.shots or 1
 
+  CooldownTimer = 0
+
   HitBounces = Cfg.entityBounces or 0
   HitBounceFactor = (Cfg.entityBounceFactor or 1) * -1
 
@@ -25,6 +27,8 @@ function init()
 end
 
 function update(dt)
+  if CooldownTimer > 0 then CooldownTimer = CooldownTimer - dt end
+
   FireState:update()
 
   local vel = mcontroller.velocity()
@@ -34,6 +38,8 @@ function update(dt)
 end
 
 function fire()
+  if CooldownTimer > 0 then return end
+  CooldownTimer = Cfg.cooldownTime or 0
   FireState:set(fireRoutine)
 end
 
@@ -112,6 +118,10 @@ end
 
 function bounce()
   fire()
+end
+
+function shouldDestroy()
+  return FireState.state == nil and projectile.timeToLive() <= 0
 end
 
 
