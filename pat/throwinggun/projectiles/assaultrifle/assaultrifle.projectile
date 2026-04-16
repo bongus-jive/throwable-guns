@@ -47,7 +47,7 @@
     "muzzleOffset": [ 2.25, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
-      { "action": "sound", "options": [ "/sfx/gun/ar6.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/ar5.ogg", "/sfx/gun/ar6.ogg" ] },
       { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
       { "action": "particle", "specification": "rocketbarrelpuff" },
       {

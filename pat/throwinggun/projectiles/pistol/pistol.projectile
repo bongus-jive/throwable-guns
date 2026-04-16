@@ -47,7 +47,7 @@
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
       { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
-      { "action": "sound", "options": [ "/sfx/gun/pistol1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/pistol1.ogg", "/sfx/gun/pistol2.ogg" ] },
       {
         "action": "loop",
         "count": 2,
