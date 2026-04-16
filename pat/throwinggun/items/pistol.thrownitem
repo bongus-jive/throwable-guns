@@ -2,8 +2,8 @@
   "itemName": "pat_throwinggun",
   "rarity": "Essential",
   "category": "throwableItem",
-  "inventoryIcon": "/pat/throwinggun/projectiles/pistol/pistol.png",
-  "image": "/pat/throwinggun/projectiles/pistol/pistol.png",
+  "inventoryIcon": "pistol_icon.png",
+  "image": "pistol_held.png",
   "shortdescription": "throwing gun",
   "description": "",
 

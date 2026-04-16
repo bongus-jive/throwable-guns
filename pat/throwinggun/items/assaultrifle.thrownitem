@@ -2,8 +2,8 @@
   "itemName": "pat_throwingassaultrifle",
   "rarity": "Essential",
   "category": "throwableItem",
-  "inventoryIcon": "/pat/throwinggun/projectiles/assaultrifle/assaultrifle.png",
-  "image": "/pat/throwinggun/projectiles/assaultrifle/assaultrifle.png",
+  "inventoryIcon": "assaultrifle_icon.png",
+  "image": "assaultrifle_held.png",
   "shortdescription": "throwing assault rifle",
   "description": "",
 
