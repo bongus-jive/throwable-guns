@@ -1,0 +1,82 @@
+{
+  "projectileName": "pat_throwingminigun",
+  "image": "minigun.png",
+  "timeToLive": 15,
+  "power": 15,
+  "speed": 42,
+  "orientationLocked": true,
+  "falldown": true,
+  "bounces": -1,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 14, 2 ], [ -14, 2 ], [ -14, -5 ], [ 14, -5 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1.1,
+    "bounceFactor": 0.7,
+    "stopOnFirstBounce": true
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1.ogg", "/sfx/melee/fist_hit_metal2.ogg", "/sfx/melee/fist_hit_metal3.ogg",
+        "/sfx/melee/fist_hit_metal4.ogg", "/sfx/melee/fist_hit_metal5.ogg", "/sfx/melee/fist_hit_metal6.ogg"
+      ]
+    }
+  ],
+
+  "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
+  "config": {
+    "rotationSpeed": 15,
+    "rotationDeviation": 3,
+
+    "tileBounces": 25,
+    "entityBounces": -1,
+    "entityBounceFactor": 0.7,
+    "entityBounceShoot": true,
+
+    "shots": 50,
+    "inaccuracy": 0.12,
+    "rotateWithInaccuracy": true,
+    "recoilPower": 1.5,
+    "inheritDamageFactor": 4,
+    "projectileCount": 1,
+    "projectileType": "standardbullet",
+    "projectileParameters": {
+      "speed": [ 140, 180 ]
+    },
+
+    "burstCount": 50,
+    "burstTime": 0.02,
+
+    "muzzleOffset": [ 2.5, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashActions": [
+      { "action": "sound", "options": [ "/sfx/gun/mech_flakcannon1.ogg", "/sfx/gun/mech_flakcannon2.ogg", "/sfx/gun/mech_flakcannon3.ogg" ] },
+      { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
+      { "action": "particle", "specification": "rocketbarrelpuff" },
+      {
+        "action": "particle",
+        "rotate": true,
+        "specification": {
+          "type": "textured",
+          "image": "/pat/throwinggun/particles/case2.png",
+          "timeToLive": 1.5,
+          "layer": "middle",
+          "rotate": true,
+          "collidesForeground": true,
+          "destructionTime": 0.5,
+          "destructionAction": "shrink",
+          "position": [ -2.25, 0 ],
+          "initialVelocity": [ 0, 6 ],
+          "finalVelocity": [ 0, -100 ],
+          "approach": [ 0, 30 ],
+          "variance": {
+            "angularVelocity": 360,
+            "initialVelocity": [ 8, 4 ]
+          }
+        }
+      }
+    ]
+  }
+}

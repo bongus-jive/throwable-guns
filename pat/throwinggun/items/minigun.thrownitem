@@ -1,0 +1,26 @@
+{
+  "itemName": "pat_throwingminigun",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "minigun_icon.png",
+  "image": "minigun_held.png",
+  "shortdescription": "throwing minigun",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.25,
+
+  "projectileType": "pat_throwingminigun",
+  "projectileConfig": {
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_big.ogg" ]
+      }
+    ]
+  }
+}
