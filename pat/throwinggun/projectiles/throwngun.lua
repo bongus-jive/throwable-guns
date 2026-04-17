@@ -7,16 +7,15 @@ function init()
   sourceId = projectile.sourceEntity()
 
   Cfg = config.getParameter("config")
-  RotationRate = sb.nrand(Cfg.rotationDeviation or 0, Cfg.rotationSpeed or 1)
-  Shots = Cfg.shots or 1
 
   CooldownTimer = 0
-
+  Shots = Cfg.shots or 1
+  RotationRate = sb.nrand(Cfg.rotationDeviation or 0, Cfg.rotationSpeed or 1)
   Falldown = config.getParameter("falldown", false)
   TileBounces = Cfg.tileBounces or -1
   HitBounces = Cfg.entityBounces or 0
-  HitBounceFactor = (Cfg.entityBounceFactor or 1) * -1
 
+  Cfg.entityBounceFactor = -(Cfg.entityBounceFactor or 1)
   Cfg.targetQueryRange = Cfg.targetQueryRange or 100
   Cfg.targetQueryOptions = sb.jsonMerge({order = "nearest", includedTypes = {"creature"}}, Cfg.targetQueryOptions)
   Cfg.targetQueryOptions.withoutEntityId = sourceId
@@ -25,7 +24,13 @@ function init()
     action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
   end
-  MuzzleflashParams = {periodicActions = Cfg.muzzleflashActions}
+  MuzzleflashParameters = sb.jsonMerge(Cfg.muzzleflashParameters, {periodicActions = Cfg.muzzleflashActions})
+
+  ProjectileParameters = sb.jsonMerge({
+    power = projectile.power(),
+    powerMultiplier = projectile.powerMultiplier() / Cfg.projectileCount / (Cfg.burstCount or 1) * (Cfg.inheritDamageFactor or 1),
+    damageTeam = entity.damageTeam()
+  }, Cfg.projectileParameters)
 end
 
 function update(dt)
@@ -57,35 +62,40 @@ function fireRoutine()
 end
 
 function fireProjectile()
-  local pos = mcontroller.position()
   local angle = mcontroller.rotation()
   local aimVector = {math.cos(angle), math.sin(angle)}
-  local muzzlePos = vec2.add(pos, vec2.rotate(Cfg.muzzleOffset, angle))
-  local firePos = world.lineCollision(pos, muzzlePos) or muzzlePos
+  local firePos, muzzlePos = firePosition(angle)
 
-  local params = sb.jsonMerge({
-    power = projectile.power(),
-    powerMultiplier = projectile.powerMultiplier() / Cfg.projectileCount / (Cfg.burstCount or 1) * (Cfg.inheritDamageFactor or 1),
-    damageTeam = entity.damageTeam()
-  }, Cfg.projectileParameters)
-  
-  local inacc = 0
   for _ = 1, Cfg.projectileCount do
-    params.speed = util.randomInRange(Cfg.projectileParameters.speed)
-
-    inacc = sb.nrand(Cfg.inaccuracy or 0, 0)
+    local inacc = sb.nrand(Cfg.inaccuracy or 0, 0)
     local vec = vec2.rotate(aimVector, inacc)
-
-    world.spawnProjectile(Cfg.projectileType, firePos, sourceId, vec, nil, params)
+    
+    if Cfg.rotateWithInaccuracy and inacc > 0 then
+      angle = angle + inacc
+      firePos, muzzlePos = firePosition(angle)
+      aimVector = vec
+    end
+    
+    ProjectileParameters.speed = util.randomInRange(Cfg.projectileParameters.speed)
+    world.spawnProjectile(Cfg.projectileType, firePos, sourceId, vec, nil, ProjectileParameters)
   end
   
-  world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, MuzzleflashParams)
+  world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, MuzzleflashParameters)
   
-  if Cfg.rotateWithInaccuracy then mcontroller.setRotation(angle + inacc) end
+  if Cfg.rotateWithInaccuracy then mcontroller.setRotation(angle) end
   if Cfg.recoilPower then
     local recoil = vec2.mul(aimVector, -Cfg.recoilPower)
     mcontroller.addMomentum(recoil)
   end
+end
+
+function firePosition(angle)
+  if not angle then angle = mcontroller.rotation() end
+  local pos = mcontroller.position()
+  local muzzlePos = vec2.add(pos, vec2.rotate(Cfg.muzzleOffset, angle))
+  local firePos = world.lineCollision(pos, muzzlePos) or muzzlePos
+
+  return firePos, muzzlePos
 end
 
 function snapToTarget()
@@ -111,8 +121,8 @@ function hit(id)
   local dot = vec2.dot(vel, norm) * 2
   
   mcontroller.setVelocity({
-    (vel[1] - dot * norm[1]) * HitBounceFactor,
-    (vel[2] - dot * norm[2]) * HitBounceFactor
+    (vel[1] - dot * norm[1]) * Cfg.entityBounceFactor,
+    (vel[2] - dot * norm[2]) * Cfg.entityBounceFactor
   })
 
   if HitBounces ~= 0 then
