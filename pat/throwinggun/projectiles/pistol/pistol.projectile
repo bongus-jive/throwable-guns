@@ -5,7 +5,8 @@
   "power": 14,
   "speed": 55,
   "orientationLocked": true,
-  "bounces": 5,
+  "falldown": true,
+  "bounces": -1,
   "piercing": true,
   "damageKind": "foldingchair",
   "damagePoly": [ [ 5, 3 ], [ -5, 3 ], [ -5, -5 ], [ 5, -5 ] ],
@@ -29,6 +30,7 @@
     "rotationSpeed": 20,
     "rotationDeviation": 4,
 
+    "tileBounces": 10,
     "entityBounces": 2,
     "entityBounceFactor": 0.5,
     "entityBounceAddShots": 1,

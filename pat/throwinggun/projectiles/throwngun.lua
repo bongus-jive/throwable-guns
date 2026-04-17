@@ -12,6 +12,8 @@ function init()
 
   CooldownTimer = 0
 
+  Falldown = config.getParameter("falldown", false)
+  TileBounces = Cfg.tileBounces or -1
   HitBounces = Cfg.entityBounces or 0
   HitBounceFactor = (Cfg.entityBounceFactor or 1) * -1
 
@@ -38,14 +40,14 @@ function update(dt)
 end
 
 function fire()
-  if CooldownTimer > 0 then return end
+  if CooldownTimer > 0 or Shots <= 0 or FireState.state then return end
   CooldownTimer = Cfg.cooldownTime or 0
   FireState:set(fireRoutine)
 end
 
 function fireRoutine()
   for _ = 1, Cfg.burstCount or 1 do
-    if Shots < 1 then return end
+    if Shots <= 0 then return end
     Shots = Shots - 1
     
     snapToTarget()
@@ -67,14 +69,19 @@ function fireProjectile()
     damageTeam = entity.damageTeam()
   }, Cfg.projectileParameters)
   
+  local inacc = 0
   for _ = 1, Cfg.projectileCount do
     params.speed = util.randomInRange(Cfg.projectileParameters.speed)
-    local vec = vec2.rotate(aimVector, sb.nrand(Cfg.inaccuracy or 0, 0))
+
+    inacc = sb.nrand(Cfg.inaccuracy or 0, 0)
+    local vec = vec2.rotate(aimVector, inacc)
+
     world.spawnProjectile(Cfg.projectileType, firePos, sourceId, vec, nil, params)
   end
   
   world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, MuzzleflashParams)
-
+  
+  if Cfg.rotateWithInaccuracy then mcontroller.setRotation(angle + inacc) end
   if Cfg.recoilPower then
     local recoil = vec2.mul(aimVector, -Cfg.recoilPower)
     mcontroller.addMomentum(recoil)
@@ -96,11 +103,6 @@ function snapToTarget()
 end
 
 function hit(id)
-  if HitBounces == 0 then return end
-  if HitBounces ~= -1 then HitBounces = HitBounces - 1 end
-
-  if Cfg.entityBounceAddShots then Shots = Shots + Cfg.entityBounceAddShots end
-  
   local vel = mcontroller.velocity()
   local pos = vec2.sub(mcontroller.position(), vec2.norm(vel))
   local diff = world.distance(pos, world.entityPosition(id))
@@ -113,15 +115,29 @@ function hit(id)
     (vel[2] - dot * norm[2]) * HitBounceFactor
   })
 
-  if Cfg.entityBounceShoot then fire() end
+  if HitBounces ~= 0 then
+    if Cfg.entityBounceAddShots then Shots = Shots + Cfg.entityBounceAddShots end
+    if Cfg.entityBounceShoot then fire() end
+  end
+  if HitBounces > 0 then HitBounces = HitBounces - 1 end
 end
 
 function bounce()
+  if TileBounces > 0 then TileBounces = TileBounces - 1 end
   fire()
 end
 
 function shouldDestroy()
-  return FireState.state == nil and projectile.timeToLive() <= 0
+  if Shots > 0 or FireState.state then return false end
+
+  if TileBounces == 0 then
+    local mc = mcontroller
+    if not Falldown or (mc.zeroG() or mc.onGround() or mc.isCollisionStuck() or mc.stickingDirection()) then
+      return true
+    end
+  end
+  
+  return projectile.timeToLive() <= 0
 end
 
 
