@@ -1,0 +1,26 @@
+{
+  "itemName": "pat_throwingrevolver",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "revolver_icon.png",
+  "image": "revolver_held.png",
+  "shortdescription": "throwing revolver",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.1,
+
+  "projectileType": "pat_throwingrevolver",
+  "projectileConfig": {
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_small.ogg" ]
+      }
+    ]
+  }
+}

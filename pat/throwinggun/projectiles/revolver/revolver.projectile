@@ -1,0 +1,59 @@
+{
+  "projectileName": "pat_throwingrevolver",
+  "image": "revolver.png",
+  "timeToLive": 15,
+  "power": 12,
+  "speed": 64,
+  "orientationLocked": true,
+  "falldown": true,
+  "bounces": -1,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 5, 3 ], [ -5, 3 ], [ -5, -5 ], [ 5, -5 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1,
+    "bounceFactor": 0.7,
+    "stopOnFirstBounce": true
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1_quiet.ogg", "/sfx/melee/fist_hit_metal2_quiet.ogg", "/sfx/melee/fist_hit_metal3_quiet.ogg",
+        "/sfx/melee/fist_hit_metal4_quiet.ogg", "/sfx/melee/fist_hit_metal5_quiet.ogg", "/sfx/melee/fist_hit_metal6_quiet.ogg"
+      ]
+    }
+  ],
+
+  "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
+  "config": {
+    "rotationSpeed": 28,
+    "rotationDeviation": 6,
+
+    "tileBounces": 16,
+    "entityBounces": 6,
+    "entityBounceFactor": 0.8,
+    "entityBounceShoot": true,
+
+    "shots": 6,
+    "cooldownTime": 0.1,
+    "inaccuracy": 0.006,
+    "recoilPower": 12,
+    "inheritDamageFactor": 1,
+    "projectileCount": 1,
+    "projectileType": "standardbullet",
+    "projectileParameters": {},
+
+    "muzzleOffset": [ 1.625, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashActions": [
+      { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
+      { "action": "sound", "options": [ "/sfx/gun/revolver1.ogg", "/sfx/gun/revolver2.ogg" ] },
+      {
+        "action": "loop",
+        "count": 3,
+        "body": [ { "action": "particle", "specification": "rocketbarrelpuff" } ]
+      }
+    ]
+  }
+}
