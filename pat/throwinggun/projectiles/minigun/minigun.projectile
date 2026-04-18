@@ -67,7 +67,7 @@
           "collidesForeground": true,
           "destructionTime": 0.5,
           "destructionAction": "shrink",
-          "position": [ -2.25, 0 ],
+          "position": [ -3.125, 0 ],
           "initialVelocity": [ 0, 6 ],
           "finalVelocity": [ 0, -100 ],
           "approach": [ 0, 30 ],
