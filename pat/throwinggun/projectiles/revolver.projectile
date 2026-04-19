@@ -1,6 +1,6 @@
 {
   "projectileName": "pat_throwingrevolver",
-  "image": "revolver.png",
+  "image": "images/revolver.png",
   "timeToLive": 15,
   "power": 12,
   "speed": 64,
@@ -24,7 +24,7 @@
     }
   ],
 
-  "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
+  "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
     "rotationRate": 28,
     "rotationDeviation": 6,

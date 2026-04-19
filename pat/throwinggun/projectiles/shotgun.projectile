@@ -1,6 +1,6 @@
 {
   "projectileName": "pat_throwingshotgun",
-  "image": "shotgun.png",
+  "image": "images/shotgun.png",
   "timeToLive": 15,
   "power": 20,
   "speed": 50,
@@ -24,7 +24,7 @@
     }
   ],
 
-  "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
+  "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
     "rotationRate": 10,
     "rotationDeviation": 3,

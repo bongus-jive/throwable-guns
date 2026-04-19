@@ -1,55 +1,54 @@
 {
-  "projectileName": "pat_throwingminigun",
-  "image": "minigun.png",
+  "projectileName": "pat_throwingassaultrifle",
+  "image": "images/assaultrifle.png",
   "timeToLive": 15,
-  "power": 15,
-  "speed": 42,
+  "power": 5,
+  "speed": 50,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
   "damageKind": "foldingchair",
-  "damagePoly": [ [ 14, 2 ], [ -14, 2 ], [ -14, -5 ], [ 14, -5 ] ],
+  "damagePoly": [ [ 10, 3 ], [ -10, 3 ], [ -10, -4 ], [ 10, -4 ] ],
   "movementSettings": {
     "gravityMultiplier": 1.1,
-    "bounceFactor": 0.7,
+    "bounceFactor": 0.75,
     "stopOnFirstBounce": true
   },
   "actionOnCollide": [
     {
       "action": "sound",
       "options": [
-        "/sfx/melee/fist_hit_metal1.ogg", "/sfx/melee/fist_hit_metal2.ogg", "/sfx/melee/fist_hit_metal3.ogg",
-        "/sfx/melee/fist_hit_metal4.ogg", "/sfx/melee/fist_hit_metal5.ogg", "/sfx/melee/fist_hit_metal6.ogg"
+        "/sfx/melee/fist_hit_metal1_quiet.ogg", "/sfx/melee/fist_hit_metal2_quiet.ogg", "/sfx/melee/fist_hit_metal3_quiet.ogg",
+        "/sfx/melee/fist_hit_metal4_quiet.ogg", "/sfx/melee/fist_hit_metal5_quiet.ogg", "/sfx/melee/fist_hit_metal6_quiet.ogg"
       ]
     }
   ],
 
-  "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
+  "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
-    "rotationRate": 15,
-    "rotationDeviation": 3,
+    "rotationRate": 20,
+    "rotationDeviation": 5,
 
-    "tileBounces": 15,
-    "hitBounceFactor": 0.7,
+    "tileBounces": 20,
+    "hitBounceFactor": 0.75,
     "fireOnHit": true,
 
-    "ammo": 50,
-    "burstCount": 50,
-    "burstTime": 0.02,
-    "inaccuracy": 0.12,
-    "rotateWithInaccuracy": true,
+    "ammo": 20,
+    "cooldownTime": 0.12,
+    "burstCount": 3,
+    "burstTime": 0.025,
+    "inaccuracy": 0.09,
     "recoil": 1.5,
 
     "projectileType": "standardbullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 4,
-    "projectileSpeedRange": [ 140, 180 ],
+    "projectileDamageFactor": 2,
     "projectileParameters": { },
 
-    "muzzleOffset": [ 2.5, 0 ],
+    "muzzleOffset": [ 2.25, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
-      { "action": "sound", "options": [ "/sfx/gun/mech_flakcannon1.ogg", "/sfx/gun/mech_flakcannon2.ogg", "/sfx/gun/mech_flakcannon3.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/ar5.ogg", "/sfx/gun/ar6.ogg" ] },
       { "action": "particle", "specification": "pat_throwinggun_muzzleflash", "rotate": true },
       { "action": "particle", "specification": "rocketbarrelpuff" },
       {
@@ -64,7 +63,7 @@
           "collidesForeground": true,
           "destructionTime": 0.5,
           "destructionAction": "shrink",
-          "position": [ -3.125, 0 ],
+          "position": [ -2.25, 0 ],
           "initialVelocity": [ 0, 6 ],
           "finalVelocity": [ 0, -100 ],
           "approach": [ 0, 30 ],
