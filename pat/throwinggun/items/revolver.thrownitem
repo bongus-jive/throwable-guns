@@ -2,8 +2,8 @@
   "itemName": "pat_throwingrevolver",
   "rarity": "Essential",
   "category": "throwableItem",
-  "inventoryIcon": "revolver_icon.png",
-  "image": "revolver_held.png",
+  "inventoryIcon": "images/revolver_icon.png",
+  "image": "images/revolver_held.png",
   "shortdescription": "throwing revolver",
   "description": "",
 

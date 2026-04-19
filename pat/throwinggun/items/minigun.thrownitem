@@ -2,8 +2,8 @@
   "itemName": "pat_throwingminigun",
   "rarity": "Essential",
   "category": "throwableItem",
-  "inventoryIcon": "minigun_icon.png",
-  "image": "minigun_held.png",
+  "inventoryIcon": "images/minigun_icon.png",
+  "image": "images/minigun_held.png",
   "shortdescription": "throwing minigun",
   "description": "",
 
