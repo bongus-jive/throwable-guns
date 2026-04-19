@@ -5,7 +5,6 @@
   "power": 14,
   "speed": 55,
   "orientationLocked": true,
-  "falldown": true,
   "bounces": -1,
   "piercing": true,
   "damageKind": "foldingchair",
@@ -26,25 +25,24 @@
   ],
 
   "scripts": [ "/pat/throwinggun/projectiles/throwngun.lua" ],
-  "config": {
-    "rotationSpeed": 20,
+  "throwngunConfig": {
+    "rotationRate": 20,
     "rotationDeviation": 4,
 
-    "tileBounces": 10,
-    "entityBounces": 2,
-    "entityBounceFactor": 0.5,
-    "entityBounceAddShots": 1,
+    "tileBounces": 12,
+    "hitBounceFactor": 0.65,
+    "ammoOnHit": 1,
+    "ammoOnHitLimit": 2,
 
-    "shots": 1,
+    "ammo": 1,
     "cooldownTime": 0.05,
     "inaccuracy": 0.01,
-    "recoilPower": 12,
-    "inheritDamageFactor": 2,
-    "projectileCount": 1,
+    "recoil": 12,
+
     "projectileType": "standardbullet",
-    "projectileParameters": {
-      "speed": 200
-    },
+    "projectileCount": 1,
+    "projectileDamageFactor": 2,
+    "projectileParameters": { "speed": 200 },
 
     "muzzleOffset": [ 1.5, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",

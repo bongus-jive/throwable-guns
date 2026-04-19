@@ -1,90 +1,110 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 
-local sourceId
-
+local self
 function init()
-  sourceId = projectile.sourceEntity()
-
-  Cfg = config.getParameter("config")
-
-  CooldownTimer = 0
-  Shots = Cfg.shots or 1
-  RotationRate = sb.nrand(Cfg.rotationDeviation or 0, Cfg.rotationSpeed or 1)
-  Falldown = config.getParameter("falldown", false)
-  TileBounces = Cfg.tileBounces or -1
-  HitBounces = Cfg.entityBounces or 0
-
-  Cfg.entityBounceFactor = -(Cfg.entityBounceFactor or 1)
-  Cfg.targetQueryRange = Cfg.targetQueryRange or 100
-  Cfg.targetQueryOptions = sb.jsonMerge({order = "nearest", includedTypes = {"creature"}}, Cfg.targetQueryOptions)
-  Cfg.targetQueryOptions.withoutEntityId = sourceId
+  self = _ENV.self
   
-  for _, action in ipairs(Cfg.muzzleflashActions or {}) do
+  local cfg = config.getParameter("throwngunConfig")
+
+  self.sourceId = projectile.sourceEntity()
+
+  self.ammo = cfg.ammo or 1
+  self.cooldownTimer = 0
+  self.cooldownTime = cfg.cooldownTime or 0
+  self.burstTime = cfg.burstTime or 0
+  self.burstCount = cfg.burstCount or 1
+  self.inaccuracy = cfg.inaccuracy or 0
+  self.rotateWithInaccuracy = cfg.rotateWithInaccuracy
+  self.recoil = cfg.recoil
+
+  self.tileBounces = cfg.tileBounces or -1
+  self.hitBounceFactor = (cfg.hitBounceFactor or 1) * -1
+  self.rotationRate = sb.nrand(cfg.rotationDeviation or 0, cfg.rotationRate or 1)
+  self.fireOnHit = cfg.fireOnHit or false
+  self.ammoOnHit = cfg.ammoOnHit
+  self.ammoOnHitLimit = cfg.ammoOnHitLimit or -1
+
+  self.targetQueryRange = cfg.targetQueryRange or 100
+  self.targetQueryOptions = sb.jsonMerge({
+    order = "nearest",
+    includedTypes = {"creature"},
+    withoutEntityId = self.sourceId
+  }, cfg.targetQueryOptions)
+
+  self.muzzleOffset = cfg.muzzleOffset or {0, 0}
+  self.projectileType = cfg.projectileType
+  self.projectileCount = cfg.projectileCount or 1
+  self.projectileDamageFactor = cfg.projectileDamageFactor or 1
+  self.projectileSpeedRange = cfg.projectileSpeedRange
+  self.projectileParameters = sb.jsonMerge({
+    powerMultiplier = projectile.powerMultiplier() / self.projectileCount / self.burstCount
+  }, cfg.projectileParameters)
+  
+  for _, action in ipairs(cfg.muzzleflashActions) do
     action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
   end
-  MuzzleflashParameters = sb.jsonMerge(Cfg.muzzleflashParameters, {periodicActions = Cfg.muzzleflashActions})
-
-  ProjectileParameters = sb.jsonMerge({
-    power = projectile.power(),
-    powerMultiplier = projectile.powerMultiplier() / Cfg.projectileCount / (Cfg.burstCount or 1) * (Cfg.inheritDamageFactor or 1),
-    damageTeam = entity.damageTeam()
-  }, Cfg.projectileParameters)
+  self.muzzleflashType = cfg.muzzleflash
+  self.muzzleflashParameters = sb.jsonMerge(cfg.muzzleflashParameters, {periodicActions = cfg.muzzleflashActions})
 end
 
 function update(dt)
-  if CooldownTimer > 0 then CooldownTimer = CooldownTimer - dt end
+  if self.cooldownTimer > 0 then self.cooldownTimer = self.cooldownTimer - dt end
 
   FireState:update()
 
   local vel = mcontroller.velocity()
-  local dir = vel[1] > 0 and 1 or -1
-  local rotation = (vec2.mag(vel) / 180 * math.pi) * -dir * dt * RotationRate
-  mcontroller.setRotation(mcontroller.rotation() + rotation)
+  local dir = vel[1] > 0 and -1 or 1
+  local rot = math.rad(vec2.mag(vel)) * self.rotationRate * dir * dt
+  mcontroller.setRotation(mcontroller.rotation() + rot)
 end
 
 function fire()
-  if CooldownTimer > 0 or Shots <= 0 or FireState.state then return end
-  CooldownTimer = Cfg.cooldownTime or 0
+  if self.cooldownTimer > 0 or self.ammo <= 0 or FireState.state then return end
+  self.cooldownTimer = self.cooldownTime
   FireState:set(fireRoutine)
 end
 
 function fireRoutine()
-  for _ = 1, Cfg.burstCount or 1 do
-    if Shots <= 0 then return end
-    Shots = Shots - 1
+  for _ = 1, self.burstCount do
+    if self.ammo <= 0 then return end
+    self.ammo = self.ammo - 1
     
     snapToTarget()
     fireProjectile()
-    util.wait(Cfg.burstTime or 0)
+    util.wait(self.burstTime)
   end
 end
 
 function fireProjectile()
-  local angle = mcontroller.rotation()
-  local aimVector = {math.cos(angle), math.sin(angle)}
-  local firePos, muzzlePos = firePosition(angle)
+  local aimAngle = mcontroller.rotation()
+  local aimVector = {math.cos(aimAngle), math.sin(aimAngle)}
+  local firePos, muzzlePos = firePosition(aimAngle)
 
-  for _ = 1, Cfg.projectileCount do
-    local inacc = sb.nrand(Cfg.inaccuracy or 0, 0)
-    local vec = vec2.rotate(aimVector, inacc)
+  self.projectileParameters.power = projectile.power() * self.projectileDamageFactor
+
+  for _ = 1, self.projectileCount do
+    local inacc = sb.nrand(self.inaccuracy, aimAngle)
+    local vec = {math.cos(inacc), math.sin(inacc)}
     
-    if Cfg.rotateWithInaccuracy and inacc > 0 then
-      angle = angle + inacc
-      firePos, muzzlePos = firePosition(angle)
-      aimVector = vec
+    if self.rotateWithInaccuracy then
+      aimAngle, aimVector = inacc, vec
+      firePos, muzzlePos = firePosition(aimAngle)
     end
     
-    ProjectileParameters.speed = util.randomInRange(Cfg.projectileParameters.speed)
-    world.spawnProjectile(Cfg.projectileType, firePos, sourceId, vec, nil, ProjectileParameters)
+    if self.projectileSpeedRange then
+      self.projectileParameters.speed = util.randomInRange(self.projectileSpeedRange)
+    end
+
+    world.spawnProjectile(self.projectileType, firePos, self.sourceId, vec, nil, self.projectileParameters)
   end
   
-  world.spawnProjectile(Cfg.muzzleflash, muzzlePos, sourceId, aimVector, nil, MuzzleflashParameters)
+  world.spawnProjectile(self.muzzleflashType, muzzlePos, self.sourceId, aimVector, nil, self.muzzleflashParameters)
   
-  if Cfg.rotateWithInaccuracy then mcontroller.setRotation(angle) end
-  if Cfg.recoilPower then
-    local recoil = vec2.mul(aimVector, -Cfg.recoilPower)
+  if self.rotateWithInaccuracy then mcontroller.setRotation(aimAngle) end
+  if self.recoil then
+    local recoil = vec2.mul(aimVector, -self.recoil)
     mcontroller.addMomentum(recoil)
   end
 end
@@ -92,7 +112,7 @@ end
 function firePosition(angle)
   if not angle then angle = mcontroller.rotation() end
   local pos = mcontroller.position()
-  local muzzlePos = vec2.add(pos, vec2.rotate(Cfg.muzzleOffset, angle))
+  local muzzlePos = vec2.add(pos, vec2.rotate(self.muzzleOffset, angle))
   local firePos = world.lineCollision(pos, muzzlePos) or muzzlePos
 
   return firePos, muzzlePos
@@ -100,12 +120,11 @@ end
 
 function snapToTarget()
   local pos = mcontroller.position()
-  local targets = world.entityQuery(pos, Cfg.targetQueryRange, Cfg.targetQueryOptions)
+  local targets = world.entityQuery(pos, self.targetQueryRange, self.targetQueryOptions)
 
   for _, id in ipairs(targets) do
-    local targetPos = world.entityPosition(id)
-    if world.entityCanDamage(sourceId, id) and not world.lineTileCollision(pos, targetPos) then
-      local angle = vec2.angle(world.distance(targetPos, pos))
+    if entity.entityInSight(id) and world.entityCanDamage(self.sourceId, id) then
+      local angle = vec2.angle(entity.distanceToEntity(id))
       mcontroller.setRotation(angle)
       return
     end
@@ -115,39 +134,40 @@ end
 function hit(id)
   local vel = mcontroller.velocity()
   local pos = vec2.sub(mcontroller.position(), vec2.norm(vel))
-  local diff = world.distance(pos, world.entityPosition(id))
+  local diff = world.distance(world.entityPosition(id), pos)
 
   local norm = vec2.norm({diff[2], -diff[1]})
   local dot = vec2.dot(vel, norm) * 2
   
   mcontroller.setVelocity({
-    (vel[1] - dot * norm[1]) * Cfg.entityBounceFactor,
-    (vel[2] - dot * norm[2]) * Cfg.entityBounceFactor
+    (vel[1] - dot * norm[1]) * self.hitBounceFactor,
+    (vel[2] - dot * norm[2]) * self.hitBounceFactor
   })
-
-  if HitBounces ~= 0 then
-    if Cfg.entityBounceAddShots then Shots = Shots + Cfg.entityBounceAddShots end
-    if Cfg.entityBounceShoot then fire() end
+  
+  if self.ammoOnHit and self.ammoOnHitLimit ~= 0 then
+    if self.ammoOnHitLimit > 0 then self.ammoOnHitLimit = self.ammoOnHitLimit - 1 end
+    self.ammo = self.ammo + self.ammoOnHit
   end
-  if HitBounces > 0 then HitBounces = HitBounces - 1 end
+  if self.fireOnHit then fire() end
 end
 
 function bounce()
-  if TileBounces > 0 then TileBounces = TileBounces - 1 end
+  if self.ammo <= 0 and self.tileBounces > 0 then self.tileBounces = self.tileBounces - 1 end
   fire()
 end
 
 function shouldDestroy()
-  if Shots > 0 or FireState.state then return false end
+  if FireState.state then return false end
+  if projectile.timeToLive() <= 0 then return true end
 
-  if TileBounces == 0 then
+  if self.tileBounces == 0 then
     local mc = mcontroller
-    if not Falldown or (mc.zeroG() or mc.onGround() or mc.isCollisionStuck() or mc.stickingDirection()) then
+    if mc.zeroG() or mc.onGround() or mc.isCollisionStuck() or mc.stickingDirection() then
       return true
     end
   end
-  
-  return projectile.timeToLive() <= 0
+
+  return false
 end
 
 
