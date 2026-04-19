@@ -29,7 +29,8 @@
     "rotationRate": 20,
     "rotationDeviation": 5,
 
-    "tileBounces": 20,
+    "emptyTimeToLive": 0.5,
+    "emptyBounces": 8,
     "hitBounceFactor": 0.75,
     "fireOnHit": true,
 

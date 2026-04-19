@@ -18,7 +18,9 @@ function init()
   self.rotateWithInaccuracy = cfg.rotateWithInaccuracy
   self.recoil = cfg.recoil
 
-  self.tileBounces = cfg.tileBounces or -1
+  self.emptyBounces = cfg.emptyBounces or -1
+  self.emptyTimer = 0
+  self.emptyTimeToLive = cfg.emptyTimeToLive or 0
   self.hitBounceFactor = (cfg.hitBounceFactor or 1) * -1
   self.rotationRate = sb.nrand(cfg.rotationDeviation or 0, cfg.rotationRate or 1)
   self.fireOnHit = cfg.fireOnHit or false
@@ -51,6 +53,12 @@ end
 
 function update(dt)
   if self.cooldownTimer > 0 then self.cooldownTimer = self.cooldownTimer - dt end
+
+  if self.ammo <= 0 then
+    self.emptyTimer = self.emptyTimer + dt
+  elseif self.emptyTimer ~= 0 then
+    self.emptyTimer = 0
+  end
 
   FireState:update()
 
@@ -152,7 +160,9 @@ function hit(id)
 end
 
 function bounce()
-  if self.ammo <= 0 and self.tileBounces > 0 then self.tileBounces = self.tileBounces - 1 end
+  if self.emptyBounces > 0 and self.ammo <= 0 then
+    self.emptyBounces = self.emptyBounces - 1
+  end
   fire()
 end
 
@@ -160,7 +170,7 @@ function shouldDestroy()
   if FireState.state then return false end
   if projectile.timeToLive() <= 0 then return true end
 
-  if self.tileBounces == 0 then
+  if self.ammo <= 0 and self.emptyTimer >= self.emptyTimeToLive and self.emptyBounces <= 0 then
     local mc = mcontroller
     if mc.zeroG() or mc.onGround() or mc.isCollisionStuck() or mc.stickingDirection() then
       return true
