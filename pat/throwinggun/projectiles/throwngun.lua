@@ -17,7 +17,6 @@ function init()
   self.inaccuracy = cfg.inaccuracy or 0
   self.rotateWithInaccuracy = cfg.rotateWithInaccuracy
   self.recoil = cfg.recoil
-  self.recoilRotation = math.rad(cfg.recoilRotation or 0)
 
   self.emptyBounces = cfg.emptyBounces or -1
   self.emptyTimer = 0
@@ -118,9 +117,6 @@ function fireProjectile(skipFlash)
   if self.rotateWithInaccuracy then mcontroller.setRotation(aimAngle) end
   if self.recoil then
     local recoil = vec2.mul(aimVector, -self.recoil)
-    if self.recoilRotation > 0 then
-      recoil = vec2.rotate(recoil, self.recoilRotation)
-    end
     mcontroller.addMomentum(recoil)
   end
 end

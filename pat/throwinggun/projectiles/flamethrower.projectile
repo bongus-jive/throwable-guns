@@ -3,7 +3,7 @@
   "image": "images/flamethrower.png",
   "timeToLive": 15,
   "power": 20,
-  "speed": 60,
+  "speed": 55,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
@@ -40,13 +40,19 @@
     "burstTime": 0.02,
     "inaccuracy": 0.09,
     "recoil": 4,
-    "recoilRotation": -2,
 
     "projectileType": "flamethrower",
     "projectileCount": 1,
     "projectileDamageFactor": 4.5,
     "projectileSpeedRange": [ 15, 30 ],
-    "projectileParameters": { "damageTeam": { "type": "indiscriminate" } },
+    "projectileParameters": {
+      "damageTeam": { "type": "indiscriminate" },
+      "periodicActions": [
+        { "time": 0.2, "repeat": false, "action": "particle", "specification": "fireswoosh1" },
+        { "time": 1.1, "repeat": true, "action": "particle", "specification": "fireswoosh1" },
+        { "time": 0.6, "repeat": true, "action": "particle", "specification": "fireswoosh3", "rotate": true }
+      ]
+    },
 
     "burstSingleMuzzleflash": true,
     "muzzleOffset": [ 2.25, 0 ],
