@@ -28,6 +28,7 @@ function init()
   self.ammoOnHit = cfg.ammoOnHit
   self.ammoOnHitLimit = cfg.ammoOnHitLimit or -1
 
+  self.targetLockRange = cfg.targetLockRange
   self.targetQueryRange = cfg.targetQueryRange or 100
   self.targetQueryOptions = sb.jsonMerge({
     order = "nearest",
@@ -134,15 +135,30 @@ function firePosition(angle)
 end
 
 function snapToTarget()
-  if self.targetQueryRange <= 0 then return end
-  local pos = mcontroller.position()
-  local targets = world.entityQuery(pos, self.targetQueryRange, self.targetQueryOptions)
+  local targetId = findTarget()
+  if not targetId then return end
 
+  local angle = vec2.angle(entity.distanceToEntity(targetId))
+  mcontroller.setRotation(angle)
+end
+
+function findTarget()
+  local pos = mcontroller.position()
+  
+  if self.targetLockRange and self.lockedTargetId then
+    local tPos = world.entityPosition(self.lockedTargetId)
+    if tPos and world.magnitude(pos, tPos) < self.targetLockRange then
+      return self.lockedTargetId
+    end
+    self.lockedTargetId = nil
+  end
+  
+  if self.targetQueryRange <= 0 then return end
+  local targets = world.entityQuery(pos, self.targetQueryRange, self.targetQueryOptions)
   for _, id in ipairs(targets) do
     if entity.entityInSight(id) and world.entityCanDamage(self.sourceId, id) then
-      local angle = vec2.angle(entity.distanceToEntity(id))
-      mcontroller.setRotation(angle)
-      return
+      if self.targetLockRange then self.lockedTargetId = id end
+      return id
     end
   end
 end
