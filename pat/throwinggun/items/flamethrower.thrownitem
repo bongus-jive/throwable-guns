@@ -1,0 +1,26 @@
+{
+  "itemName": "pat_throwingflamethrower",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "images/flamethrower_icon.png",
+  "image": "images/flamethrower_held.png",
+  "shortdescription": "throwing flamethrower",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.25,
+
+  "projectileType": "pat_throwingflamethrower",
+  "projectileConfig": {
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item.ogg" ]
+      }
+    ]
+  }
+}

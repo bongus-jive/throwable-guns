@@ -1,0 +1,57 @@
+{
+  "projectileName": "pat_throwingflamethrower",
+  "image": "images/flamethrower.png",
+  "timeToLive": 15,
+  "power": 20,
+  "speed": 60,
+  "orientationLocked": true,
+  "bounces": -1,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 10, 3 ], [ -10, 3 ], [ -10, -4 ], [ 10, -4 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1.0,
+    "bounceFactor": 0.75,
+    "stopOnFirstBounce": true
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1_quiet.ogg", "/sfx/melee/fist_hit_metal2_quiet.ogg", "/sfx/melee/fist_hit_metal3_quiet.ogg",
+        "/sfx/melee/fist_hit_metal4_quiet.ogg", "/sfx/melee/fist_hit_metal5_quiet.ogg", "/sfx/melee/fist_hit_metal6_quiet.ogg"
+      ]
+    }
+  ],
+
+  "scripts": [ "throwngun.lua" ],
+  "throwngunConfig": {
+    "rotationRate": 22,
+    "rotationDeviation": 4,
+
+    "emptyTimeToLive": 0.5,
+    "emptyBounces": 8,
+    "hitBounceFactor": 0.75,
+    "targetQueryRange": 16,
+
+    "ammo": 75,
+    "burstCount": 75,
+    "burstTime": 0.02,
+    "inaccuracy": 0.09,
+    "recoil": 4,
+    "recoilRotation": -2,
+
+    "projectileType": "flamethrower",
+    "projectileCount": 1,
+    "projectileDamageFactor": 4.5,
+    "projectileSpeedRange": [ 15, 30 ],
+    "projectileParameters": { "damageTeam": { "type": "indiscriminate" } },
+
+    "burstSingleMuzzleflash": true,
+    "muzzleOffset": [ 2.25, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashActions": [
+      { "action": "sound", "options": [ "/sfx/gun/flamethrower_start.ogg" ] }
+    ]
+  }
+}

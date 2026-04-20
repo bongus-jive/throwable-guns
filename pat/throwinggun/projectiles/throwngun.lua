@@ -17,6 +17,7 @@ function init()
   self.inaccuracy = cfg.inaccuracy or 0
   self.rotateWithInaccuracy = cfg.rotateWithInaccuracy
   self.recoil = cfg.recoil
+  self.recoilRotation = math.rad(cfg.recoilRotation or 0)
 
   self.emptyBounces = cfg.emptyBounces or -1
   self.emptyTimer = 0
@@ -43,12 +44,13 @@ function init()
     powerMultiplier = projectile.powerMultiplier() / self.projectileCount / self.burstCount
   }, cfg.projectileParameters)
   
-  for _, action in ipairs(cfg.muzzleflashActions) do
+  for _, action in ipairs(cfg.muzzleflashActions or {}) do
     action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
   end
   self.muzzleflashType = cfg.muzzleflash
   self.muzzleflashParameters = sb.jsonMerge(cfg.muzzleflashParameters, {periodicActions = cfg.muzzleflashActions})
+  self.burstSingleMuzzleflash = cfg.burstSingleMuzzleflash
 end
 
 function update(dt)
@@ -75,17 +77,17 @@ function fire()
 end
 
 function fireRoutine()
-  for _ = 1, self.burstCount do
+  for i = 1, self.burstCount do
     if self.ammo <= 0 then return end
     self.ammo = self.ammo - 1
     
     snapToTarget()
-    fireProjectile()
+    fireProjectile(self.burstSingleMuzzleflash and i ~= 1)
     util.wait(self.burstTime)
   end
 end
 
-function fireProjectile()
+function fireProjectile(skipFlash)
   local aimAngle = mcontroller.rotation()
   local aimVector = {math.cos(aimAngle), math.sin(aimAngle)}
   local firePos, muzzlePos = firePosition(aimAngle)
@@ -108,11 +110,16 @@ function fireProjectile()
     world.spawnProjectile(self.projectileType, firePos, self.sourceId, vec, nil, self.projectileParameters)
   end
   
-  world.spawnProjectile(self.muzzleflashType, muzzlePos, self.sourceId, aimVector, nil, self.muzzleflashParameters)
+  if self.muzzleflashType and not skipFlash then
+    world.spawnProjectile(self.muzzleflashType, muzzlePos, self.sourceId, aimVector, nil, self.muzzleflashParameters)
+  end
   
   if self.rotateWithInaccuracy then mcontroller.setRotation(aimAngle) end
   if self.recoil then
     local recoil = vec2.mul(aimVector, -self.recoil)
+    if self.recoilRotation > 0 then
+      recoil = vec2.rotate(recoil, self.recoilRotation)
+    end
     mcontroller.addMomentum(recoil)
   end
 end
@@ -127,6 +134,7 @@ function firePosition(angle)
 end
 
 function snapToTarget()
+  if self.targetQueryRange <= 0 then return end
   local pos = mcontroller.position()
   local targets = world.entityQuery(pos, self.targetQueryRange, self.targetQueryOptions)
 
