@@ -1,0 +1,100 @@
+{
+  "projectileName": "pat_throwingrpg_rocket",
+  "image": "rocket.png",
+  "animationCycle": 0.2,
+  "frameNumber": 4,
+  "lightColor": [ 120, 70, 40 ],
+  "emitters": [ "tinyrocketsmoke" ],
+  "flippable": true,
+  "speed": 60,
+  "acceleration": 100,
+  "timeToLive": 2,
+  "damageType": "NoDamage",
+  "damageKind": "default",
+
+  "periodicActions": [
+    {
+      "time": 0,
+      "repeat": false,
+      "action": "loop",
+      "count": 2,
+      "body": [ { "action": "particle", "specification": "rocketbarrelpuff" } ]
+    }
+  ],
+
+  "actionOnReap": [
+    {
+      "action": "projectile",
+      "type": "regularexplosion",
+      "inheritDamageFactor": 1,
+      "fuzzAngle": 360,
+      "config": { "knockback": 50 }
+    },
+    {
+      "action": "loop",
+      "count": 10,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/smoke/smoke.animation",
+            "approach": [ 0.5, 0.5 ],
+            "timeToLive": 0.6,
+            "variance": {
+              "position": [ 3, 3 ],
+              "initialVelocity": [ 1, 1 ],
+              "timeToLive": 0.15,
+              "rotation": 180
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/mediumflame/mediumflame.animation",
+            "fullbright": true,
+            "approach": [ 0.5, 0.5 ],
+            "timeToLive": 0.6,
+            "light": [ 255, 160, 80 ],
+            "fade": 6,
+            "variance": {
+              "position": [ 2.4, 2.4 ],
+              "initialVelocity": [ 1, 1 ],
+              "timeToLive": 0.15,
+              "rotation": 180
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/smallflame/smallflame.animation",
+            "fullbright": true,
+            "approach": [ 0.5, 0.5 ],
+            "timeToLive": 0.6,
+            "light": [ 255, 160, 80 ],
+            "fade": 7,
+            "variance": {
+              "position": [ 2.4, 2.4 ],
+              "initialVelocity": [ 1, 1 ],
+              "timeToLive": 0.15,
+              "rotation": 180
+            }
+          }
+        },
+        { "action": "spark" }
+      ]
+    },
+    {
+      "action": "sound",
+      "options": [ "/sfx/gun/rocketblast1.ogg", "/sfx/gun/rocketblast2.ogg", "/sfx/gun/rocketblast3.ogg" ]
+    },
+    {
+      "action": "sound",
+      "options": [ "/sfx/gun/grenadeblast1.ogg", "/sfx/gun/grenadeblast2.ogg", "/sfx/gun/grenadeblast3.ogg" ]
+    }
+  ]
+}

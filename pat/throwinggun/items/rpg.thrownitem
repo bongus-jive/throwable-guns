@@ -1,0 +1,26 @@
+{
+  "itemName": "pat_throwingrpg",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "images/rpg_icon.png",
+  "image": "images/rpg_held.png",
+  "shortdescription": "throwing rocket launcher",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.25,
+
+  "projectileType": "pat_throwingrpg",
+  "projectileConfig": {
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item.ogg" ]
+      }
+    ]
+  }
+}

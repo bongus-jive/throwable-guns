@@ -1,0 +1,84 @@
+{
+  "projectileName": "pat_throwingrpg",
+  "image": "images/rpg.png",
+  "timeToLive": 15,
+  "power": 30,
+  "speed": 50,
+  "orientationLocked": true,
+  "bounces": -1,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 14, 3 ], [ -14, 3 ], [ -14, -6 ], [ 14, -6 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1.2,
+    "bounceFactor": 0.55,
+    "stopOnFirstBounce": true
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1.ogg", "/sfx/melee/fist_hit_metal2.ogg", "/sfx/melee/fist_hit_metal3.ogg",
+        "/sfx/melee/fist_hit_metal4.ogg", "/sfx/melee/fist_hit_metal5.ogg", "/sfx/melee/fist_hit_metal6.ogg"
+      ]
+    }
+  ],
+
+  "scripts": [ "throwngun.lua" ],
+  "throwngunConfig": {
+    "rotationRate": 9,
+    "rotationDeviation": 2,
+
+    "emptyTimeToLive": 0.5,
+    "emptyBounces": 6,
+    "hitBounceFactor": 0.55,
+    "fireOnHit": true,
+
+    "ammo": 1,
+    "recoil": 25,
+
+    "projectileType": "pat_throwingrpg_rocket",
+    "projectileCount": 1,
+    "projectileDamageFactor": 2,
+    "projectileParameters": { },
+
+    "fireOffset": [ 2.5, 0 ],
+    "muzzleOffset": [ -2.5, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashActions": [
+      { "action": "sound", "options": [ "/sfx/gun/rocket2.ogg", "/sfx/gun/rocket3.ogg" ] },
+      { "action": "particle", "specification": "pat_throwinggun_rocketflash", "rotate": true },
+      {
+        "action": "loop",
+        "count": 5,
+        "body": [ { "action": "particle", "specification": "rocketbarrelpuff" } ]
+      },
+      {
+        "action": "loop",
+        "count": 2,
+        "body": [
+          {
+            "action": "particle",
+            "rotate": true,
+            "specification": {
+              "type": "animated",
+              "animation": "/animations/mediumflame/mediumflame.animation",
+              "fullbright": true,
+              "collidesForeground": false,
+              "timeToLive": 0.6,
+              "rotation": 180,
+              "light": [ 120, 70, 40 ],
+              "fade": 1.5,
+              "initialVelocity": [ -20, 0 ],
+              "finalVelocity": [ 0, 0 ],
+              "approach": [ 25, 15 ],
+              "variance": {
+                "initialVelocity": [ 5, 2 ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

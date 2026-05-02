@@ -1,0 +1,19 @@
+{
+  "kind": "pat_throwinggun_rocketflash",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/rocketflash.particle:animation",
+    "layer": "middle",
+    "light": [ 255, 160, 80 ],
+    "fade": 10,
+    "timeToLive": 1,
+    "fullbright": true,
+    "position": [ -2.25, 0 ]
+  },
+  "animation": {
+    "frames": "rocketflash.png",
+    "mode": "EndAndDisappear",
+    "frameNumber": 2,
+    "animationCycle": 0.09
+  }
+}
