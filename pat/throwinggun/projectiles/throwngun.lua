@@ -55,6 +55,7 @@ function init()
 end
 
 function update(dt)
+  self.hasHitBounced = false
   if self.cooldownTimer > 0 then self.cooldownTimer = self.cooldownTimer - dt end
 
   if self.ammo <= 0 then
@@ -166,6 +167,9 @@ function findTarget()
 end
 
 function hit(id)
+  if self.hasHitBounced then return end
+  self.hasHitBounced = true
+
   local vel = mcontroller.velocity()
   local pos = vec2.sub(mcontroller.position(), vec2.norm(vel))
   local diff = world.distance(world.entityPosition(id), pos)
