@@ -28,7 +28,7 @@
       "type": "regularexplosion",
       "inheritDamageFactor": 1,
       "fuzzAngle": 360,
-      "config": { "knockback": 50 }
+      "config": { "knockback": 25 }
     },
     {
       "action": "loop",
