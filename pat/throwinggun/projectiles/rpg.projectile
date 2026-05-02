@@ -11,7 +11,7 @@
   "damagePoly": [ [ 14, 3 ], [ -14, 3 ], [ -14, -6 ], [ 14, -6 ] ],
   "movementSettings": {
     "gravityMultiplier": 1.2,
-    "bounceFactor": 0.55,
+    "bounceFactor": 0.65,
     "stopOnFirstBounce": true
   },
   "actionOnCollide": [
@@ -31,11 +31,10 @@
 
     "emptyTimeToLive": 0.5,
     "emptyBounces": 6,
-    "hitBounceFactor": 0.55,
-    "fireOnHit": true,
+    "hitBounceFactor": 0.65,
 
     "ammo": 1,
-    "recoil": 25,
+    "recoil": 35,
     "fireDelay": 0.06,
 
     "projectileType": "pat_throwingrpg_rocket",
@@ -47,7 +46,7 @@
     "muzzleOffset": [ -2.5, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
-      { "action": "sound", "options": [ "/sfx/gun/rocket2.ogg", "/sfx/gun/rocket3.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/rocket2.ogg" ] },
       { "action": "particle", "specification": "pat_throwinggun_rocketflash", "rotate": true },
       {
         "action": "loop",
@@ -70,11 +69,11 @@
               "rotation": 180,
               "light": [ 120, 70, 40 ],
               "fade": 1.5,
-              "initialVelocity": [ -20, 0 ],
+              "initialVelocity": [ -40, 0 ],
               "finalVelocity": [ 0, 0 ],
-              "approach": [ 25, 15 ],
+              "approach": [ 80, 80 ],
               "variance": {
-                "initialVelocity": [ 5, 2 ]
+                "initialVelocity": [ 10, 10 ]
               }
             }
           }
