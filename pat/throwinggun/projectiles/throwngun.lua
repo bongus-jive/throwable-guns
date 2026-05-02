@@ -12,6 +12,7 @@ function init()
   self.ammo = cfg.ammo or 1
   self.cooldownTimer = 0
   self.cooldownTime = cfg.cooldownTime or 0
+  self.fireDelay = cfg.fireDelay or 0.01
   self.burstTime = cfg.burstTime or 0
   self.burstCount = cfg.burstCount or 1
   self.inaccuracy = cfg.inaccuracy or 0
@@ -79,6 +80,8 @@ function fire()
 end
 
 function fireRoutine()
+  util.wait(self.fireDelay)
+
   for i = 1, self.burstCount do
     if self.ammo <= 0 then return end
     self.ammo = self.ammo - 1

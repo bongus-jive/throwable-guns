@@ -36,6 +36,7 @@
     "targetLockRange": 12,
 
     "ammo": 75,
+    "fireDelay": 0.06,
     "burstCount": 75,
     "burstTime": 0.02,
     "inaccuracy": 0.09,

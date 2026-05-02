@@ -36,6 +36,7 @@
 
     "ammo": 1,
     "recoil": 25,
+    "fireDelay": 0.06,
 
     "projectileType": "pat_throwingrpg_rocket",
     "projectileCount": 1,
