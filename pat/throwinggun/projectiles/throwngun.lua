@@ -35,6 +35,7 @@ function init()
     withoutEntityId = self.sourceId
   }, cfg.targetQueryOptions)
 
+  self.fireOffset = cfg.fireOffset
   self.muzzleOffset = cfg.muzzleOffset or {0, 0}
   self.projectileType = cfg.projectileType
   self.projectileCount = cfg.projectileCount or 1
@@ -125,7 +126,12 @@ function firePosition(angle)
   if not angle then angle = mcontroller.rotation() end
   local pos = mcontroller.position()
   local muzzlePos = vec2.add(pos, vec2.rotate(self.muzzleOffset, angle))
-  local firePos = world.lineCollision(pos, muzzlePos) or muzzlePos
+
+  local firePos = muzzlePos
+  if self.fireOffset then
+    firePos = vec2.add(pos, vec2.rotate(self.fireOffset, angle))
+  end
+  firePos = world.lineCollision(pos, firePos) or firePos
 
   return firePos, muzzlePos
 end
