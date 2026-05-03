@@ -7,7 +7,8 @@
     "light": [ 150, 110, 0 ],
     "fade": 11,
     "timeToLive": 1,
-    "fullbright": true
+    "fullbright": true,
+    "collidesForeground": false
   },
   "animation": {
     "frames": "muzzleflash.png",

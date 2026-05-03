@@ -8,6 +8,7 @@
     "fade": 10,
     "timeToLive": 1,
     "fullbright": true,
+    "collidesForeground": false,
     "position": [ -2.25, 0 ]
   },
   "animation": {
