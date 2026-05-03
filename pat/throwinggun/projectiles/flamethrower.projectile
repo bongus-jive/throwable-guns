@@ -25,6 +25,10 @@
     }
   ],
 
+  "actionOnReap": [
+    { "action": "projectile", "type": "fuelairignition" }
+  ],
+
   "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
     "rotationRate": 22,
