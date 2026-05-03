@@ -12,7 +12,8 @@
   "movementSettings": {
     "gravityMultiplier": 1.1,
     "bounceFactor": 0.75,
-    "stopOnFirstBounce": true
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.375, -0.375 ], [ 0.375, -0.375 ], [ 0.375, 0.375 ], [ -0.375, 0.375 ] ]
   },
   "actionOnCollide": [
     {

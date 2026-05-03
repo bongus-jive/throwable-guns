@@ -3,7 +3,7 @@
   "image": "images/rpg.png",
   "timeToLive": 15,
   "power": 30,
-  "speed": 50,
+  "speed": 55,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
@@ -11,8 +11,9 @@
   "damagePoly": [ [ 14, 3 ], [ -14, 3 ], [ -14, -6 ], [ 14, -6 ] ],
   "movementSettings": {
     "gravityMultiplier": 1.2,
-    "bounceFactor": 0.65,
-    "stopOnFirstBounce": true
+    "bounceFactor": 0.75,
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.5, -0.5 ], [ 0.5, -0.5 ], [ 0.5, 0.5 ], [ -0.5, 0.5 ] ]
   },
   "actionOnCollide": [
     {
@@ -31,7 +32,7 @@
 
     "emptyTimeToLive": 0.5,
     "emptyBounces": 6,
-    "hitBounceFactor": 0.65,
+    "hitBounceFactor": 0.75,
 
     "ammo": 1,
     "recoil": 35,

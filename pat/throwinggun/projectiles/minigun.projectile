@@ -3,7 +3,7 @@
   "image": "images/minigun.png",
   "timeToLive": 15,
   "power": 15,
-  "speed": 42,
+  "speed": 46,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
@@ -12,7 +12,8 @@
   "movementSettings": {
     "gravityMultiplier": 1.1,
     "bounceFactor": 0.7,
-    "stopOnFirstBounce": true
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.5, -0.5 ], [ 0.5, -0.5 ], [ 0.5, 0.5 ], [ -0.5, 0.5 ] ]
   },
   "actionOnCollide": [
     {

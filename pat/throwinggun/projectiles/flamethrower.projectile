@@ -3,7 +3,7 @@
   "image": "images/flamethrower.png",
   "timeToLive": 15,
   "power": 20,
-  "speed": 55,
+  "speed": 58,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
@@ -12,7 +12,8 @@
   "movementSettings": {
     "gravityMultiplier": 1.0,
     "bounceFactor": 0.75,
-    "stopOnFirstBounce": true
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.375, -0.375 ], [ 0.375, -0.375 ], [ 0.375, 0.375 ], [ -0.375, 0.375 ] ]
   },
   "actionOnCollide": [
     {
