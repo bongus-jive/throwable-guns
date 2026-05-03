@@ -11,6 +11,7 @@
   "timeToLive": 2,
   "damageType": "NoDamage",
   "damageKind": "default",
+  "damagePoly": [ [ 6, 2 ], [ -6, 2 ], [ -6, -2 ], [ 6, -2 ] ],
 
   "periodicActions": [
     {
@@ -96,5 +97,10 @@
       "action": "sound",
       "options": [ "/sfx/gun/grenadeblast1.ogg", "/sfx/gun/grenadeblast2.ogg", "/sfx/gun/grenadeblast3.ogg" ]
     }
-  ]
+  ],
+
+  "scripts": [ "/scripts/projectiles/homingprojectile.lua" ],
+  "scriptDelta": 3,
+  "rotationRate": 2.5,
+  "trackingLimit": 2.0
 }
