@@ -3,7 +3,7 @@
   "image": "images/assaultrifle.png",
   "timeToLive": 15,
   "power": 5,
-  "speed": 50,
+  "speed": 52,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
