@@ -29,7 +29,10 @@
       "type": "regularexplosion",
       "inheritDamageFactor": 1,
       "fuzzAngle": 360,
-      "config": { "knockback": 25 }
+      "config": {
+        "knockback": 25,
+        "bounces": -1
+      }
     },
     {
       "action": "loop",
@@ -96,6 +99,13 @@
     {
       "action": "sound",
       "options": [ "/sfx/gun/grenadeblast1.ogg", "/sfx/gun/grenadeblast2.ogg", "/sfx/gun/grenadeblast3.ogg" ]
+    },
+    {
+      "action": "explosion",
+      "foregroundRadius": 4,
+      "backgroundRadius": 0,
+      "explosiveDamageAmount": 0.5,
+      "delaySteps": 2
     }
   ],
 
