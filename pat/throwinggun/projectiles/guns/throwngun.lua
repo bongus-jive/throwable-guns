@@ -46,6 +46,10 @@ function init()
     powerMultiplier = projectile.powerMultiplier() / self.projectileCount / self.burstCount
   }, cfg.projectileParameters)
   
+  if self.projectileSpeedRange then
+    self.projectileParameters.speed = util.randomInRange(self.projectileSpeedRange)
+  end
+
   for _, action in ipairs(cfg.muzzleflashActions or {}) do
     action["time"] = action["time"] or 0
     action["repeat"] = action["repeat"] or false
@@ -53,6 +57,14 @@ function init()
   self.muzzleflashType = cfg.muzzleflash
   self.muzzleflashParameters = sb.jsonMerge(cfg.muzzleflashParameters, {periodicActions = cfg.muzzleflashActions})
   self.burstSingleMuzzleflash = cfg.burstSingleMuzzleflash
+
+  if cfg.projectileArc then
+    self.projectileArc = {}
+    self.projectileArc.gravity = root.projectileGravityMultiplier(self.projectileType)
+    if not self.projectileParameters.speed then
+      self.projectileArc.speed = root.projectileConfig(self.projectileType).speed or 50
+    end
+  end
 end
 
 function update(dt)
@@ -107,12 +119,12 @@ function fireProjectile(skipFlash)
       aimAngle, aimVector = inacc, vec
       firePos, muzzlePos = firePosition(aimAngle)
     end
+
+    world.spawnProjectile(self.projectileType, firePos, self.sourceId, vec, nil, self.projectileParameters)
     
     if self.projectileSpeedRange then
       self.projectileParameters.speed = util.randomInRange(self.projectileSpeedRange)
     end
-
-    world.spawnProjectile(self.projectileType, firePos, self.sourceId, vec, nil, self.projectileParameters)
   end
   
   if self.muzzleflashType and not skipFlash then
@@ -144,8 +156,34 @@ function snapToTarget()
   local targetId = findTarget()
   if not targetId then return end
 
-  local angle = vec2.angle(entity.distanceToEntity(targetId))
+  local angle = angleToTarget(entity.distanceToEntity(targetId))
   mcontroller.setRotation(angle)
+end
+
+function angleToTarget(distance)
+  if not self.projectileArc or mcontroller.zeroG() then
+    return vec2.angle(distance)
+  end
+
+  local x, y = distance[1], distance[2]
+  local v = self.projectileParameters.speed or self.projectileArc.speed
+  local g = world.gravity(mcontroller.position()) * self.projectileArc.gravity
+
+  local flip = g < 0
+  if flip then g, y = -g, -y end
+
+  local v2 = v * v
+  local r = v ^ 4 - (g * ((g * x * x) + (2 * y * v2)))
+  local angle
+
+  if r > 0 then
+    angle = math.atan(v2 - math.sqrt(r), g * x)
+  else
+    angle = vec2.angle(distance) + ((math.pi / 4) * (x > 0 and 1 or -1))
+  end
+
+  if flip then angle = -angle end
+  return angle
 end
 
 function findTarget()
