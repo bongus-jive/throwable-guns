@@ -48,7 +48,7 @@
     "projectileSpeedRange": [ 140, 180 ],
     "projectileParameters": { },
 
-    "muzzleOffset": [ 2.5, 0 ],
+    "muzzleOffset": [ 2.625, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
       { "action": "sound", "options": [ "/sfx/gun/mech_flakcannon1.ogg", "/sfx/gun/mech_flakcannon2.ogg", "/sfx/gun/mech_flakcannon3.ogg" ] },
