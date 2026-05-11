@@ -87,7 +87,6 @@ end
 
 function fire()
   if self.cooldownTimer > 0 or self.ammo <= 0 or FireState.state then return end
-  self.cooldownTimer = self.cooldownTime
   FireState:set(fireRoutine)
 end
 
@@ -102,6 +101,8 @@ function fireRoutine()
     fireProjectile(self.burstSingleMuzzleflash and i ~= 1)
     util.wait(self.burstTime)
   end
+
+  self.cooldownTimer = self.cooldownTime
 end
 
 function fireProjectile(skipFlash)

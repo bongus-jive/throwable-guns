@@ -40,7 +40,7 @@
     "ammo": 18,
     "burstCount": 2,
     "burstTime": 0.05,
-    "cooldownTime": 0.15,
+    "cooldownTime": 0.05,
     "inaccuracy": 0.04,
     "recoil": 1,
 
