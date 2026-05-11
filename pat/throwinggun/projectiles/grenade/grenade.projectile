@@ -1,5 +1,5 @@
 {
-  "projectileName": "pat_throwingrpg_grenade",
+  "projectileName": "pat_throwinggrenadelauncher_grenade",
   "image": "grenade.png",
   "physics": "grenade",
   "emitters": [ "tinyrocketsmoke" ],

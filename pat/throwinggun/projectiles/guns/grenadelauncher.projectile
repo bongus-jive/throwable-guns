@@ -42,7 +42,7 @@
     "cooldownTime": 0.24,
     "fireDelay": 0.04,
 
-    "projectileType": "pat_throwingrpg_grenade",
+    "projectileType": "pat_throwinggrenadelauncher_grenade",
     "projectileCount": 1,
     "projectileDamageFactor": 0.66,
     "projectileParameters": { },
