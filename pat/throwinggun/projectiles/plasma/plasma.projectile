@@ -1,0 +1,75 @@
+{
+  "projectileName": "pat_throwingplasmarifle_bullet",
+  "physics": "laser",
+  "image": "plasma.png",
+  "fullbright": true,
+  "speed": 80,
+  "knockback": 6,
+  "timeToLive": 3,
+  "lightColor": [ 0, 60, 120 ],
+  "damageKind": "electricplasmabullet",
+  "movementSettings": {
+    "maximumCorrection": 0
+  },
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/projectiles/plasmabullet_ricochet1.ogg",
+        "/sfx/projectiles/plasmabullet_ricochet2.ogg",
+        "/sfx/projectiles/plasmabullet_ricochet3.ogg"
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 4,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "layer": "middle",
+            "color": [ 90, 180, 230 ],
+            "light": [ 0, 60, 120 ],
+            "fade": 5,
+            "size": 1.5,
+            "fullbright": true,
+            "timeToLive": 0.2,
+            "destructionTime": 0.2,
+            "destructionAction": "shrink",
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 0, 30 ],
+            "variance": {
+              "size": 0.5,
+              "timeToLive": 0.1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 13, 13 ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "periodicActions": [
+    {
+      "time": 0.015,
+      "repeat": true,
+      "action": "actions",
+      "list": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "textured",
+            "image": "/pat/throwinggun/particles/plasmatrail.png",
+            "destructionTime": 0.2,
+            "velocity": [ 0, 0 ],
+            "destructionAction": "fade",
+            "layer": "back"
+          }
+        }
+      ]
+    }
+  ]
+}
