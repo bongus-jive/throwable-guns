@@ -55,21 +55,15 @@
     {
       "time": 0.015,
       "repeat": true,
-      "action": "actions",
-      "list": [
-        {
-          "action": "particle",
-          "rotate": true,
-          "specification": {
-            "type": "textured",
-            "image": "/pat/throwinggun/particles/plasmatrail.png",
-            "destructionTime": 0.2,
-            "velocity": [ 0, 0 ],
-            "destructionAction": "fade",
-            "layer": "back"
-          }
-        }
-      ]
+      "action": "particle",
+      "rotate": true,
+      "specification": {
+        "type": "textured",
+        "image": "/pat/throwinggun/particles/plasmatrail.png",
+        "destructionTime": 0.2,
+        "destructionAction": "fade",
+        "layer": "back"
+      }
     }
   ]
 }
