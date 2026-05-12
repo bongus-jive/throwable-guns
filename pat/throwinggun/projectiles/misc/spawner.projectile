@@ -1,0 +1,15 @@
+{
+  "projectileName": "pat_throwinggun_spawner",
+  "image": "invisible.png",
+  "timeToLive": 0.05,
+  "onlyHitTerrain": true,
+  "damageType": "NoDamage",
+  "movementSettings": {
+    "collisionEnabled": false,
+    "frictionEnabled": false,
+    "gravityEnabled": false,
+    "speedLimit": 0,
+    "physicsEffectCategories": [ ]
+  },
+  "scripts": [ "spawner.lua" ]
+}

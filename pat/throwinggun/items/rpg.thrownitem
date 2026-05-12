@@ -12,8 +12,9 @@
   "windupTime": 0,
   "cooldown": 0.25,
 
-  "projectileType": "pat_throwingrpg",
+  "projectileType": "pat_throwinggun_spawner",
   "projectileConfig": {
+    "gunProjectile": "pat_throwingrpg",
     "periodicActions": [
       {
         "time": 0,
