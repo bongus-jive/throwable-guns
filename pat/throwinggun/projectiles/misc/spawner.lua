@@ -7,7 +7,7 @@ function init()
   local angle = mcontroller.rotation()
   local dir = { math.cos(angle), math.sin(angle) }
 
-  if dir[1] > 0 then
+  if dir[1] < 0 then
     params.processing = (params.processing or "") .. "?flipy"
   end
   params.powerMultiplier = projectile.powerMultiplier()
