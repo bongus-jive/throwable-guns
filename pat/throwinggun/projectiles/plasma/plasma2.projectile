@@ -59,7 +59,7 @@
       "repeat": true,
       "rotate": true,
       "action": "particle",
-      "specification": "pat_throwinggun_plasmatrail2"
+      "specification": "pat_throwinggun_plasmapistoltrail"
     }
   ],
 

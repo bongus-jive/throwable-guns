@@ -1,8 +1,8 @@
 {
-  "kind": "pat_throwinggun_plasmatrail2",
+  "kind": "pat_throwinggun_plasmapistoltrail",
   "definition": {
     "type": "animated",
-    "animation": "/pat/throwinggun/particles/plasmatrail2.particle:animation",
+    "animation": "/pat/throwinggun/particles/plasmapistoltrail.particle:animation",
     "layer": "back",
     "light": [ 100, 0, 140 ],
     "fade": 2,
@@ -11,7 +11,7 @@
     "position": [ -1.5, 0 ]
   },
   "animation": {
-    "frames": "plasmatrail2.png",
+    "frames": "plasmapistoltrail.png",
     "frameNumber": 6,
     "animationCycle": 0.3
   }

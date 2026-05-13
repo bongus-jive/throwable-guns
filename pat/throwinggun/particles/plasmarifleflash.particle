@@ -1,8 +1,8 @@
 {
-  "kind": "pat_throwinggun_plasmaflash",
+  "kind": "pat_throwinggun_plasmarifleflash",
   "definition": {
     "type": "animated",
-    "animation": "/pat/throwinggun/particles/plasmaflash.particle:animation",
+    "animation": "/pat/throwinggun/particles/plasmarifleflash.particle:animation",
     "layer": "front",
     "light": [ 0, 90, 150 ],
     "fade": 12,
@@ -11,7 +11,7 @@
     "collidesForeground": false
   },
   "animation": {
-    "frames": "plasmaflash.png",
+    "frames": "plasmarifleflash.png",
     "mode": "stop",
     "variants": 3,
     "frameNumber": 3,

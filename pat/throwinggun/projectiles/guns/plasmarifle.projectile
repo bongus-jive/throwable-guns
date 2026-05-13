@@ -53,7 +53,7 @@
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
       { "action": "sound", "options": [ "/sfx/gun/plasma_mp1.ogg", "/sfx/gun/plasma_ar2.ogg", "/sfx/gun/plasma_mp3.ogg" ] },
-      { "action": "particle", "specification": "pat_throwinggun_plasmaflash", "rotate": true }
+      { "action": "particle", "specification": "pat_throwinggun_plasmarifleflash", "rotate": true }
     ]
   }
 }
