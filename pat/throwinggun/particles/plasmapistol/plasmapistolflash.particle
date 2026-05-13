@@ -2,7 +2,7 @@
   "kind": "pat_throwinggun_plasmapistolflash",
   "definition": {
     "type": "animated",
-    "animation": "/pat/throwinggun/particles/plasmapistolflash.particle:animation",
+    "animation": "/pat/throwinggun/particles/plasmapistol/plasmapistolflash.particle:animation",
     "layer": "front",
     "light": [ 100, 0, 140 ],
     "fade": 12,
