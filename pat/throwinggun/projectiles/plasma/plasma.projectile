@@ -3,12 +3,14 @@
   "physics": "laser",
   "image": "plasma.png",
   "fullbright": true,
+  "orientationLocked": true,
   "speed": 80,
   "knockback": 6,
   "timeToLive": 3,
   "lightColor": [ 0, 60, 120 ],
   "damageKind": "electricplasmabullet",
   "movementSettings": {
+    "bounceFactor": 0,
     "maximumCorrection": 0
   },
   "actionOnReap": [
@@ -58,10 +60,13 @@
       "action": "particle",
       "rotate": true,
       "specification": {
-        "type": "textured",
-        "image": "/pat/throwinggun/particles/plasmatrail.png",
-        "destructionTime": 0.2,
-        "destructionAction": "fade",
+        "type": "streak",
+        "color": [ 90, 180, 230 ],
+        "size": 1.5,
+        "length": 20,
+        "velocity": [ 5, 0 ],
+        "destructionTime": 0.1,
+        "destructionAction": "shrink",
         "layer": "back"
       }
     }
