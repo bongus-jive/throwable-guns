@@ -1,0 +1,27 @@
+{
+  "itemName": "pat_throwingplasmapistol",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "images/plasmapistol_icon.png",
+  "image": "images/plasmapistol_held.png",
+  "shortdescription": "throwing plasma pistol",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.1,
+
+  "projectileType": "pat_throwinggun_spawner",
+  "projectileConfig": {
+    "gunProjectile": "pat_throwingplasmapistol",
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_small.ogg" ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "pat_throwinggun_plasmaflash2",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/plasmaflash2.particle:animation",
+    "layer": "front",
+    "light": [ 100, 0, 140 ],
+    "fade": 12,
+    "timeToLive": 1,
+    "fullbright": true,
+    "collidesForeground": false
+  },
+  "animation": {
+    "frames": "plasmaflash2.png",
+    "mode": "stop",
+    "variants": 2,
+    "frameNumber": 3,
+    "animationCycle": 0.05
+  }
+}

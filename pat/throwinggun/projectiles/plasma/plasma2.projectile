@@ -1,0 +1,67 @@
+{
+  "projectileName": "pat_throwingplasmapistol_bullet",
+  "physics": "laser",
+  "image": "plasma2.png",
+  "fullbright": true,
+  "orientationLocked": true,
+  "speed": 200,
+  "knockback": 6,
+  "timeToLive": 3,
+  "lightColor": [ 90, 40, 120 ],
+  "damageKind": "electricplasmabullet",
+  "movementSettings": {
+    "bounceFactor": 0,
+    "maximumCorrection": 0
+  },
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/projectiles/plasmabullet_ricochet1.ogg",
+        "/sfx/projectiles/plasmabullet_ricochet2.ogg",
+        "/sfx/projectiles/plasmabullet_ricochet3.ogg"
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 8,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "layer": "middle",
+            "color": [ 216, 154, 234 ],
+            "light": [ 90, 40, 120 ],
+            "fade": 5,
+            "size": 1.5,
+            "fullbright": true,
+            "timeToLive": 0.2,
+            "destructionTime": 0.2,
+            "destructionAction": "shrink",
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 0, 30 ],
+            "variance": {
+              "size": 0.5,
+              "timeToLive": 0.1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 13, 13 ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "periodicActions": [
+    {
+      "time": 0.015,
+      "repeat": true,
+      "rotate": true,
+      "action": "particle",
+      "specification": "pat_throwinggun_plasmatrail2"
+    }
+  ],
+
+  "persistentAudio": "/sfx/gun/aegisaltpistol_loop2.ogg"
+}
