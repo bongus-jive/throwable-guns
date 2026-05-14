@@ -9,6 +9,7 @@ function init()
 
   if dir[1] < 0 then
     params.processing = (params.processing or "") .. "?flipy"
+    params.gunFlipped = true
   end
   params.powerMultiplier = projectile.powerMultiplier()
 

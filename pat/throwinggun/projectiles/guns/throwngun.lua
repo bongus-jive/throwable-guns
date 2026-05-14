@@ -65,6 +65,11 @@ function init()
       self.projectileArc.speed = root.projectileConfig(self.projectileType).speed or 50
     end
   end
+
+  if config.getParameter("gunFlipped", false) then
+    self.muzzleOffset[2] = -self.muzzleOffset[2]
+    if self.fireOffset then self.fireOffset[2] = -self.fireOffset[2] end
+  end
 end
 
 function update(dt)
