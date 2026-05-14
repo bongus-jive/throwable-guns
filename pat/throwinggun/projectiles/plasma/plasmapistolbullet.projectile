@@ -1,13 +1,13 @@
 {
-  "projectileName": "pat_throwingplasmarifle_bullet",
+  "projectileName": "pat_throwingplasmapistol_bullet",
   "physics": "laser",
-  "image": "plasma.png",
+  "image": "plasmapistolbullet.png",
   "fullbright": true,
   "orientationLocked": true,
-  "speed": 80,
+  "speed": 200,
   "knockback": 6,
   "timeToLive": 3,
-  "lightColor": [ 0, 60, 120 ],
+  "lightColor": [ 90, 40, 120 ],
   "damageKind": "electricplasmabullet",
   "movementSettings": {
     "bounceFactor": 0,
@@ -25,15 +25,15 @@
     },
     {
       "action": "loop",
-      "count": 4,
+      "count": 8,
       "body": [
         {
           "action": "particle",
           "specification": {
             "type": "ember",
             "layer": "middle",
-            "color": [ 90, 180, 230 ],
-            "light": [ 0, 60, 120 ],
+            "color": [ 216, 154, 234 ],
+            "light": [ 90, 40, 120 ],
             "fade": 5,
             "size": 1.5,
             "fullbright": true,
@@ -57,18 +57,11 @@
     {
       "time": 0.015,
       "repeat": true,
-      "action": "particle",
       "rotate": true,
-      "specification": {
-        "type": "streak",
-        "color": [ 90, 180, 230 ],
-        "size": 1.5,
-        "length": 20,
-        "velocity": [ 5, 0 ],
-        "destructionTime": 0.1,
-        "destructionAction": "shrink",
-        "layer": "back"
-      }
+      "action": "particle",
+      "specification": "pat_throwinggun_plasmapistoltrail"
     }
-  ]
+  ],
+
+  "persistentAudio": "/sfx/gun/aegisaltpistol_loop2.ogg"
 }
