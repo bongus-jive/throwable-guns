@@ -1,6 +1,6 @@
 {
-  "projectileName": "pat_throwinggrenadelauncher",
-  "image": "images/grenadelauncher.png",
+  "projectileName": "pat_throwingmgl",
+  "image": "images/mgl.png",
   "timeToLive": 15,
   "power": 33,
   "speed": 55,
@@ -42,7 +42,7 @@
     "cooldownTime": 0.24,
     "fireDelay": 0.04,
 
-    "projectileType": "pat_throwinggrenadelauncher_grenade",
+    "projectileType": "pat_throwingmgl_grenade",
     "projectileCount": 1,
     "projectileDamageFactor": 0.66,
     "projectileParameters": { },

@@ -1,9 +1,9 @@
 {
-  "itemName": "pat_throwinggrenadelauncher",
+  "itemName": "pat_throwingmgl",
   "rarity": "Essential",
   "category": "throwableItem",
-  "inventoryIcon": "images/grenadelauncher_icon.png",
-  "image": "images/grenadelauncher_held.png",
+  "inventoryIcon": "images/mgl_icon.png",
+  "image": "images/mgl_held.png",
   "shortdescription": "throwing grenade launcher",
   "description": "",
 
@@ -14,7 +14,7 @@
 
   "projectileType": "pat_throwinggun_spawner",
   "projectileConfig": {
-    "gunProjectile": "pat_throwinggrenadelauncher",
+    "gunProjectile": "pat_throwingmgl",
     "periodicActions": [
       {
         "time": 0,
