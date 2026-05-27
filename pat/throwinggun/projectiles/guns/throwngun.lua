@@ -18,6 +18,7 @@ function init()
   self.inaccuracy = cfg.inaccuracy or 0
   self.rotateWithInaccuracy = cfg.rotateWithInaccuracy
   self.spread = math.rad(cfg.spread or 0)
+  self.spreadOffset = cfg.spreadOffset
   self.recoil = cfg.recoil
 
   self.emptyBounces = cfg.emptyBounces or -1
@@ -126,13 +127,17 @@ function fireProjectile(skipFlash)
       aimAngle, aimVector = inacc, vec
       firePos, muzzlePos = firePosition(aimAngle)
     end
-
+    local pos = firePos
+    
     if self.spread > 0 and self.projectileCount > 1 then
       local angle = (self.spread / 2) - self.spread / (self.projectileCount - 1) * (i - 1)
       vec = vec2.rotate(vec, angle)
+      if self.spreadOffset then
+        pos = vec2.add(pos, vec2.withAngle(inacc + angle, self.spreadOffset))
+      end
     end
 
-    world.spawnProjectile(self.projectileType, firePos, self.sourceId, vec, nil, self.projectileParameters)
+    world.spawnProjectile(self.projectileType, pos, self.sourceId, vec, nil, self.projectileParameters)
     
     if self.projectileSpeedRange then
       self.projectileParameters.speed = util.randomInRange(self.projectileSpeedRange)
