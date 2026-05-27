@@ -1,0 +1,19 @@
+{
+  "kind": "pat_throwinggun_plasmashotgunflash",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/plasmashotgun/plasmashotgunflash.particle:animation",
+    "layer": "front",
+    "light": [ 160, 90, 49 ],
+    "fade": 12,
+    "timeToLive": 1,
+    "fullbright": true,
+    "collidesForeground": false
+  },
+  "animation": {
+    "frames": "plasmashotgunflash.png",
+    "mode": "EndAndDisappear",
+    "frameNumber": 4,
+    "animationCycle": 0.06
+  }
+}

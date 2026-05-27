@@ -1,0 +1,66 @@
+{
+  "projectileName": "pat_throwingplasmashotgun_bullet",
+  "physics": "laser",
+  "image": "plasmashotgunbullet.png",
+  "fullbright": true,
+  "orientationLocked": true,
+  "knockback": 6,
+  "timeToLive": 3,
+  "lightColor": [ 128, 72, 40 ],
+  "damageKind": "fireplasmabullet",
+  "movementSettings": {
+    "bounceFactor": 0,
+    "maximumCorrection": 0
+  },
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },
+    { "action": "particle", "specification": "rocketbarrelpuff" },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "layer": "middle",
+            "color": [ 253, 143, 77 ],
+            "light": [ 128, 72, 40 ],
+            "fade": 5,
+            "size": 1.5,
+            "fullbright": true,
+            "timeToLive": 0.2,
+            "destructionTime": 0.2,
+            "destructionAction": "shrink",
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 0, 30 ],
+            "variance": {
+              "size": 0.5,
+              "timeToLive": 0.1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 13, 13 ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "periodicActions": [
+    {
+      "time": 0.015,
+      "repeat": true,
+      "action": "particle",
+      "rotate": true,
+      "specification": {
+        "type": "streak",
+        "color": [ 253, 143, 77 ],
+        "size": 0.8,
+        "length": 20,
+        "velocity": [ 8, 0 ],
+        "destructionTime": 0.06,
+        "destructionAction": "shrink",
+        "layer": "back"
+      }
+    }
+  ]
+}
