@@ -17,6 +17,7 @@ function init()
   self.burstCount = cfg.burstCount or 1
   self.inaccuracy = cfg.inaccuracy or 0
   self.rotateWithInaccuracy = cfg.rotateWithInaccuracy
+  self.spread = math.rad(cfg.spread or 0)
   self.recoil = cfg.recoil
 
   self.emptyBounces = cfg.emptyBounces or -1
@@ -117,13 +118,18 @@ function fireProjectile(skipFlash)
 
   self.projectileParameters.power = projectile.power() * self.projectileDamageFactor
 
-  for _ = 1, self.projectileCount do
+  for i = 1, self.projectileCount do
     local inacc = sb.nrand(self.inaccuracy, aimAngle)
     local vec = {math.cos(inacc), math.sin(inacc)}
     
     if self.rotateWithInaccuracy then
       aimAngle, aimVector = inacc, vec
       firePos, muzzlePos = firePosition(aimAngle)
+    end
+
+    if self.spread > 0 and self.projectileCount > 1 then
+      local angle = (self.spread / 2) - self.spread / (self.projectileCount - 1) * (i - 1)
+      vec = vec2.rotate(vec, angle)
     end
 
     world.spawnProjectile(self.projectileType, firePos, self.sourceId, vec, nil, self.projectileParameters)
