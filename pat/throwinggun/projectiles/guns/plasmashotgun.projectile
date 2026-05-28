@@ -38,7 +38,7 @@
 
     "ammo": 3,
     "cooldownTime": 0.22,
-    "inaccuracy": 0.1008,
+    "inaccuracy": 0.008,
     "spread": 25,
     "spreadOffset": 1,
     "recoil": 16,
