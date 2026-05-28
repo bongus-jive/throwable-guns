@@ -1,0 +1,72 @@
+{
+  "projectileName": "pat_throwingavianpistol_bullet",
+  "image": "avianbullet.png",
+  "frameNumber": 4,
+  "speed": 80,
+  "animationCycle": 0.2,
+  "lightColor": [ 150, 25, 33 ],
+  "flippable": true,
+  "fullbright": true,
+  "damagePoly": [ [ -8, 0 ], [ 2, 3 ], [ 8, 0 ], [ 2, -3 ] ],
+  "damageKind": "plasma",
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/projectiles/ice_break1.ogg", "/sfx/projectiles/ice_break2.ogg",
+        "/sfx/projectiles/ice_break3.ogg", "/sfx/projectiles/ice_break4.ogg",
+        "/sfx/projectiles/ice_break5.ogg", "/sfx/projectiles/ice_break6.ogg",
+        "/sfx/projectiles/ice_break7.ogg", "/sfx/projectiles/ice_break8.ogg",
+        "/sfx/projectiles/ice_break9.ogg", "/sfx/projectiles/ice_break10.ogg"
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 6,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "layer": "middle",
+            "color": [ 255, 73, 93 ],
+            "light": [ 82, 22, 27 ],
+            "fade": 5,
+            "size": 2,
+            "fullbright": true,
+            "timeToLive": 0.2,
+            "destructionTime": 0.4,
+            "destructionAction": "shrink",
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 0, 30 ],
+            "variance": {
+              "size": 0.5,
+              "timeToLive": 0.1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 13, 13 ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "periodicActions": [
+    {
+      "time": 0.02,
+      "repeat": true,
+      "action": "particle",
+      "rotate": true,
+      "specification": {
+        "type": "textured",
+        "image": "/pat/throwinggun/particles/avianpistol/trail.png",
+        "light": [ 150, 25, 33 ],
+        "fade": 6,
+        "destructionTime": 0.25,
+        "destructionAction": "fade",
+        "velocity": [ 8, 0 ],
+        "layer": "back"
+      }
+    }
+  ]
+}
