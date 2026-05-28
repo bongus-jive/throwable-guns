@@ -53,6 +53,7 @@
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
       { "action": "sound", "options": [ "/sfx/gun/plasma_shotgun3.ogg", "/sfx/gun/plasma_shotgun4.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/fireblast.ogg" ] },
       { "action": "sound", "options": [ "/sfx/interface/mech_energy_refill.ogg" ], "time": 0.1 },
       { "action": "particle", "specification": "pat_throwinggun_plasmashotgunflash", "rotate": true },
       { "action": "particle", "specification": "rocketbarrelpuff" }
