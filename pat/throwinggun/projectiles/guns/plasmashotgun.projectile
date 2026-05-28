@@ -4,16 +4,16 @@
   "animationCycle": 0.8,
   "frameNumber": 4,
   "timeToLive": 15,
-  "power": 22,
-  "speed": 60,
+  "power": 24,
+  "speed": 50,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
   "damageKind": "foldingchair",
   "damagePoly": [ [ 10, 3 ], [ -10, 3 ], [ -10, -3 ], [ 10, -3 ] ],
   "movementSettings": {
-    "gravityMultiplier": 1.1,
-    "bounceFactor": 0.8,
+    "gravityMultiplier": 1.2,
+    "bounceFactor": 0.7,
     "stopOnFirstBounce": true,
     "collisionPoly": [ [ -0.375, -0.375 ], [ 0.375, -0.375 ], [ 0.375, 0.375 ], [ -0.375, 0.375 ] ]
   },
@@ -29,24 +29,24 @@
 
   "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
-    "rotationRate": 18,
-    "rotationDeviation": 5,
+    "rotationRate": 14,
+    "rotationDeviation": 4,
 
     "emptyTimeToLive": 0.5,
     "emptyBounces": 8,
-    "hitBounceFactor": 0.8,
+    "hitBounceFactor": 0.7,
 
     "ammo": 3,
     "cooldownTime": 0.22,
-    "inaccuracy": 0.005,
+    "inaccuracy": 0.1008,
     "spread": 25,
-    "spreadOffset": 0.8,
+    "spreadOffset": 1,
     "recoil": 16,
 
     "projectileType": "pat_throwingplasmashotgun_bullet",
-    "projectileCount": 8,
+    "projectileCount": 9,
     "projectileDamageFactor": 2,
-    "projectileSpeedRange": [ 64, 67 ],
+    "projectileSpeedRange": [ 62, 67 ],
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],

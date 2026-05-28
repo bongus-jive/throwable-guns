@@ -54,10 +54,10 @@
       "specification": {
         "type": "streak",
         "color": [ 253, 143, 77 ],
-        "size": 0.8,
+        "size": 1,
         "length": 20,
         "velocity": [ 8, 0 ],
-        "destructionTime": 0.06,
+        "destructionTime": 0.07,
         "destructionAction": "shrink",
         "layer": "back"
       }
