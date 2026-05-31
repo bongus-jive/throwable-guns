@@ -23,7 +23,7 @@
     },
     {
       "action": "loop",
-      "count": 6,
+      "count": 4,
       "body": [
         {
           "action": "particle",
@@ -49,6 +49,33 @@
           }
         }
       ]
+    },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "textured",
+            "image": "/animations/shards/kluexcrystalshard.png:0",
+            "size": 0.75,
+            "initialVelocity": [ 0, 15 ],
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 15, 30 ],
+            "timeToLive": 0.5,
+            "destructionTime": 0.25,
+            "destructionAction": "fade",
+            "variance": {
+              "position": [ 1, 1 ],
+              "initialVelocity": [ 10, 5 ],
+              "finalVelocity": [ 0, 20 ],
+              "rotation": 180,
+              "angularVelocity": 1800
+            }
+          }
+        }
+      ]
     }
   ],
   "periodicActions": [
@@ -61,7 +88,7 @@
         "type": "textured",
         "image": "/pat/throwinggun/particles/avianpistol/trail.png",
         "light": [ 150, 25, 33 ],
-        "fade": 6,
+        "fade": 3,
         "destructionTime": 0.25,
         "destructionAction": "fade",
         "velocity": [ 8, 0 ],
