@@ -1,0 +1,20 @@
+{
+  "kind": "pat_throwinggun_railgunshockwave",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/railgun/railgunshockwave.particle:animation",
+    "layer": "front",
+    "destructionTime": 0.18,
+    "destructionAction": "fade",
+    "collidesForeground": false,
+    "velocity": [ -4, 0 ],
+    "finalVelocity": [ 0, 0 ],
+    "approach": [ 10, 10 ]
+  },
+  "animation": {
+    "frames": "railgunshockwave.png",
+    "mode": "Stop",
+    "frameNumber": 4,
+    "animationCycle": 0.12
+  }
+}

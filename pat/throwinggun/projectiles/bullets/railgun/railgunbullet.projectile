@@ -1,0 +1,127 @@
+{
+  "projectileName": "pat_throwingrailgun_bullet",
+  "physics": "laser",
+  "image": "railgunbullet.png",
+  "renderLayer": "MiddleParticle+67",
+  "fullbright": true,
+  "orientationLocked": true,
+  "flippable": true,
+  "piercing": true,
+  "speed": 200,
+  "knockback": 6,
+  "timeToLive": 3,
+  "lightColor": [ 98, 231, 255 ],
+  "damageKind": "default",
+  "movementSettings": {
+    "bounceFactor": 0,
+    "maximumCorrection": 0
+  },
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/projectiles/plasmabullet_ricochet1.ogg",
+        "/sfx/projectiles/plasmabullet_ricochet2.ogg",
+        "/sfx/projectiles/plasmabullet_ricochet3.ogg"
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 4,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "layer": "middle",
+            "color": [ 90, 180, 230 ],
+            "light": [ 0, 60, 120 ],
+            "fade": 5,
+            "size": 1.5,
+            "fullbright": true,
+            "timeToLive": 0.2,
+            "destructionTime": 0.2,
+            "destructionAction": "shrink",
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 0, 30 ],
+            "variance": {
+              "size": 0.5,
+              "timeToLive": 0.1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 13, 13 ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "periodicActions": [
+    {
+      "time": 0.015,
+      "repeat": true,
+      "action": "actions",
+      "list": [
+        { "action": "particle", "rotate": true, "specification": "pat_throwinggun_railgunshock" },
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "streak",
+            "color": [ 0, 174, 255 ],
+            "light": [ 0, 174, 255 ],
+            "fade": 3,
+            "size": 4,
+            "length": 36,
+            "velocity": [ 20, 0 ],
+            "destructionTime": 0.2,
+            "destructionAction": "shrink",
+            "layer": "back"
+          }
+        },
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "streak",
+            "color": [ 98, 231, 255 ],
+            "size": 1.5,
+            "length": 36,
+            "velocity": [ 20, 0 ],
+            "destructionTime": 0.12,
+            "destructionAction": "shrink",
+            "layer": "middle"
+          }
+        }
+      ]
+    },
+    {
+      "time": 0,
+      "repeat": true,
+      "action": "loop",
+      "count": 4,
+      "body": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "ember",
+            "color": [ 98, 231, 255 ],
+            "fullbright": true,
+            "size": 2.5,
+            "velocity": [ -12, 0 ],
+            "destructionTime": 0.15,
+            "destructionAction": "shrink",
+            "layer": "back",
+            "position": [ -4, 0 ],
+            "variance": {
+              "size": 0.75,
+              "position": [ 4, 0.5 ],
+              "velocity": [ 6, 6 ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

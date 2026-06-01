@@ -1,0 +1,20 @@
+{
+  "kind": "pat_throwinggun_railgunflash",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/railgun/railgunflash.particle:animation",
+    "layer": "front",
+    "light": [ 98, 230, 255 ],
+    "fade": 4,
+    "timeToLive": 1,
+    "fullbright": true,
+    "collidesForeground": false,
+    "position": [ 2.25, 0 ]
+  },
+  "animation": {
+    "frames": "railgunflash.png",
+    "mode": "Stop",
+    "frameNumber": 5,
+    "animationCycle": 0.14
+  }
+}

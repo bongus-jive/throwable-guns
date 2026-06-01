@@ -1,0 +1,96 @@
+{
+  "projectileName": "pat_throwingrailgun",
+  "image": "images/railgun.png",
+  "animationCycle": 0.45,
+  "frameNumber": 6,
+  "timeToLive": 15,
+  "power": 30,
+  "speed": 45,
+  "orientationLocked": true,
+  "bounces": -1,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 14, 4 ], [ -14, 4 ], [ -14, -6 ], [ 14, -6 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1.2,
+    "bounceFactor": 0.66,
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.5, -0.5 ], [ 0.5, -0.5 ], [ 0.5, 0.5 ], [ -0.5, 0.5 ] ]
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1.ogg", "/sfx/melee/fist_hit_metal2.ogg", "/sfx/melee/fist_hit_metal3.ogg",
+        "/sfx/melee/fist_hit_metal4.ogg", "/sfx/melee/fist_hit_metal5.ogg", "/sfx/melee/fist_hit_metal6.ogg"
+      ]
+    }
+  ],
+
+  "scripts": [ "throwngun.lua" ],
+  "throwngunConfig": {
+    "rotationRate": 10,
+    "rotationDeviation": 2,
+
+    "emptyTimeToLive": 0.5,
+    "emptyBounces": 8,
+    "hitBounceFactor": 0.66,
+    "fireOnHit": true,
+
+    "ammo": 1,
+    "recoil": 67,
+    "fireDelay": 0.04,
+
+    "projectileType": "pat_throwingrailgun_bullet",
+    "projectileCount": 1,
+    "projectileDamageFactor": 4,
+    "projectileParameters": { },
+
+    "muzzleOffset": [ 2.375, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashActions": [
+      { "action": "particle", "specification": "pat_throwinggun_railgunshockwave", "rotate": true },
+      { "action": "particle", "specification": "pat_throwinggun_railgunflash", "rotate": true },
+      { "action": "sound", "options": [ "/sfx/gun/mech_beamsniper_fire1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/electricrailgun1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/cinematics/opengate/opengate_blast.ogg" ] },
+      {
+        "action": "loop",
+        "count": 5,
+        "body": [ { "action": "particle", "specification": "rocketbarrelpuff" } ]
+      },
+      {
+        "action": "loop",
+        "count": 20,
+        "body": [
+          {
+            "action": "particle",
+            "rotate": true,
+            "specification": {
+              "type": "streak",
+              "layer": "back",
+              "size": 1,
+              "length": 8,
+              "fullbright": true,
+              "color": [ 98, 231, 255 ],
+              "light": [ 48, 181, 205 ],
+              "fade": 3,
+              "destructionAction": "shrink",
+              "destructionTime": 0.2,
+              "initialVelocity": [ 60, 0 ],
+              "finalVelocity": [ 0, -100 ],
+              "approach": [ 0, 30 ],
+              "timeToLive": 0.0,
+              "variance": {
+                "size": 0.5,
+                "length": 6,
+                "timeToLive": 0.2,
+                "initialVelocity": [ 30, 18 ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
