@@ -48,12 +48,15 @@
 
     "muzzleOffset": [ 2.375, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashParameters": { "timeToLive": 0.4 },
     "muzzleflashActions": [
       { "action": "particle", "specification": "pat_throwinggun_railgunshockwave", "rotate": true },
       { "action": "particle", "specification": "pat_throwinggun_railgunflash", "rotate": true },
       { "action": "sound", "options": [ "/sfx/gun/mech_beamsniper_fire1.ogg" ] },
       { "action": "sound", "options": [ "/sfx/gun/electricrailgun1.ogg" ] },
       { "action": "sound", "options": [ "/sfx/cinematics/opengate/opengate_blast.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/mech_plasmadrone1.ogg" ], "time": 0.18 },
+      { "action": "sound", "options": [ "/sfx/tech/mech_explosion_windup.ogg" ], "time": 0.35 },
       {
         "action": "loop",
         "count": 5,
