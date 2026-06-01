@@ -1,0 +1,97 @@
+{
+  "projectileName": "pat_throwingrailgun_explosion",
+  "image": "railgunexplosion.png",
+  "frameNumber": 6,
+  "animationCycle": 0.2,
+  "animationLoops": false,
+  "flippable": true,
+  "fullbright": true,
+  "renderLayer": "MiddleParticle-40",
+  "speed": 0,
+  "bounces": -1,
+  "damagePoly": [ [ -40, 0 ], [ -28, -28 ], [ 0, -40 ], [ 28, -28 ], [ 40, 0 ], [ 28, 28 ], [ 0, 40 ], [ -28, 28 ] ],
+  "damageKind": "electricplasma",
+  "piercing": true,
+  "knockbackDirectional": true,
+  "knockback": 30,
+
+  "periodicActions": [
+    {
+      "time": 0,
+      "repeat": false,
+      "action": "actions",
+      "list": [
+        {
+          "action": "loop",
+          "count": 6,
+          "body": [
+            {
+              "action": "particle",
+              "specification": {
+                "type": "animated",
+                "animation": "/animations/smoke/smoke.animation?scalenearest=0.75",
+                "collidesForeground": false,
+                "timeToLive": 0.6,
+                "variance": {
+                  "position": [ 3, 3 ],
+                  "timeToLive": 0.15,
+                  "rotation": 180
+                }
+              }
+            },
+            { "action": "particle", "specification": "pat_throwinggun_railgunexplosionbolt" }
+          ]
+        },
+        {
+          "action": "loop",
+          "count": 24,
+          "body": [
+            {
+              "action": "particle",
+              "specification": {
+                "type": "streak",
+                "layer": "back",
+                "size": 1.2,
+                "length": 10,
+                "fullbright": true,
+                "color": [ 98, 231, 255 ],
+                "light": [ 48, 181, 205 ],
+                "fade": 3,
+                "destructionAction": "shrink",
+                "destructionTime": 0.5,
+                "initialVelocity": [ 0, 0 ],
+                "finalVelocity": [ 0, -100 ],
+                "approach": [ 10, 50 ],
+                "collidesForeground": false,
+                "variance": {
+                  "size": 0.5,
+                  "length": 6,
+                  "timeToLive": 0.2,
+                  "initialVelocity": [ 30, 30 ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "color": "#0000",
+            "timeToLive": 1,
+            "light": [ 48, 181, 205 ],
+            "fade": 2
+          }
+        },
+        {
+          "action": "sound",
+          "options": [ "/sfx/gun/grenadeblast_electric1.ogg", "/sfx/gun/grenadeblast_electric2.ogg", "/sfx/gun/grenadeblast_electric3.ogg" ]
+        },
+        {
+          "action": "sound",
+          "options": [ "/sfx/gun/tank_shot.ogg" ]
+        }
+      ]
+    }
+  ]
+}

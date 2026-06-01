@@ -17,6 +17,7 @@
     "maximumCorrection": 0
   },
   "actionOnReap": [
+    { "action": "projectile", "type": "pat_throwingrailgun_explosion", "inheritDamageFactor": 0.5, "fuzzAngle": 180 },
     { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },
     {
       "action": "sound",

@@ -1,0 +1,22 @@
+{
+  "kind": "pat_throwinggun_railgunexplosionbolt",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/railgun/railgunexplosionbolt.particle:animation",
+    "layer": "front",
+    "fullbright": true,
+    "collidesForeground": false,
+    "timeToLive": 0.3,
+    "size": 0.32,
+    "variance": {
+      "size": 0.25,
+      "rotation": 180,
+      "position": [ 3, 3 ]
+    }
+  },
+  "animation": {
+    "frames": "railgunexplosionbolt.png",
+    "frameNumber": 6,
+    "animationCycle": 0.2
+  }
+}
