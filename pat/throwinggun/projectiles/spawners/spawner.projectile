@@ -1,7 +1,7 @@
 {
   "projectileName": "pat_throwinggun_spawner",
   "image": "invisible.png",
-  "timeToLive": 0.05,
+  "timeToLive": 0.2,
   "onlyHitTerrain": true,
   "damageType": "NoDamage",
   "movementSettings": {

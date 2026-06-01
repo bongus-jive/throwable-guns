@@ -2,6 +2,8 @@ function init()
   if projectile.timeToLive() <= 0 then return end
 
   local name = config.getParameter("gunProjectile")
+  if not name then return end
+
   local params = config.getParameter("gunParameters", {})
 
   local angle = mcontroller.rotation()
