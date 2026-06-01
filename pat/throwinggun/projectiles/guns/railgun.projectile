@@ -5,7 +5,7 @@
   "frameNumber": 6,
   "timeToLive": 15,
   "power": 30,
-  "speed": 45,
+  "speed": 50,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
@@ -32,7 +32,7 @@
     "rotationRate": 10,
     "rotationDeviation": 2,
 
-    "emptyTimeToLive": 0.5,
+    "emptyTimeToLive": 1,
     "emptyBounces": 8,
     "hitBounceFactor": 0.66,
     "fireOnHit": true,
@@ -43,7 +43,7 @@
 
     "projectileType": "pat_throwingrailgun_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 4,
+    "projectileDamageFactor": 3.2,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],

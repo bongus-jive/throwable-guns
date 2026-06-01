@@ -8,8 +8,8 @@
   "flippable": true,
   "piercing": true,
   "speed": 200,
-  "knockback": 6,
-  "timeToLive": 3,
+  "knockback": 30,
+  "timeToLive": 5,
   "lightColor": [ 98, 231, 255 ],
   "damageKind": "default",
   "movementSettings": {
@@ -109,15 +109,15 @@
             "color": [ 98, 231, 255 ],
             "fullbright": true,
             "size": 2.5,
-            "velocity": [ -12, 0 ],
-            "destructionTime": 0.15,
+            "velocity": [ 20, 0 ],
+            "destructionTime": 0.32,
             "destructionAction": "shrink",
             "layer": "back",
             "position": [ -4, 0 ],
             "variance": {
               "size": 0.75,
               "position": [ 4, 0.5 ],
-              "velocity": [ 6, 6 ]
+              "velocity": [ 6, 4 ]
             }
           }
         }
