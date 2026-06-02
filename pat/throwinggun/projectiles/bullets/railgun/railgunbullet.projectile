@@ -16,6 +16,12 @@
     "bounceFactor": 0,
     "maximumCorrection": 0
   },
+
+  "scripts": [ "railgunbullet.lua" ],
+  "hitActions": [
+    { "action": "projectile", "type": "pat_throwingrailgun_poof", "inheritDamageFactor": 0.4, "fuzzAngle": 180 }
+  ],
+
   "actionOnReap": [
     { "action": "projectile", "type": "pat_throwingrailgun_explosion", "inheritDamageFactor": 0.5, "fuzzAngle": 180 },
     { "action": "sound", "options": [ "/sfx/gun/impact_plasma.ogg" ] },

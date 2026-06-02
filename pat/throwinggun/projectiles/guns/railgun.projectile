@@ -43,7 +43,7 @@
 
     "projectileType": "pat_throwingrailgun_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 3.2,
+    "projectileDamageFactor": 2.4,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],
