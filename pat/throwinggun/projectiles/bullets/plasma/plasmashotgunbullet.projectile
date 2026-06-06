@@ -61,6 +61,63 @@
         "destructionAction": "shrink",
         "layer": "back"
       }
+    },
+    {
+      "time": 0.12,
+      "repeat": true,
+      "action": "option",
+      "options": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/ember2/ember2.animation",
+            "fullbright": true,
+            "size": 0.75,
+            "timeToLive": 0.2,
+            "destructionTime": 0.3,
+            "destructionAction": "shrink",
+            "layer": "back",
+            "position": [ -2, 0 ],
+            "velocity": [ 12, 0 ],
+            "finalVelocity": [ 0, 0 ],
+            "approach": [ 15, 15 ],
+            "variance": {
+              "size": 0.25,
+              "timeToLive": 0.2,
+              "position": [ 3, 0.15 ],
+              "velocity": [ 5, 2 ],
+              "rotation": 180
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/ember3/ember3.animation",
+            "fullbright": true,
+            "size": 1,
+            "timeToLive": 0.2,
+            "destructionTime": 0.3,
+            "destructionAction": "shrink",
+            "layer": "back",
+            "position": [ -2, 0 ],
+            "velocity": [ 12, 0 ],
+            "finalVelocity": [ 0, 0 ],
+            "approach": [ 15, 15 ],
+            "variance": {
+              "size": 0.25,
+              "timeToLive": 0.2,
+              "position": [ 3, 0.15 ],
+              "velocity": [ 5, 2 ],
+              "rotation": 180
+            }
+          }
+        }
+      ]
     }
   ]
 }
