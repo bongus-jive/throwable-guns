@@ -71,7 +71,7 @@
               "initialVelocity": [ 10, 5 ],
               "finalVelocity": [ 0, 20 ],
               "rotation": 180,
-              "angularVelocity": 1800
+              "angularVelocity": 800
             }
           }
         }
