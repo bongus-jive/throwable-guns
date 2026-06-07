@@ -1,0 +1,20 @@
+{
+  "kind": "pat_throwinggun_icemuzzleflash",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/muzzleflash/icemuzzleflash.particle:animation",
+    "layer": "front",
+    "light": [ 0, 110, 150 ],
+    "fade": 11,
+    "timeToLive": 1,
+    "fullbright": true,
+    "collidesForeground": false
+  },
+  "animation": {
+    "frames": "icemuzzleflash.png",
+    "mode": "stop",
+    "variants": 6,
+    "frameNumber": 3,
+    "animationCycle": 0.04
+  }
+}

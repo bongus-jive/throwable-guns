@@ -1,0 +1,86 @@
+{
+  "projectileName": "pat_throwingicegun_bullet",
+  "image": "icebullet.png",
+  "physics": "laser",
+  "timeToLive": 3,
+  "speed": 130,
+  "damageKind": "ice",
+  "damagePoly": [ [ -6, 0 ], [ -4, -4 ], [ 0, -6 ], [ 4, -4 ], [ 6, 0 ], [ 4, 4 ], [ 0, 6 ], [ -4, 4 ] ],
+  "statusEffects": [ "frostslow" ],
+  "emitters": [ "iceplasma" ],
+  "piercing": true,
+  "flippable": true,
+  "orientationLocked": true,
+  "movementSettings": {
+    "bounceFactor": 0,
+    "maximumCorrection": 0
+  },
+
+  "scripts": [ "icebullet.lua" ],
+  "spikeProjectile": {
+    "type": "pat_throwingicegun_spikes",
+    "inaccuracy": 0.1
+  },
+
+  "actionOnReap": [
+    {
+      "action": "sound",
+      "options": [ "/sfx/projectiles/ice_break1.ogg", "/sfx/projectiles/ice_break4.ogg", "/sfx/projectiles/ice_break5.ogg", "/sfx/projectiles/ice_break6.ogg", "/sfx/projectiles/ice_break9.ogg", "/sfx/projectiles/ice_break10.ogg" ]
+    },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/frozendust2/frozendust2.animation",
+            "destructionAction": "shrink",
+            "destructionTime": 0.5,
+            "layer": "back",
+            "timeToLive": 0.6,
+            "variance": {
+              "velocity": [ 4, 4 ],
+              "position": [ 1, 1 ]
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "looping": true,
+            "animation": "/animations/statuseffects/frozen/frozen.animation",
+            "destructionAction": "shrink",
+            "destructionTime": 0.425,
+            "size": 0.5,
+            "layer": "middle",
+            "timeToLive": 0.6,
+            "variance": {
+              "velocity": [ 3, 3 ],
+              "position": [ 1, 1 ]
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "looping": true,
+            "animation": "/animations/shards/iceshard.animation",
+            "destructionAction": "shrink",
+            "destructionTime": 0.425,
+            "size": 0.5,
+            "layer": "middle",
+            "timeToLive": 0.6,
+            "variance": {
+              "velocity": [ 3, 3 ],
+              "position": [ 1, 1 ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

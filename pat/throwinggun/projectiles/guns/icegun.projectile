@@ -1,0 +1,69 @@
+{
+  "projectileName": "pat_throwingicegun",
+  "image": "images/icegun.png",
+  "timeToLive": 15,
+  "power": 12,
+  "speed": 52,
+  "orientationLocked": true,
+  "bounces": -1,
+  "piercing": true,
+  "lightColor": [ 0, 40, 60 ],
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 5, 2 ], [ -5, 2 ], [ -5, -8 ], [ 5, -8 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1,
+    "bounceFactor": 0.8,
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.375, -0.375 ], [ 0.375, -0.375 ], [ 0.375, 0.25 ], [ -0.375, 0.25 ] ]
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1_quiet.ogg", "/sfx/melee/fist_hit_metal2_quiet.ogg", "/sfx/melee/fist_hit_metal3_quiet.ogg",
+        "/sfx/melee/fist_hit_metal4_quiet.ogg", "/sfx/melee/fist_hit_metal5_quiet.ogg", "/sfx/melee/fist_hit_metal6_quiet.ogg"
+      ]
+    }
+  ],
+  "periodicActions": [
+    {
+      "time": 0.2,
+      "repeat": true,
+      "action": "option",
+      "options": [
+        { "action": "particle", "specification": "icethrowertrail" },
+        { "action": "particle", "specification": "iceswoosh1" },
+        { "action": "particle", "specification": "iceswoosh2" },
+        { "action": "particle", "specification": "iceswoosh3" }
+      ]
+    }
+  ],
+
+  "scripts": [ "throwngun.lua" ],
+  "throwngunConfig": {
+    "rotationRate": 20,
+    "rotationDeviation": 6,
+
+    "emptyTimeToLive": 0.5,
+    "emptyBounces": 6,
+    "hitBounceFactor": 0.8,
+
+    "ammo": 3,
+    "cooldownTime": 0.25,
+    "inaccuracy": 0.04,
+    "recoil": 12,
+
+    "projectileType": "pat_throwingicegun_bullet",
+    "projectileCount": 1,
+    "projectileDamageFactor": 1.2,
+
+    "muzzleOffset": [ 1.875, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashActions": [
+      { "action": "particle", "specification": "pat_throwinggun_icemuzzleflash", "rotate": true },
+      { "action": "particle", "specification": "icethrowertrail", "rotate": true },
+      { "action": "sound", "options": [ "/sfx/melee/travelingslash_ice1.ogg", "/sfx/melee/travelingslash_ice2.ogg", "/sfx/melee/travelingslash_ice3.ogg", "/sfx/melee/travelingslash_ice4.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/grapplegun.ogg" ] }
+    ]
+  }
+}
