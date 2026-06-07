@@ -1,0 +1,27 @@
+{
+  "itemName": "pat_throwingicegun",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "images/icegun_icon.png",
+  "image": "images/icegun_held.png",
+  "shortdescription": "throwing ice gun",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.1,
+
+  "projectileType": "pat_throwinggun_spawner",
+  "projectileConfig": {
+    "gunProjectile": "pat_throwingicegun",
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_small.ogg" ]
+      }
+    ]
+  }
+}
