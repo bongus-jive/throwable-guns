@@ -7,7 +7,7 @@ function init()
   
   local cfg = config.getParameter("throwngunConfig")
 
-  self.sourceId = projectile.sourceEntity()
+  self.sourceId = projectile.sourceEntity() or entity.id()
 
   self.ammo = cfg.ammo or 1
   self.cooldownTimer = 0
@@ -37,6 +37,8 @@ function init()
     includedTypes = {"creature"},
     withoutEntityId = self.sourceId
   }, cfg.targetQueryOptions)
+  self.avoidRepeatTargets = cfg.avoidRepeatTargets or false
+  self.usedTargets = {}
 
   self.fireOffset = cfg.fireOffset
   self.muzzleOffset = cfg.muzzleOffset or {0, 0}
@@ -170,7 +172,7 @@ function firePosition(angle)
 end
 
 function snapToTarget()
-  local targetId = findTarget()
+  local targetId = getTarget()
   if not targetId then return end
 
   local angle = angleToTarget(entity.distanceToEntity(targetId))
@@ -203,24 +205,44 @@ function angleToTarget(distance)
   return angle
 end
 
-function findTarget()
-  local pos = mcontroller.position()
-  
+function getTarget()
   if self.targetLockRange and self.lockedTargetId then
     local tPos = world.entityPosition(self.lockedTargetId)
-    if tPos and world.magnitude(pos, tPos) < self.targetLockRange then
+    if tPos and world.magnitude(mcontroller.position(), tPos) < self.targetLockRange then
       return self.lockedTargetId
     end
     self.lockedTargetId = nil
   end
-  
+
+  local id = findTarget()
+  if self.targetLockRange then self.lockedTargetId = id end
+  return id
+end
+
+function findTarget()
   if self.targetQueryRange <= 0 then return end
-  local targets = world.entityQuery(pos, self.targetQueryRange, self.targetQueryOptions)
+  
+  local targets = world.entityQuery(mcontroller.position(), self.targetQueryRange, self.targetQueryOptions)
+
   for _, id in ipairs(targets) do
     if entity.entityInSight(id) and world.entityCanDamage(self.sourceId, id) then
-      if self.targetLockRange then self.lockedTargetId = id end
-      return id
+      if not self.avoidRepeatTargets then
+        return id
+      end
+
+      if not self.usedTargets[id] then
+        self.usedTargets[id] = true
+        return id
+      end
+
+      if not firstId then firstId = id end
     end
+  end
+
+  self.usedTargets = {}
+  if firstId then
+    self.usedTargets[firstId] = true
+    return firstId
   end
 end
 
