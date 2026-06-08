@@ -53,7 +53,7 @@
     "cooldownTime": 0.25,
     "inaccuracy": 0.03,
     "recoil": 18,
-    "fireDelay": 0.08,
+    "fireDelay": 0.066,
 
     "projectileType": "pat_throwingicegun_bullet",
     "projectileCount": 1,
