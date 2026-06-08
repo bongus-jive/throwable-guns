@@ -52,9 +52,9 @@
 
     "ammo": 3,
     "cooldownTime": 0.25,
-    "inaccuracy": 0.03,
+    "inaccuracy": 0.018,
     "recoil": 18,
-    "fireDelay": 0.066,
+    "fireDelay": 0.08,
 
     "projectileType": "pat_throwingicegun_bullet",
     "projectileCount": 1,
