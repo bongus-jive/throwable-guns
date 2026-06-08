@@ -21,8 +21,41 @@
       "repeat": false,
       "action": "sound",
       "options": [ "/sfx/npc/boss/kluexboss_iceeruption1.ogg", "/sfx/npc/boss/kluexboss_iceeruption2.ogg" ]
+    },
+    {
+      "time": 0.12,
+      "repeat": false,
+      "action": "loop",
+      "count": 4,
+      "body": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "textured",
+            "image": "/animations/shards/iceshard.png:0",
+            "size": 0.75,
+            "initialVelocity": [ 20, 0 ],
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 15, 30 ],
+            "timeToLive": 0.4,
+            "destructionTime": 0.5,
+            "destructionAction": "shrink",
+            "collidesForeground": false,
+            "variance": {
+              "timeToLive": 0.4,
+              "position": [ 1, 1 ],
+              "initialVelocity": [ 10, 5 ],
+              "finalVelocity": [ 0, 20 ],
+              "rotation": 180,
+              "angularVelocity": 800
+            }
+          }
+        }
+      ]
     }
   ],
+
   "actionOnReap": [
     {
       "action": "sound",
@@ -32,6 +65,35 @@
         "/sfx/projectiles/ice_break5.ogg", "/sfx/projectiles/ice_break6.ogg",
         "/sfx/projectiles/ice_break7.ogg", "/sfx/projectiles/ice_break8.ogg",
         "/sfx/projectiles/ice_break9.ogg", "/sfx/projectiles/ice_break10.ogg"
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 6,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "textured",
+            "image": "/animations/shards/iceshard.png:0",
+            "size": 0.75,
+            "initialVelocity": [ 0, 8 ],
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 15, 30 ],
+            "timeToLive": 0.4,
+            "destructionTime": 0.5,
+            "destructionAction": "shrink",
+            "collidesForeground": false,
+            "variance": {
+              "timeToLive": 0.4,
+              "position": [ 1, 1 ],
+              "initialVelocity": [ 10, 5 ],
+              "finalVelocity": [ 0, 20 ],
+              "rotation": 180,
+              "angularVelocity": 800
+            }
+          }
+        }
       ]
     },
     {
@@ -71,40 +133,6 @@
               "position": [ 1.5, 3.0 ],
               "finalVelocity": [ 1.5, 1.5 ],
               "timeToLive": 0.3
-            }
-          }
-        },
-        {
-          "action": "particle",
-          "specification": {
-            "type": "animated",
-            "animation": "/animations/shards/iceshard.animation",
-            "approach": [ 30, 30 ],
-            "timeToLive": 1,
-            "destructionAction": "shrink",
-            "destructionTime": 1,
-            "layer": "middle",
-            "variance": {
-              "position": [ 1.5, 3.0 ],
-              "finalVelocity": [ 5, 5 ],
-              "timeToLive": 1
-            }
-          }
-        },
-        {
-          "action": "particle",
-          "specification": {
-            "type": "animated",
-            "animation": "/animations/shards/iceshard.animation",
-            "approach": [ 30, 30 ],
-            "timeToLive": 1,
-            "destructionAction": "shrink",
-            "destructionTime": 1,
-            "layer": "middle",
-            "variance": {
-              "position": [ 1.5, 3.0 ],
-              "finalVelocity": [ 5, 5 ],
-              "timeToLive": 1
             }
           }
         },

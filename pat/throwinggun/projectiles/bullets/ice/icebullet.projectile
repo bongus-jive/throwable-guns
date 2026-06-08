@@ -29,7 +29,7 @@
     },
     {
       "action": "loop",
-      "count": 3,
+      "count": 4,
       "body": [
         {
           "action": "particle",
@@ -62,21 +62,33 @@
               "position": [ 1, 1 ]
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 6,
+      "body": [
         {
           "action": "particle",
           "specification": {
-            "type": "animated",
-            "looping": true,
-            "animation": "/animations/shards/iceshard.animation",
-            "destructionAction": "shrink",
-            "destructionTime": 0.425,
+            "type": "textured",
+            "image": "/animations/shards/iceshard.png:0",
             "size": 0.5,
-            "layer": "middle",
-            "timeToLive": 0.6,
+            "initialVelocity": [ 0, 5 ],
+            "finalVelocity": [ 0, -50 ],
+            "approach": [ 15, 30 ],
+            "timeToLive": 0.2,
+            "destructionTime": 0.25,
+            "destructionAction": "shrink",
+            "collidesForeground": false,
             "variance": {
-              "velocity": [ 3, 3 ],
-              "position": [ 1, 1 ]
+              "timeToLive": 0.2,
+              "position": [ 1, 1 ],
+              "initialVelocity": [ 3, 3 ],
+              "finalVelocity": [ 0, 15 ],
+              "rotation": 180,
+              "angularVelocity": 800
             }
           }
         }
