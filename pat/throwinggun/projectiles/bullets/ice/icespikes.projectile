@@ -12,7 +12,7 @@
   "flippable": false,
   "animationLoops": false,
   "orientationLocked": true,
-  // "damagePoly": [ [ -32, -28 ], [ -28, 5 ], [ 0, 18 ], [ 28, 5 ], [ 32, -28 ] ],  im sleepy. make this good tomorrow
+  "damagePoly": [ [ -5, -12 ], [ -5, 12 ], [ 10, 12 ], [ 16, 0 ], [ 10, -12 ] ],
   "damageKind": "ice",
   "emitters": [ "iceplasma" ],
   "periodicActions": [
