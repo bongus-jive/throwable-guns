@@ -1,8 +1,8 @@
 {
   "projectileName": "pat_throwingicegun_spikes",
   "image": "icespikes.png",
-  "physics": "sticky",
-  "animationCycle": 0.15,
+  "renderLayer": "Monster+67",
+  "animationCycle": 0.2,
   "frameNumber": 3,
   "windupFrames": 2,
   "timeToLive": 3,
@@ -13,11 +13,22 @@
   "animationLoops": false,
   "orientationLocked": true,
   "damagePoly": [ [ -5, -12 ], [ -5, 12 ], [ 10, 12 ], [ 16, 0 ], [ 10, -12 ] ],
-  "damageKind": "ice",
+  "damageKind": "icebarrier",
+  "statusEffects": [ "frostslow" ],
   "emitters": [ "iceplasma" ],
+  "movementSettings": {
+    "speedLimit": 0
+  },
+
   "periodicActions": [
     {
       "time": 0,
+      "repeat": false,
+      "action": "sound",
+      "options": [ "/sfx/npc/boss/kluexboss_iceform1.ogg", "/sfx/npc/boss/kluexboss_iceform2.ogg" ]
+    },
+    {
+      "time": 0.16,
       "repeat": false,
       "action": "sound",
       "options": [ "/sfx/npc/boss/kluexboss_iceeruption1.ogg", "/sfx/npc/boss/kluexboss_iceeruption2.ogg" ]

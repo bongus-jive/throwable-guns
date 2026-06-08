@@ -1,31 +1,38 @@
 {
   "projectileName": "pat_throwingicegun_bullet",
   "image": "icebullet.png",
-  "physics": "laser",
+  "physics": "sticky",
   "timeToLive": 3,
-  "speed": 130,
+  "speed": 150,
   "damageKind": "ice",
-  "damagePoly": [ [ -6, 0 ], [ -4, -4 ], [ 0, -6 ], [ 4, -4 ], [ 6, 0 ], [ 4, 4 ], [ 0, 6 ], [ -4, 4 ] ],
+  "damageRepeatTimeout": 5,
   "statusEffects": [ "frostslow" ],
   "emitters": [ "iceplasma" ],
   "piercing": true,
   "flippable": true,
-  "orientationLocked": true,
   "movementSettings": {
-    "bounceFactor": 0,
-    "maximumCorrection": 0
+    "collisionPoly": [ [ -0.4, 0.05 ], [ 0.4, 0 ], [ -0.4, -0.05 ] ],
+    "airFriction": 0
   },
 
   "scripts": [ "icebullet.lua" ],
+  "stickyTimeToLive": 1,
   "spikeProjectile": {
     "type": "pat_throwingicegun_spikes",
-    "inaccuracy": 0.1
+    "inaccuracy": 0.1,
+    "damageFactor": 1
   },
 
   "actionOnReap": [
     {
       "action": "sound",
-      "options": [ "/sfx/projectiles/ice_break1.ogg", "/sfx/projectiles/ice_break4.ogg", "/sfx/projectiles/ice_break5.ogg", "/sfx/projectiles/ice_break6.ogg", "/sfx/projectiles/ice_break9.ogg", "/sfx/projectiles/ice_break10.ogg" ]
+      "options": [
+        "/sfx/projectiles/ice_barrier_break1.ogg", "/sfx/projectiles/ice_barrier_break2.ogg",
+        "/sfx/projectiles/ice_barrier_break3.ogg", "/sfx/projectiles/ice_barrier_break4.ogg",
+        "/sfx/projectiles/ice_barrier_break5.ogg", "/sfx/projectiles/ice_barrier_break6.ogg",
+        "/sfx/projectiles/ice_barrier_break7.ogg", "/sfx/projectiles/ice_barrier_break8.ogg",
+        "/sfx/projectiles/ice_barrier_break9.ogg", "/sfx/projectiles/ice_barrier_break10.ogg"
+      ]
     },
     {
       "action": "loop",

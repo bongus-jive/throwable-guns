@@ -1,13 +1,23 @@
 require "/scripts/vec2.lua"
 
+function update()
+  local stuck = mcontroller.stickingDirection() ~= nil
+
+  if stuck and not self.stuck then
+    self.stuck = true
+    local ttl = config.getParameter("stickyTimeToLive")
+    if ttl then projectile.setTimeToLive(ttl) end
+  end
+end
+
 function destroy()
-  if not mcontroller.isColliding() then return end
+  if not self.stuck then return end
 
   local pos = mcontroller.position()
-  local vel = mcontroller.velocity()
+  local rot = mcontroller.rotation()
 
-  local a = vec2.sub(pos, vec2.mul(vel, script.updateDt()))
-  local b = vec2.add(pos, vel)
+  local a = vec2.add(pos, vec2.withAngle(rot, -1))
+  local b = vec2.add(pos, vec2.withAngle(rot, 2))
   local coll = world.lineTileCollisionPoint(a, b)
   if not coll then return end
 
@@ -16,10 +26,12 @@ function destroy()
 
   local cfg = config.getParameter("spikeProjectile")
   local params = cfg.parameters or {}
+  params.power = (params.power or projectile.power()) * (cfg.damageFactor or 1)
+  params.powerMultipler = projectile.powerMultiplier()
   if math.random() > 0.5 then
     params.processing = (params.processing or "") .. "?flipy"
   end
   
   local dir = vec2.rotate(norm, sb.nrand(cfg.inaccuracy or 0, math.pi))
-  world.spawnProjectile(cfg.type, pos, projectile.sourceEntity(), dir, nil, params)
+  world.spawnProjectile(cfg.type, coll[1], projectile.sourceEntity(), dir, nil, params)
 end
