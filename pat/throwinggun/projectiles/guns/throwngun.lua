@@ -206,7 +206,7 @@ function angleToTarget(distance)
 end
 
 function getTarget()
-  if self.targetLockRange and self.lockedTargetId then
+  if self.targetLockRange and self.lockedTargetId and isValidTarget(self.lockedTargetId) then
     local tPos = world.entityPosition(self.lockedTargetId)
     if tPos and world.magnitude(mcontroller.position(), tPos) < self.targetLockRange then
       return self.lockedTargetId
@@ -225,7 +225,7 @@ function findTarget()
   local targets = world.entityQuery(mcontroller.position(), self.targetQueryRange, self.targetQueryOptions)
 
   for _, id in ipairs(targets) do
-    if entity.entityInSight(id) and world.entityCanDamage(self.sourceId, id) then
+    if isValidTarget(id) then
       if not self.avoidRepeatTargets then
         return id
       end
@@ -244,6 +244,10 @@ function findTarget()
     self.usedTargets[firstId] = true
     return firstId
   end
+end
+
+function isValidTarget(id)
+  return world.entityExists(id) and entity.entityInSight(id) and world.entityCanDamage(entity.id(), id)
 end
 
 function hit(id)
