@@ -41,8 +41,8 @@
 
   "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
-    "rotationRate": 30,
-    "rotationDeviation": 6,
+    "rotationRate": 24,
+    "rotationDeviation": 4,
 
     "emptyTimeToLive": 0.5,
     "emptyBounces": 6,
