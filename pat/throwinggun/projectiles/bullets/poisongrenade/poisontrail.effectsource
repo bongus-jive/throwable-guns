@@ -1,0 +1,22 @@
+{
+  "kind": "pat_throwingpoisonlauncher_trail",
+  "definition": {
+    "duration": 0.03,
+    "durationVariance": 0.015,
+    "loops": true,
+    "start": {
+      "particles": [ ],
+      "sounds": [ ]
+    },
+    "particles": [
+      [ "poisonswoosh1" ],
+      [ "poisondust" ],
+      [ "poisonswoosh1", "poisondust" ]
+    ],
+    "sounds": [ ],
+    "stop": {
+      "particles": [ ],
+      "sounds": [ ]
+    }
+  }
+}

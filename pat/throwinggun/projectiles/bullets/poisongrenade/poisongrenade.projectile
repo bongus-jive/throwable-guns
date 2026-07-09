@@ -1,0 +1,90 @@
+{
+  "projectileName": "pat_throwingpoisonlauncher_grenade",
+  "image": "poisongrenade.png",
+  "physics": "grenade",
+  "emitters": [ "pat_throwingpoisonlauncher_trail" ],
+  "flippable": true,
+  "speed": 58,
+  "timeToLive": 3,
+  "damageType": "NoDamage",
+  "damageKind": "default",
+  "damagePoly": [ [ 3, 3 ], [ 3, -3 ], [ -3, -3 ], [ -3, 3 ] ],
+
+  "actionOnReap": [
+    {
+      "action": "projectile",
+      "type": "poisonexplosionknockback",
+      "inheritDamageFactor": 1,
+      "fuzzAngle": 360,
+      "config": {
+        "knockback": 15,
+        "bounces": -1
+      }
+    },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 0 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 90 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 180 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 270 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 360 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 360, "inheritSpeedFactor": 0 },
+    {
+      "action": "loop",
+      "count": 12,
+      "body": [
+        { "action": "projectile", "type": "pat_throwingpoisonlauncher_trail", "fuzzAngle": 360 }
+      ]
+    },
+    {
+      "action": "loop",
+      "count": 4,
+      "body": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/gas/poisongas.animation?scalenearest=0.8",
+            "approach": [ 0.5, 0.5 ],
+            "timeToLive": 0.8,
+            "variance": {
+              "position": [ 2, 2 ],
+              "initialVelocity": [ 1, 1 ],
+              "timeToLive": 0.15,
+              "rotation": 180
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "specification": {
+            "type": "animated",
+            "animation": "/animations/statuseffects/poison/poisonshort.animation",
+            "approach": [ 0.5, 0.5 ],
+            "timeToLive": 2.0,
+            "variance": {
+              "timeToLive": 0.15,
+              "position": [ 2.5, 2.5 ],
+              "initialVelocity": [ 1, 1 ],
+              "rotation": 180
+            }
+          }
+        },
+        { "action": "spark" }
+      ]
+    },
+    {
+      "action": "sound",
+      "options": [ "/sfx/gun/grenadeblast_poison1.ogg", "/sfx/gun/grenadeblast_poison2.ogg", "/sfx/gun/grenadeblast_poison3.ogg" ]
+    },
+    {
+      "action": "sound",
+      "options": [ "/sfx/npc/boss/guardian_floorhazard_poison.ogg" ]
+    },
+    {
+      "action": "explosion",
+      "foregroundRadius": 2,
+      "backgroundRadius": 0,
+      "explosiveDamageAmount": 0.5,
+      "delaySteps": 2
+    }
+  ]
+}
