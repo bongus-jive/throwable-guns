@@ -23,6 +23,7 @@
         "/sfx/projectiles/plasmabullet_ricochet3.ogg"
       ]
     },
+    { "action": "particle", "specification": "energybeamimpact" },
     {
       "action": "loop",
       "count": 8,
