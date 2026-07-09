@@ -21,59 +21,45 @@
         "bounces": -1
       }
     },
-    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 0 },
-    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 90 },
-    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 180 },
-    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 45, "angleAdjust": 270 },
-    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 360 },
-    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "fuzzAngle": 360, "inheritSpeedFactor": 0 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "offsetRange": [ -0.5, -0.5, 0.5, 0.5 ], "fuzzAngle": 45, "angleAdjust": 0 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "offsetRange": [ -0.5, -0.5, 0.5, 0.5 ], "fuzzAngle": 45, "angleAdjust": 90 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "offsetRange": [ -0.5, -0.5, 0.5, 0.5 ], "fuzzAngle": 45, "angleAdjust": 180 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "offsetRange": [ -0.5, -0.5, 0.5, 0.5 ], "fuzzAngle": 45, "angleAdjust": 270 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "offsetRange": [ -0.5, -0.5, 0.5, 0.5 ], "fuzzAngle": 360 },
+    { "action": "projectile", "type": "pat_throwingpoisonlauncher_cloud", "offsetRange": [ -0.5, -0.5, 0.5, 0.5 ], "fuzzAngle": 360, "inheritSpeedFactor": 0 },
     {
       "action": "loop",
       "count": 12,
       "body": [
-        { "action": "projectile", "type": "pat_throwingpoisonlauncher_trail", "fuzzAngle": 360 }
+        { "action": "projectile", "type": "pat_throwingpoisonlauncher_trail", "fuzzAngle": 360 },
+        { "action": "particle", "specification": "pat_throwingpoisonlauncher_gassy" }
       ]
     },
     {
-      "action": "loop",
-      "count": 4,
-      "body": [
-        {
-          "action": "particle",
-          "specification": {
-            "type": "animated",
-            "animation": "/animations/gas/poisongas.animation?scalenearest=0.8",
-            "approach": [ 0.5, 0.5 ],
-            "timeToLive": 0.8,
-            "variance": {
-              "position": [ 2, 2 ],
-              "initialVelocity": [ 1, 1 ],
-              "timeToLive": 0.15,
-              "rotation": 180
-            }
-          }
-        },
-        {
-          "action": "particle",
-          "specification": {
-            "type": "animated",
-            "animation": "/animations/statuseffects/poison/poisonshort.animation",
-            "approach": [ 0.5, 0.5 ],
-            "timeToLive": 2.0,
-            "variance": {
-              "timeToLive": 0.15,
-              "position": [ 2.5, 2.5 ],
-              "initialVelocity": [ 1, 1 ],
-              "rotation": 180
-            }
-          }
-        },
-        { "action": "spark" }
-      ]
+      "action": "particle",
+      "specification": {
+        "type": "textured",
+        "image": "/particles/fog/1.png",
+        "size": 1,
+        "color": [ 0, 180, 0, 255 ],
+        "destructionAction": "fade",
+        "destructionTime": 3,
+        "timeToLive": 1.5,
+        "layer": "front",
+        "collidesForeground": false,
+        "variance": {
+          "initialVelocity": [ 1, 1 ],
+          "position": [ 1, 1 ]
+        }
+      }
     },
     {
       "action": "sound",
       "options": [ "/sfx/gun/grenadeblast_poison1.ogg", "/sfx/gun/grenadeblast_poison2.ogg", "/sfx/gun/grenadeblast_poison3.ogg" ]
+    },
+    {
+      "action": "sound",
+      "options": [ "/sfx/projectiles/poisonorb_break1.ogg", "/sfx/projectiles/poisonorb_break2.ogg" ]
     },
     {
       "action": "sound",

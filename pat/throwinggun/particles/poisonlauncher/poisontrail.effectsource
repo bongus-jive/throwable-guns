@@ -11,7 +11,9 @@
     "particles": [
       [ "poisonswoosh1" ],
       [ "poisondust" ],
-      [ "poisonswoosh1", "poisondust" ]
+      [ "poisonswoosh1", "poisondust" ],
+      [ "poisonswoosh1", "poisondust", "pat_throwingpoisonlauncher_drip" ],
+      [ "pat_throwingpoisonlauncher_drip" ]
     ],
     "sounds": [ ],
     "stop": {

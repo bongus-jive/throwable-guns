@@ -9,8 +9,11 @@
   "bounces": -1,
   "damagePoly": [ [ -16, 0 ], [ -12, -12 ], [ 0, -16 ], [ 12, -12 ], [ 16, 0 ], [ 12, 12 ], [ 0, 16 ], [ -12, 12 ] ],
   "piercing": true,
-  "emitters": [ "largepoisoncloud" ],
+  "emitters": [ "pat_throwingpoisonlauncher_cloud" ],
   "damageKind": "poison",
   "damageType": "Status",
-  "statusEffects": [ "weakpoison" ]
+  "statusEffects": [ "weakpoison" ],
+  "movementSettings": {
+    "collisionEnabled": false
+  }
 }

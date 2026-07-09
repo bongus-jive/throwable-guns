@@ -1,0 +1,22 @@
+{
+  "kind": "pat_throwingpoisonlauncher_drip",
+  "definition": {
+    "type": "animated",
+    "animation": "/animations/poisondrip/poisondrip1.animation",
+    "position": [ 0, 0 ],
+    "initialVelocity": [ 0, -10 ],
+    "finalVelocity": [ 0, -40 ],
+    "approach": [ 5, 25 ],
+    "timeToLive": 0.4,
+    "destructionTime": 0.3,
+    "destructionAction": "shrink",
+    "size": 1,
+    "variance": {
+      "position": [ 0.8, 0.8 ],
+      "initialVelocity": [ 3, 15 ],
+      "size": 0.15,
+      "angularVelocity": 360
+    },
+    "trail": true
+  }
+}

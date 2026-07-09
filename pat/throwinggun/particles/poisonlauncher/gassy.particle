@@ -1,0 +1,24 @@
+{
+  "kind": "pat_throwingpoisonlauncher_gassy",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/poisonlauncher/gassy.particle:animation",
+    "approach": [ 4, 4 ],
+    "timeToLive": 2.25,
+    "destructionTime": 0.5,
+    "destructionAction": "fade",
+    "collidesForeground": false,
+    "layer": "back",
+    "variance": {
+      "position": [ 1, 1 ],
+      "initialVelocity": [ 5, 5 ],
+      "timeToLive": 0.5,
+      "rotation": 180
+    }
+  },
+  "animation": {
+    "frames": "/animations/gas/poisongas.png:<index>?scalenearest=0.8",
+    "frameNumber": 8,
+    "animationCycle": 3
+  }
+}

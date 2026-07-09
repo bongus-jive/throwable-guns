@@ -52,7 +52,7 @@
     "muzzleflash": "pat_throwinggun_muzzleflash",
     "muzzleflashActions": [
       { "action": "sound", "options": [ "/sfx/gun/grenade2.ogg", "/sfx/gun/grenade3.ogg" ] },
-      { "action": "sound", "options": [ "/sfx/gun/poisonorb_impact.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/projectiles/poisonorb_impact.ogg" ] },
       { "action": "sound", "options": [ "/sfx/gun/reload/grenade_reload_clip1.ogg" ] },
       {
         "action": "loop",

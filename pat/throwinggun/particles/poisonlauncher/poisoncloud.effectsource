@@ -1,0 +1,24 @@
+{
+  "kind": "pat_throwingpoisonlauncher_cloud",
+  "definition": {
+    "duration": 0.03,
+    "durationVariance": 0.02,
+    "loops": true,
+    "start": {
+      "particles": [ ],
+      "sounds": [ ]
+    },
+    "particles": [
+      [ "largepoisoncloud1" ],
+      [ "pat_throwingpoisonlauncher_dust" ],
+      [ "largepoisoncloud1", "pat_throwingpoisonlauncher_dust" ],
+      [ "largepoisoncloud1", "pat_throwingpoisonlauncher_dust" ],
+      [ "largepoisoncloud1", "pat_throwingpoisonlauncher_drip" ]
+    ],
+    "sounds": [ ],
+    "stop": {
+      "particles": [ ],
+      "sounds": [ ]
+    }
+  }
+}
