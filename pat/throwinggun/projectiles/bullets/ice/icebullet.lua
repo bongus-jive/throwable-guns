@@ -27,7 +27,7 @@ function destroy()
   local cfg = config.getParameter("spikeProjectile")
   local params = cfg.parameters or {}
   params.power = (params.power or projectile.power()) * (cfg.damageFactor or 1)
-  params.powerMultipler = projectile.powerMultiplier()
+  params.powerMultiplier = projectile.powerMultiplier()
   if math.random() > 0.5 then
     params.processing = (params.processing or "") .. "?flipy"
   end
