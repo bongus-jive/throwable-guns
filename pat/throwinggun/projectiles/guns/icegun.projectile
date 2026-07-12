@@ -51,7 +51,7 @@
     "avoidRepeatTargets": true,
 
     "ammo": 3,
-    "cooldownTime": 0.25,
+    "cooldownTime": 0.15,
     "inaccuracy": 0.018,
     "recoil": 18,
     "fireDelay": 0.08,
