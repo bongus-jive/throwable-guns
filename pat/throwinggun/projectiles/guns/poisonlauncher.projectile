@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingpoisonlauncher",
   "image": "images/poisonlauncher.png",
   "timeToLive": 15,
-  "power": 33,
+  "power": 25,
   "speed": 55,
   "orientationLocked": true,
   "bounces": -1,
@@ -44,7 +44,7 @@
 
     "projectileType": "pat_throwingpoisonlauncher_grenade",
     "projectileCount": 1,
-    "projectileDamageFactor": 0.66,
+    "projectileDamageFactor": 1.2,
     "projectileParameters": { },
     "projectileArc": true,
 
