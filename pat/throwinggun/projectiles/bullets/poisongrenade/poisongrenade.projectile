@@ -36,24 +36,6 @@
       ]
     },
     {
-      "action": "particle",
-      "specification": {
-        "type": "textured",
-        "image": "/particles/fog/1.png",
-        "size": 1,
-        "color": [ 0, 180, 0, 255 ],
-        "destructionAction": "fade",
-        "destructionTime": 3,
-        "timeToLive": 1.5,
-        "layer": "front",
-        "collidesForeground": false,
-        "variance": {
-          "initialVelocity": [ 1, 1 ],
-          "position": [ 1, 1 ]
-        }
-      }
-    },
-    {
       "action": "sound",
       "options": [ "/sfx/gun/grenadeblast_poison1.ogg", "/sfx/gun/grenadeblast_poison2.ogg", "/sfx/gun/grenadeblast_poison3.ogg" ]
     },
