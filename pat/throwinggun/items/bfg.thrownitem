@@ -1,0 +1,27 @@
+{
+  "itemName": "pat_throwingbfg",
+  "rarity": "Essential",
+  "category": "throwableItem",
+  "inventoryIcon": "images/bfg_icon.png",
+  "image": "images/bfg_held.png",
+  "shortdescription": "big fuckable gun",
+  "description": "",
+
+  "ammoUsage": 1,
+  "edgeTrigger": true,
+  "windupTime": 0,
+  "cooldown": 0.25,
+
+  "projectileType": "pat_throwinggun_spawner",
+  "projectileConfig": {
+    "gunProjectile": "pat_throwingbfg",
+    "periodicActions": [
+      {
+        "time": 0,
+        "repeat": false,
+        "action": "sound",
+        "options": [ "/sfx/projectiles/throw_item_big.ogg" ]
+      }
+    ]
+  }
+}

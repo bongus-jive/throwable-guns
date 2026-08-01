@@ -1,0 +1,90 @@
+{
+  "projectileName": "pat_throwingbfg_ball",
+  "image": "bfgball.png",
+  "physics": "laser",
+  "animationCycle": 0.4,
+  "frameNumber": 4,
+  "speed": 60,
+  "timeToLive": 2.5,
+  "fullbright": true,
+  "flippable": false,
+  "orientationLocked": true,
+  "lightColor": [ 67, 140, 47 ],
+  "damagePoly": [ [ -18, 0 ], [ -12, -12 ], [ 0, -18 ], [ 12, -12 ], [ 18, 0 ], [ 12, 12 ], [ 0, 18 ], [ -12, 12 ] ],
+  "damageKind": "default",
+
+  "actionOnReap": [
+    {
+      "action": "projectile",
+      "type": "pat_throwingbfg_explosion",
+      "fuzzAngle": 360
+    }
+  ],
+
+  "periodicActions": [
+    {
+      "time": 0.02,
+      "repeat": true,
+      "action": "loop",
+      "count": 2,
+      "body": [
+        {
+          "action": "option",
+          "options": [
+            { "action": "spark" },
+            {
+              "action": "particle",
+              "rotate": true,
+              "specification": {
+                "type": "ember",
+                "layer": "back",
+                "size": 2,
+                "fullbright": true,
+                "color": [ 47, 255, 87 ],
+                "light": [ 67, 140, 47 ],
+                "fade": 3,
+                "destructionAction": "shrink",
+                "destructionTime": 0.4,
+                "collidesForeground": false,
+                "initialVelocity": [ 30, 0 ],
+                "finalVelocity": [ 30, 0 ],
+                "approach": [ -40, -40 ],
+                "variance": {
+                  "size": 1,
+                  "timeToLive": 0.1,
+                  "initialVelocity": [ 10, 10 ],
+                  "finalVelocity": [ 20, 20 ]
+                }
+              }
+            },
+            {
+              "action": "particle",
+              "rotate": true,
+              "specification": {
+                "type": "ember",
+                "layer": "back",
+                "size": 2,
+                "fullbright": true,
+                "color": [ 186, 255, 123 ],
+                "light": [ 67, 140, 47 ],
+                "fade": 3,
+                "destructionAction": "shrink",
+                "destructionTime": 0.4,
+                "collidesForeground": false,
+                "initialVelocity": [ 30, 0 ],
+                "finalVelocity": [ 30, 0 ],
+                "approach": [ -40, -40 ],
+                "variance": {
+                  "size": 1,
+                  "timeToLive": 0.1,
+                  "initialVelocity": [ 10, 10 ],
+                  "finalVelocity": [ 20, 20 ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

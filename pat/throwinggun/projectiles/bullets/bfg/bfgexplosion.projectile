@@ -1,0 +1,151 @@
+{
+  "projectileName": "pat_throwingbfg_explosion",
+  "image": "bfgexplosion.png",
+  "frameNumber": 6,
+  "animationCycle": 0.3,
+  "animationLoops": false,
+  "flippable": true,
+  "fullbright": true,
+  "renderLayer": "MiddleParticle-40",
+  "speed": 0,
+  "bounces": -1,
+  "damagePoly": [ [ -50, 0 ], [ -35, -35 ], [ 0, -50 ], [ 35, -35 ], [ 50, 0 ], [ 35, 35 ], [ 0, 50 ], [ -35, 35 ] ],
+  "damageKind": "electricplasma",
+  "piercing": true,
+  "knockbackDirectional": true,
+  "knockback": 30,
+
+  "periodicActions": [
+    {
+      "time": 0,
+      "repeat": false,
+      "action": "actions",
+      "list": [
+        {
+          "action": "particle",
+          "specification": {
+            "type": "ember",
+            "color": "#0000",
+            "timeToLive": 1,
+            "light": [ 87, 200, 67 ],
+            "fade": 2
+          }
+        },
+        {
+          "action": "sound",
+          "options": [ "/sfx/gun/grenadeblast_electric1.ogg", "/sfx/gun/grenadeblast_electric2.ogg", "/sfx/gun/grenadeblast_electric3.ogg" ]
+        },
+        {
+          "action": "sound",
+          "options": [ "/sfx/gun/tank_shot.ogg" ]
+        },
+        {
+          "action": "loop",
+          "count": 15,
+          "body": [
+            {
+              "action": "particle",
+              "rotate": true,
+              "specification": {
+                "type": "ember",
+                "layer": "back",
+                "size": 2,
+                "fullbright": true,
+                "color": [ 47, 255, 87 ],
+                "light": [ 67, 140, 47 ],
+                "approach": [ -40, -40 ],
+                "fade": 3,
+                "destructionAction": "shrink",
+                "destructionTime": 0.6,
+                "collidesForeground": false,
+                "variance": {
+                  "size": 1,
+                  "timeToLive": 0.3,
+                  "position": [ 1, 1 ],
+                  "initialVelocity": [ 50, 50 ],
+                  "finalVelocity": [ 100, 100 ]
+                }
+              }
+            },
+            {
+              "action": "particle",
+              "rotate": true,
+              "specification": {
+                "type": "ember",
+                "layer": "back",
+                "size": 2,
+                "fullbright": true,
+                "color": [ 186, 255, 123 ],
+                "light": [ 67, 140, 47 ],
+                "approach": [ -40, -40 ],
+                "fade": 3,
+                "destructionAction": "shrink",
+                "destructionTime": 0.6,
+                "collidesForeground": false,
+                "variance": {
+                  "size": 1,
+                  "timeToLive": 0.3,
+                  "position": [ 1, 1 ],
+                  "initialVelocity": [ 33, 33 ],
+                  "finalVelocity": [ 67, 67 ]
+                }
+              }
+            },
+            {
+              "action": "particle",
+              "rotate": true,
+              "specification": {
+                "type": "streak",
+                "layer": "back",
+                "size": 0.5,
+                "length": 15,
+                "fullbright": true,
+                "color": [ 47, 255, 87 ],
+                "light": [ 67, 140, 47 ],
+                "approach": [ -40, -40 ],
+                "fade": 3,
+                "destructionAction": "shrink",
+                "destructionTime": 0.3,
+                "collidesForeground": false,
+                "variance": {
+                  "size": 0.5,
+                  "length": 5,
+                  "timeToLive": 0.2,
+                  "position": [ 1, 1 ],
+                  "initialVelocity": [ 50, 50 ],
+                  "finalVelocity": [ 100, 100 ]
+                }
+              }
+            },
+            {
+              "action": "particle",
+              "rotate": true,
+              "specification": {
+                "type": "streak",
+                "layer": "back",
+                "size": 0.5,
+                "length": 10,
+                "fullbright": true,
+                "destructionAction": "shrink",
+                "destructionTime": 0.3,
+                "color": [ 186, 255, 123 ],
+                "light": [ 67, 140, 47 ],
+                "approach": [ -40, -40 ],
+                "fade": 3,
+                "collidesForeground": false,
+                "variance": {
+                  "size": 0.5,
+                  "length": 3.3,
+                  "timeToLive": 0.2,
+                  "position": [ 1, 1 ],
+                  "initialVelocity": [ 33, 33 ],
+                  "finalVelocity": [ 67, 67 ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "pat_throwinggun_bfgflash",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/bfg/bfgflash.particle:animation",
+    "layer": "front",
+    "light": [ 87, 200, 67 ],
+    "fade": 4,
+    "timeToLive": 1,
+    "fullbright": true,
+    "collidesForeground": false,
+    "position": [ 2.25, 0 ]
+  },
+  "animation": {
+    "frames": "bfgflash.png",
+    "mode": "Stop",
+    "frameNumber": 5,
+    "animationCycle": 0.14
+  }
+}

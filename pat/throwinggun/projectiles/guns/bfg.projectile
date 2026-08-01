@@ -1,0 +1,121 @@
+{
+  "projectileName": "pat_throwingbfg",
+  "image": "images/bfg.png",
+  "timeToLive": 15,
+  "power": 30,
+  "speed": 50,
+  "orientationLocked": true,
+  "bounces": -1,
+  "piercing": true,
+  "damageKind": "foldingchair",
+  "damagePoly": [ [ 14, 4 ], [ -14, 4 ], [ -14, -6 ], [ 14, -6 ] ],
+  "movementSettings": {
+    "gravityMultiplier": 1.3,
+    "bounceFactor": 0.5,
+    "stopOnFirstBounce": true,
+    "collisionPoly": [ [ -0.5, -0.5 ], [ 0.5, -0.5 ], [ 0.5, 0.5 ], [ -0.5, 0.5 ] ]
+  },
+  "actionOnCollide": [
+    {
+      "action": "sound",
+      "options": [
+        "/sfx/melee/fist_hit_metal1.ogg", "/sfx/melee/fist_hit_metal2.ogg", "/sfx/melee/fist_hit_metal3.ogg",
+        "/sfx/melee/fist_hit_metal4.ogg", "/sfx/melee/fist_hit_metal5.ogg", "/sfx/melee/fist_hit_metal6.ogg"
+      ]
+    }
+  ],
+
+  "scripts": [ "throwngun.lua" ],
+  "throwngunConfig": {
+    "rotationRate": 9,
+    "rotationDeviation": 2,
+
+    "emptyTimeToLive": 1,
+    "emptyBounces": 8,
+    "hitBounceFactor": 0.5,
+
+    "ammo": 1,
+    "recoil": 51,
+    "fireDelay": 0.04,
+
+    "projectileType": "pat_throwingbfg_ball",
+    "projectileCount": 1,
+    "projectileDamageFactor": 2.4,
+    "projectileParameters": { },
+
+    "muzzleOffset": [ 2.375, 0 ],
+    "muzzleflash": "pat_throwinggun_muzzleflash",
+    "muzzleflashParameters": { "timeToLive": 0.4 },
+    "muzzleflashActions": [
+      { "action": "particle", "specification": "pat_throwinggun_bfgflash", "rotate": true },
+      { "action": "sound", "options": [ "/sfx/gun/mech_beamsniper_fire1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/electricrailgun1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/cinematics/opengate/opengate_blast.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/mech_plasmadrone1.ogg" ], "time": 0.18 },
+      { "action": "sound", "options": [ "/sfx/tech/mech_explosion_windup.ogg" ], "time": 0.35 },
+      {
+        "action": "loop",
+        "count": 5,
+        "body": [ { "action": "particle", "specification": "rocketbarrelpuff" } ]
+      },
+      {
+        "action": "loop",
+        "count": 15,
+        "body": [
+          {
+            "action": "particle",
+            "rotate": true,
+            "specification": {
+              "type": "streak",
+              "layer": "back",
+              "size": 1,
+              "length": 8,
+              "fullbright": true,
+              "color": [ 47, 255, 87 ],
+              "light": [ 67, 140, 47 ],
+              "fade": 3,
+              "destructionAction": "shrink",
+              "destructionTime": 0.3,
+              "initialVelocity": [ 60, 0 ],
+              "finalVelocity": [ -15, 0 ],
+              "approach": [ -10, -30 ],
+              "timeToLive": 0.0,
+              "variance": {
+                "size": 0.5,
+                "length": 6,
+                "timeToLive": 0.2,
+                "initialVelocity": [ 20, 18 ],
+                "finalVelocity": [ 0, 50 ]
+              }
+            }
+          },
+          {
+            "action": "particle",
+            "rotate": true,
+            "specification": {
+              "type": "ember",
+              "layer": "back",
+              "size": 2,
+              "fullbright": true,
+              "color": [ 47, 255, 87 ],
+              "light": [ 67, 140, 47 ],
+              "fade": 3,
+              "destructionAction": "shrink",
+              "destructionTime": 0.4,
+              "initialVelocity": [ 60, 0 ],
+              "finalVelocity": [ -10, 0 ],
+              "approach": [ -10, -30 ],
+              "timeToLive": 0.0,
+              "variance": {
+                "size": 1,
+                "timeToLive": 0.3,
+                "initialVelocity": [ 30, 18 ],
+                "finalVelocity": [ 0, 50 ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
