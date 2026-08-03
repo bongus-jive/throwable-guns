@@ -10,14 +10,15 @@
   "flippable": false,
   "orientationLocked": true,
   "lightColor": [ 67, 140, 47 ],
-  "damagePoly": [ [ -18, 0 ], [ -12, -12 ], [ 0, -18 ], [ 12, -12 ], [ 18, 0 ], [ 12, 12 ], [ 0, 18 ], [ -12, 12 ] ],
-  "damageKind": "default",
+  "damagePoly": [ [ -12, 0 ], [ -8, -8 ], [ 0, -12 ], [ 8, -8 ], [ 12, 0 ], [ 8, 8 ], [ 0, 12 ], [ -8, 8 ] ],
+  "damageType": "NoDamage",
 
   "actionOnReap": [
     {
       "action": "projectile",
       "type": "pat_throwingbfg_explosion",
-      "fuzzAngle": 360
+      "fuzzAngle": 360,
+      "inheritDamageFactor": 1
     }
   ],
 
