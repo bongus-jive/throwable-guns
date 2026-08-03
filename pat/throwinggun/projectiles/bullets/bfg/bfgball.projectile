@@ -13,6 +13,13 @@
   "damagePoly": [ [ -12, 0 ], [ -8, -8 ], [ 0, -12 ], [ 8, -8 ], [ 12, 0 ], [ 8, 8 ], [ 0, 12 ], [ -8, 8 ] ],
   "damageType": "NoDamage",
 
+  "scripts": [ "bfgball.lua" ],
+  "maxTargets": 5,
+  "queryRange": 60,
+  "queryOptions": { "order": "random", "includedTypes": [ "creature" ] },
+  "tracerProjectile": "pat_throwingbfg_tracer",
+  "tracerRadius": 2.5,
+
   "actionOnReap": [
     {
       "action": "projectile",
@@ -39,19 +46,17 @@
               "specification": {
                 "type": "ember",
                 "layer": "back",
-                "size": 2,
+                "size": 3,
                 "fullbright": true,
                 "color": [ 47, 255, 87 ],
-                "light": [ 67, 140, 47 ],
-                "fade": 3,
                 "destructionAction": "shrink",
-                "destructionTime": 0.4,
+                "destructionTime": 0.5,
                 "collidesForeground": false,
                 "initialVelocity": [ 30, 0 ],
                 "finalVelocity": [ 30, 0 ],
                 "approach": [ -40, -40 ],
                 "variance": {
-                  "size": 1,
+                  "size": 1.5,
                   "timeToLive": 0.1,
                   "initialVelocity": [ 10, 10 ],
                   "finalVelocity": [ 20, 20 ]
@@ -67,10 +72,8 @@
                 "size": 2,
                 "fullbright": true,
                 "color": [ 186, 255, 123 ],
-                "light": [ 67, 140, 47 ],
-                "fade": 3,
                 "destructionAction": "shrink",
-                "destructionTime": 0.4,
+                "destructionTime": 0.5,
                 "collidesForeground": false,
                 "initialVelocity": [ 30, 0 ],
                 "finalVelocity": [ 30, 0 ],

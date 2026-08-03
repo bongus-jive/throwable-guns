@@ -1,6 +1,6 @@
 {
-  "projectileName": "pat_throwingbfg_explosion",
-  "image": "bfgexplosion.png",
+  "projectileName": "pat_throwingbfg_smallexplosion",
+  "image": "bfgsmallexplosion.png",
   "frameNumber": 6,
   "animationCycle": 0.3,
   "animationLoops": false,
@@ -9,7 +9,7 @@
   "renderLayer": "MiddleParticle-40",
   "speed": 0,
   "bounces": -1,
-  "damagePoly": [ [ -50, 0 ], [ -35, -35 ], [ 0, -50 ], [ 35, -35 ], [ 50, 0 ], [ 35, 35 ], [ 0, 50 ], [ -35, 35 ] ],
+  "damagePoly": [ [ -35, 0 ], [ -25, -25 ], [ 0, -35 ], [ 25, -25 ], [ 35, 0 ], [ 25, 25 ], [ 0, 35 ], [ -25, 25 ] ],
   "piercing": true,
   "knockbackDirectional": true,
   "knockback": 30,
@@ -21,6 +21,14 @@
       "action": "actions",
       "list": [
         {
+          "action": "sound",
+          "options": [ "/sfx/gun/pulsecannon_blast1.ogg" ]
+        },
+        {
+          "action": "sound",
+          "options": [ "/sfx/gun/erchiuseyebeam_start.ogg" ]
+        },
+        {
           "action": "particle",
           "specification": {
             "type": "ember",
@@ -31,12 +39,8 @@
           }
         },
         {
-          "action": "sound",
-          "options": [ "/sfx/gun/plasma_sniper3.ogg", "/sfx/gun/plasma_sniper4.ogg" ]
-        },
-        {
           "action": "loop",
-          "count": 15,
+          "count": 8,
           "body": [
             {
               "action": "particle",
@@ -48,17 +52,17 @@
                 "fullbright": true,
                 "color": [ 47, 255, 87 ],
                 "light": [ 67, 140, 47 ],
-                "approach": [ -40, -40 ],
+                "approach": [ -20, -20 ],
                 "fade": 3,
                 "destructionAction": "shrink",
-                "destructionTime": 0.8,
+                "destructionTime": 0.6,
                 "collidesForeground": false,
                 "variance": {
                   "size": 1,
-                  "timeToLive": 0.3,
+                  "timeToLive": 0.2,
                   "position": [ 1, 1 ],
-                  "initialVelocity": [ 50, 50 ],
-                  "finalVelocity": [ 100, 100 ]
+                  "initialVelocity": [ 33, 33 ],
+                  "finalVelocity": [ 67, 67 ]
                 }
               }
             },
@@ -72,17 +76,17 @@
                 "fullbright": true,
                 "color": [ 186, 255, 123 ],
                 "light": [ 67, 140, 47 ],
-                "approach": [ -40, -40 ],
+                "approach": [ -20, -20 ],
                 "fade": 3,
                 "destructionAction": "shrink",
-                "destructionTime": 0.8,
+                "destructionTime": 0.6,
                 "collidesForeground": false,
                 "variance": {
                   "size": 1,
-                  "timeToLive": 0.3,
+                  "timeToLive": 0.2,
                   "position": [ 1, 1 ],
-                  "initialVelocity": [ 33, 33 ],
-                  "finalVelocity": [ 67, 67 ]
+                  "initialVelocity": [ 25, 25 ],
+                  "finalVelocity": [ 50, 50 ]
                 }
               }
             },
@@ -97,18 +101,18 @@
                 "fullbright": true,
                 "color": [ 47, 255, 87 ],
                 "light": [ 67, 140, 47 ],
-                "approach": [ -40, -40 ],
+                "approach": [ -20, -20 ],
                 "fade": 3,
                 "destructionAction": "shrink",
-                "destructionTime": 0.6,
+                "destructionTime": 0.4,
                 "collidesForeground": false,
                 "variance": {
                   "size": 0.5,
                   "length": 5,
-                  "timeToLive": 0.2,
+                  "timeToLive": 0.1,
                   "position": [ 1, 1 ],
-                  "initialVelocity": [ 50, 50 ],
-                  "finalVelocity": [ 100, 100 ]
+                  "initialVelocity": [ 33, 33 ],
+                  "finalVelocity": [ 67, 67 ]
                 }
               }
             },
@@ -122,19 +126,19 @@
                 "length": 10,
                 "fullbright": true,
                 "destructionAction": "shrink",
-                "destructionTime": 0.6,
+                "destructionTime": 0.4,
                 "color": [ 186, 255, 123 ],
                 "light": [ 67, 140, 47 ],
-                "approach": [ -40, -40 ],
+                "approach": [ -20, -20 ],
                 "fade": 3,
                 "collidesForeground": false,
                 "variance": {
                   "size": 0.5,
                   "length": 3.3,
-                  "timeToLive": 0.2,
+                  "timeToLive": 0.1,
                   "position": [ 1, 1 ],
-                  "initialVelocity": [ 33, 33 ],
-                  "finalVelocity": [ 67, 67 ]
+                  "initialVelocity": [ 25, 25 ],
+                  "finalVelocity": [ 50, 50 ]
                 }
               }
             }

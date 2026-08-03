@@ -2,8 +2,8 @@
   "projectileName": "pat_throwingbfg",
   "image": "images/bfg.png",
   "timeToLive": 15,
-  "power": 30,
-  "speed": 50,
+  "power": 40,
+  "speed": 46,
   "orientationLocked": true,
   "bounces": -1,
   "piercing": true,
@@ -27,7 +27,7 @@
 
   "scripts": [ "throwngun.lua" ],
   "throwngunConfig": {
-    "rotationRate": 9,
+    "rotationRate": 12,
     "rotationDeviation": 2,
 
     "emptyTimeToLive": 1,
@@ -48,11 +48,10 @@
     "muzzleflashParameters": { "timeToLive": 0.4 },
     "muzzleflashActions": [
       { "action": "particle", "specification": "pat_throwinggun_bfgflash", "rotate": true },
-      { "action": "sound", "options": [ "/sfx/gun/mech_beamsniper_fire1.ogg" ] },
-      { "action": "sound", "options": [ "/sfx/gun/electricrailgun1.ogg" ] },
-      { "action": "sound", "options": [ "/sfx/cinematics/opengate/opengate_blast.ogg" ] },
-      { "action": "sound", "options": [ "/sfx/gun/mech_plasmadrone1.ogg" ], "time": 0.18 },
-      { "action": "sound", "options": [ "/sfx/tech/mech_explosion_windup.ogg" ], "time": 0.35 },
+      { "action": "sound", "options": [ "/sfx/gun/pulsecannon_blast1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/gun/erchiuseyebeam_start.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/interface/stationtransponder_probelaunch1.ogg" ] },
+      { "action": "sound", "options": [ "/sfx/interface/playerstation_place1.ogg" ] },
       {
         "action": "loop",
         "count": 5,

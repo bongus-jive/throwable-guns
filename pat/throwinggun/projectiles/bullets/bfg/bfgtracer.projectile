@@ -1,0 +1,100 @@
+{
+  "projectileName": "pat_throwingbfg_tracer",
+  "physics": "laser",
+  "image": "bfgtracer.png",
+  "renderLayer": "MiddleParticle+67",
+  "piercing": true,
+  "fullbright": true,
+  "orientationLocked": true,
+  "flippable": true,
+  "speed": 160,
+  "knockback": 30,
+  "timeToLive": 5,
+  "lightColor": [ 67, 140, 47 ],
+  "damageType": "NoDamage",
+  "movementSettings": {
+    "bounceFactor": 0,
+    "maximumCorrection": 0
+  },
+
+  "scripts": [ "bfgtracer.lua" ],
+
+  "actionOnReap": [
+    { "action": "projectile", "type": "pat_throwingbfg_smallexplosion", "inheritDamageFactor": 0.5, "fuzzAngle": 180 }
+  ],
+
+  "periodicActions": [
+    {
+      "time": 0.015,
+      "repeat": true,
+      "action": "actions",
+      "list": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "streak",
+            "color": [ 47, 255, 87 ],
+            "size": 2,
+            "length": 32,
+            "velocity": [ 16, 0 ],
+            "destructionTime": 0.2,
+            "destructionAction": "shrink",
+            "layer": "back"
+          }
+        }
+      ]
+    },
+    {
+      "time": 0,
+      "repeat": true,
+      "action": "option",
+      "options": [
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "ember",
+            "color": [ 47, 255, 87 ],
+            "fullbright": true,
+            "collidesForeground": false,
+            "size": 2,
+            "destructionTime": 0.5,
+            "destructionAction": "shrink",
+            "layer": "back",
+            "initialVelocity": [ 20, 0 ],
+            "approach": [ -25, -25 ],
+            "variance": {
+              "size": 1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 6, 4 ],
+              "finalVelocity": [ 10, 10 ]
+            }
+          }
+        },
+        {
+          "action": "particle",
+          "rotate": true,
+          "specification": {
+            "type": "ember",
+            "color": [ 186, 255, 123 ],
+            "fullbright": true,
+            "collidesForeground": false,
+            "size": 2,
+            "destructionTime": 0.5,
+            "destructionAction": "shrink",
+            "layer": "back",
+            "initialVelocity": [ 20, 0 ],
+            "approach": [ -25, -25 ],
+            "variance": {
+              "size": 1,
+              "position": [ 0.25, 0.25 ],
+              "initialVelocity": [ 6, 4 ],
+              "finalVelocity": [ 10, 10 ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
