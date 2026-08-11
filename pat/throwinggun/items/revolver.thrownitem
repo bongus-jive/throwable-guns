@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/revolver_icon.png",
   "image": "images/revolver_held.png",
-  "shortdescription": "throwing revolver",
+  "shortdescription": "Throwing Revolver",
   "description": "",
 
   "ammoUsage": 1,

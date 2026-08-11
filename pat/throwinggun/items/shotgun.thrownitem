@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/shotgun_icon.png",
   "image": "images/shotgun_held.png",
-  "shortdescription": "throwing shotgun",
+  "shortdescription": "Throwing Shotgun",
   "description": "",
 
   "ammoUsage": 1,

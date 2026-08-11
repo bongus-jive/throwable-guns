@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/mgl_icon.png",
   "image": "images/mgl_held.png",
-  "shortdescription": "throwing grenade launcher",
+  "shortdescription": "Throwing Grenade Launcher",
   "description": "",
 
   "ammoUsage": 1,

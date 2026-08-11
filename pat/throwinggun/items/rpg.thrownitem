@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/rpg_icon.png",
   "image": "images/rpg_held.png",
-  "shortdescription": "throwing rocket launcher",
+  "shortdescription": "Throwing RPG",
   "description": "",
 
   "ammoUsage": 1,

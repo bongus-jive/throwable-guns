@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/railgun_icon.png",
   "image": "images/railgun_held.png",
-  "shortdescription": "throwing railgun",
+  "shortdescription": "Throwing Railgun",
   "description": "",
 
   "ammoUsage": 1,

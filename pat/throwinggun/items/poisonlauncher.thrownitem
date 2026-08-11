@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/poisonlauncher_icon.png",
   "image": "images/poisonlauncher_held.png",
-  "shortdescription": "throwing acid launcher",
+  "shortdescription": "Throwing Acid Launcher",
   "description": "",
 
   "ammoUsage": 1,

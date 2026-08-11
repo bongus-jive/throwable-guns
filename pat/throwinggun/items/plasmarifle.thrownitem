@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/plasmarifle_icon.png",
   "image": "images/plasmarifle_held.png",
-  "shortdescription": "throwing plasma rifle",
+  "shortdescription": "Throwing Laser Rifle",
   "description": "",
 
   "ammoUsage": 1,

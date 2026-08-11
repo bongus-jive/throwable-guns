@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/minigun_icon.png",
   "image": "images/minigun_held.png",
-  "shortdescription": "throwing minigun",
+  "shortdescription": "Throwing Minigun",
   "description": "",
 
   "ammoUsage": 1,

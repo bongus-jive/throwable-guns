@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/plasmashotgun_icon.png",
   "image": "images/plasmashotgun_held.png",
-  "shortdescription": "throwing plasma shotgun",
+  "shortdescription": "Throwing Solar Shotgun",
   "description": "",
 
   "ammoUsage": 1,

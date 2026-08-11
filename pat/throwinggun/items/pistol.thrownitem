@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/pistol_icon.png",
   "image": "images/pistol_held.png",
-  "shortdescription": "throwing gun",
+  "shortdescription": "Throwing Pistol",
   "description": "",
 
   "ammoUsage": 1,

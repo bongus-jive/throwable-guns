@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/plasmapistol_icon.png",
   "image": "images/plasmapistol_held.png",
-  "shortdescription": "throwing plasma pistol",
+  "shortdescription": "Throwing Plasma Pistol",
   "description": "",
 
   "ammoUsage": 1,

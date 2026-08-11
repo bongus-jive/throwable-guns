@@ -4,7 +4,7 @@
   "category": "throwableItem",
   "inventoryIcon": "images/icegun_icon.png",
   "image": "images/icegun_held.png",
-  "shortdescription": "throwing ice gun",
+  "shortdescription": "Throwing Cryogun",
   "description": "",
 
   "ammoUsage": 1,
