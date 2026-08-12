@@ -1,6 +1,6 @@
 {
   "itemName": "pat_throwingpoisonlauncher",
-  "rarity": "Legendary",
+  "rarity": "Rare",
   "category": "throwableItem",
   "inventoryIcon": "images/poisonlauncher_icon.png",
   "image": "images/poisonlauncher_held.png",
@@ -10,7 +10,7 @@
   "ammoUsage": 1,
   "edgeTrigger": true,
   "windupTime": 0,
-  "cooldown": 0.25,
+  "cooldown": 0.6,
 
   "projectileType": "pat_throwinggun_spawner",
   "projectileConfig": {

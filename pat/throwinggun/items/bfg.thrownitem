@@ -10,7 +10,7 @@
   "ammoUsage": 1,
   "edgeTrigger": true,
   "windupTime": 0,
-  "cooldown": 0.33,
+  "cooldown": 0.8,
 
   "projectileType": "pat_throwinggun_spawner",
   "projectileConfig": {
