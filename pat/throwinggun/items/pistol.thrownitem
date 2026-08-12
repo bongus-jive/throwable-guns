@@ -1,6 +1,6 @@
 {
   "itemName": "pat_throwinggun",
-  "rarity": "Essential",
+  "rarity": "Common",
   "category": "throwableItem",
   "inventoryIcon": "images/pistol_icon.png",
   "image": "images/pistol_held.png",
