@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingplasmapistol",
   "image": "images/plasmapistol.png",
   "timeToLive": 15,
-  "power": 15,
+  "power": 12,
   "speed": 52,
   "orientationLocked": true,
   "bounces": -1,
@@ -43,7 +43,7 @@
 
     "projectileType": "pat_throwingplasmapistol_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 1.6,
+    "projectileDamageFactor": 2,
 
     "muzzleOffset": [ 1.75, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",

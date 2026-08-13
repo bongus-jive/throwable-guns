@@ -2,7 +2,7 @@
   "projectileName": "pat_throwinggun",
   "image": "images/pistol.png",
   "timeToLive": 15,
-  "power": 14,
+  "power": 8,
   "speed": 55,
   "orientationLocked": true,
   "bounces": -1,

@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingassaultrifle",
   "image": "images/assaultrifle.png",
   "timeToLive": 15,
-  "power": 5,
+  "power": 6,
   "speed": 52,
   "orientationLocked": true,
   "bounces": -1,
@@ -35,8 +35,8 @@
     "hitBounceFactor": 0.75,
     "fireOnHit": true,
 
-    "ammo": 20,
-    "cooldownTime": 0.05,
+    "ammo": 16,
+    "cooldownTime": 0.066,
     "burstCount": 3,
     "burstTime": 0.025,
     "inaccuracy": 0.09,
@@ -44,7 +44,7 @@
 
     "projectileType": "standardbullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 2,
+    "projectileDamageFactor": 1.4,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.25, 0 ],

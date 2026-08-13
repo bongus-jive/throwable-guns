@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingrevolver",
   "image": "images/revolver.png",
   "timeToLive": 15,
-  "power": 12,
+  "power": 7,
   "speed": 64,
   "orientationLocked": true,
   "bounces": -1,
@@ -33,15 +33,16 @@
     "emptyBounces": 6,
     "hitBounceFactor": 0.7,
     "fireOnHit": true,
+    "avoidRepeatTargets": true,
 
     "ammo": 6,
     "cooldownTime": 0.1,
-    "inaccuracy": 0.006,
+    "inaccuracy": 0.015,
     "recoil": 12,
 
     "projectileType": "standardbullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 1,
+    "projectileDamageFactor": 1.5,
     "projectileParameters": { },
 
     "muzzleOffset": [ 1.625, 0 ],

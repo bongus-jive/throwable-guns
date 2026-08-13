@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingmgl",
   "image": "images/mgl.png",
   "timeToLive": 15,
-  "power": 33,
+  "power": 10,
   "speed": 55,
   "orientationLocked": true,
   "bounces": -1,
@@ -44,7 +44,7 @@
 
     "projectileType": "pat_throwingmgl_grenade",
     "projectileCount": 1,
-    "projectileDamageFactor": 0.66,
+    "projectileDamageFactor": 2,
     "projectileParameters": { },
     "projectileArc": true,
 

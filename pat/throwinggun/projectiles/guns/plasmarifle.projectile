@@ -4,7 +4,7 @@
   "animationCycle": 1.2,
   "frameNumber": 14,
   "timeToLive": 15,
-  "power": 4,
+  "power": 9,
   "speed": 60,
   "orientationLocked": true,
   "bounces": -1,
@@ -41,12 +41,12 @@
     "burstCount": 2,
     "burstTime": 0.05,
     "cooldownTime": 0.05,
-    "inaccuracy": 0.04,
+    "inaccuracy": 0.07,
     "recoil": 1,
 
     "projectileType": "pat_throwingplasmarifle_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 2,
+    "projectileDamageFactor": 1.4,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],

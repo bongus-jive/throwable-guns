@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingflamethrower",
   "image": "images/flamethrower.png",
   "timeToLive": 15,
-  "power": 20,
+  "power": 10,
   "speed": 58,
   "orientationLocked": true,
   "bounces": -1,
@@ -38,7 +38,7 @@
     "emptyBounces": 8,
     "hitBounceFactor": 0.75,
     "targetQueryRange": 8,
-    "targetLockRange": 12,
+    "targetLockRange": 15,
 
     "ammo": 75,
     "fireDelay": 0.06,
@@ -49,7 +49,7 @@
 
     "projectileType": "flamethrower",
     "projectileCount": 1,
-    "projectileDamageFactor": 4.5,
+    "projectileDamageFactor": 9,
     "projectileSpeedRange": [ 15, 30 ],
     "projectileParameters": {
       "damageTeam": { "type": "indiscriminate" },

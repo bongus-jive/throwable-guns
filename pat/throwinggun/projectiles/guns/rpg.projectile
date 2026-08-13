@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingrpg",
   "image": "images/rpg.png",
   "timeToLive": 15,
-  "power": 30,
+  "power": 16,
   "speed": 50,
   "orientationLocked": true,
   "bounces": -1,
@@ -40,7 +40,7 @@
 
     "projectileType": "pat_throwingrpg_rocket",
     "projectileCount": 1,
-    "projectileDamageFactor": 2,
+    "projectileDamageFactor": 4,
     "projectileParameters": { },
 
     "fireOffset": [ 2.5, 0 ],

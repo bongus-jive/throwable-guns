@@ -20,7 +20,7 @@
   "scripts": [ "bfgtracer.lua" ],
 
   "actionOnReap": [
-    { "action": "projectile", "type": "pat_throwingbfg_smallexplosion", "inheritDamageFactor": 0.5, "fuzzAngle": 180 }
+    { "action": "projectile", "type": "pat_throwingbfg_smallexplosion", "inheritDamageFactor": 0.4, "fuzzAngle": 180 }
   ],
 
   "periodicActions": [

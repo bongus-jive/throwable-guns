@@ -20,7 +20,7 @@
   "spikeProjectile": {
     "type": "pat_throwingicegun_spikes",
     "inaccuracy": 0.1,
-    "damageFactor": 1
+    "damageFactor": 4
   },
 
   "actionOnReap": [

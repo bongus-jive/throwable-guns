@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingicegun",
   "image": "images/icegun.png",
   "timeToLive": 15,
-  "power": 12,
+  "power": 11,
   "speed": 52,
   "orientationLocked": true,
   "bounces": -1,
@@ -58,7 +58,7 @@
 
     "projectileType": "pat_throwingicegun_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 1.2,
+    "projectileDamageFactor": 0.4,
 
     "muzzleOffset": [ 1.875, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",

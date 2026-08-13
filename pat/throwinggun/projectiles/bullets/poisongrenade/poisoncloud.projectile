@@ -12,7 +12,7 @@
   "emitters": [ "pat_throwingpoisonlauncher_cloud" ],
   "damageKind": "poison",
   "damageType": "Status",
-  "statusEffects": [ "weakpoison" ],
+  "statusEffects": [ { "effect": "weakpoison", "duration": 8 } ],
   "movementSettings": {
     "collisionEnabled": false
   }

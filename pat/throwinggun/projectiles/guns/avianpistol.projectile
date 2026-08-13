@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingavianpistol",
   "image": "images/avianpistol.png",
   "timeToLive": 15,
-  "power": 15,
+  "power": 13,
   "speed": 60,
   "orientationLocked": true,
   "bounces": -1,
@@ -34,6 +34,7 @@
     "emptyBounces": 6,
     "hitBounceFactor": 0.8,
     "fireOnHit": true,
+    "avoidRepeatTargets": true,
 
     "ammo": 5,
     "cooldownTime": 0.15,
@@ -42,7 +43,7 @@
 
     "projectileType": "pat_throwingavianpistol_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 1,
+    "projectileDamageFactor": 2,
 
     "muzzleOffset": [ 1.75, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",

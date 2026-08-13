@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingshotgun",
   "image": "images/shotgun.png",
   "timeToLive": 15,
-  "power": 20,
+  "power": 10,
   "speed": 52,
   "orientationLocked": true,
   "bounces": -1,
@@ -32,6 +32,7 @@
     "emptyTimeToLive": 0.5,
     "emptyBounces": 6,
     "hitBounceFactor": 0.65,
+    "fireDelay": 0.05,
 
     "ammo": 1,
     "inaccuracy": 0.16,
@@ -39,9 +40,9 @@
 
     "projectileType": "standardbullet",
     "projectileCount": 10,
-    "projectileDamageFactor": 2,
+    "projectileDamageFactor": 3.2,
     "projectileSpeedRange": [ 130, 170 ],
-    "projectileParameters": { },
+    "projectileParameters": { "damageKind": "shotgunbullet" },
 
     "muzzleOffset": [ 2.0, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",
