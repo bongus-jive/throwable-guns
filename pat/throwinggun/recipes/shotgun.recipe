@@ -1,7 +1,8 @@
 {
   "input": [
-    [ "titaniumbar", 1 ]
+    { "name": "titaniumbar", "count": 2 },
+    { "name": "volatilepowder", "count": 1 }
   ],
-  "output": [ "pat_throwingshotgun", 12 ],
+  "output": { "name": "pat_throwingshotgun", "count": 5 },
   "groups": [ "craftinganvil2", "consumables", "all" ]
 }

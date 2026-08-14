@@ -1,0 +1,8 @@
+{
+  "input": [
+    { "name": "titaniumbar", "count": 1 },
+    { "name": "ironbar", "count": 2 }
+  ],
+  "output": { "name": "pat_throwingrevolver", "count": 5 },
+  "groups": [ "craftinganvil2", "consumables", "all" ]
+}

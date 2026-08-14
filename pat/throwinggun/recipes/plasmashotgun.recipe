@@ -1,0 +1,8 @@
+{
+  "input": [
+    { "name": "refinedsolarium", "count": 1 },
+    { "name": "scorchedcore", "count": 2 }
+  ],
+  "output": { "name": "pat_throwingplasmashotgun", "count": 5 },
+  "groups": [ "craftinganvil3", "consumables", "all" ]
+}

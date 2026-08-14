@@ -1,0 +1,9 @@
+{
+  "input": [
+    { "name": "refinedviolium", "count": 1 },
+    { "name": "durasteelbar", "count": 1 },
+    { "name": "liquidpoison", "count": 5 }
+  ],
+  "output": { "name": "pat_throwingpoisonlauncher", "count": 5 },
+  "groups": [ "craftinganvil3", "consumables", "all" ]
+}

@@ -1,5 +1,18 @@
 [
   { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwinggun" } },
   { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingshotgun" } },
-  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingassaultrifle" } }
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingassaultrifle" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingrevolver" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingminigun" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingflamethrower" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingmgl" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingrpg" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingplasmapistol" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingplasmarifle" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingplasmashotgun" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingavianpistol" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingicegun" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingpoisonlauncher" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingrailgun" } },
+  { "op": "add", "path": "/defaultBlueprints/tier1/-", "value": { "item": "pat_throwingbfg" } }
 ]

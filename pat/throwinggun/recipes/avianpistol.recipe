@@ -1,0 +1,7 @@
+{
+  "input": [
+    { "name": "refinedsolarium", "count": 1 }
+  ],
+  "output": { "name": "pat_throwingavianpistol", "count": 5 },
+  "groups": [ "craftinganvil3", "consumables", "all" ]
+}

@@ -1,0 +1,8 @@
+{
+  "input": [
+    { "name": "refinedferozium", "count": 1 },
+    { "name": "cryonicextract", "count": 1 }
+  ],
+  "output": { "name": "pat_throwingicegun", "count": 5 },
+  "groups": [ "craftinganvil3", "consumables", "all" ]
+}

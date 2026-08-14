@@ -1,0 +1,8 @@
+{
+  "input": [
+    { "name": "salvagetier6", "count": 1 },
+    { "name": "refinedaegisalt", "count": 2 }
+  ],
+  "output": { "name": "pat_throwingbfg", "count": 5 },
+  "groups": [ "craftinganvil3", "consumables", "all" ]
+}

@@ -1,0 +1,8 @@
+{
+  "input": [
+    { "name": "durasteelbar", "count": 2 },
+    { "name": "volatilepowder", "count": 2 }
+  ],
+  "output": { "name": "pat_throwingrpg", "count": 5 },
+  "groups": [ "craftinganvil2", "consumables", "all" ]
+}
