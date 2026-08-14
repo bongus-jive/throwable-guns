@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingbfg",
   "image": "images/bfg.png",
   "timeToLive": 15,
-  "power": 19,
+  "power": 21,
   "speed": 46,
   "orientationLocked": true,
   "bounces": -1,
@@ -40,7 +40,7 @@
 
     "projectileType": "pat_throwingbfg_ball",
     "projectileCount": 1,
-    "projectileDamageFactor": 2.6,
+    "projectileDamageFactor": 2.8,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],

@@ -58,7 +58,7 @@
 
     "projectileType": "pat_throwingicegun_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 0.4,
+    "projectileDamageFactor": 0.5,
 
     "muzzleOffset": [ 1.875, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",

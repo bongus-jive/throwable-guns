@@ -4,7 +4,7 @@
   "animationCycle": 0.45,
   "frameNumber": 6,
   "timeToLive": 15,
-  "power": 18,
+  "power": 20,
   "speed": 50,
   "orientationLocked": true,
   "bounces": -1,
@@ -43,7 +43,7 @@
 
     "projectileType": "pat_throwingrailgun_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 2.8,
+    "projectileDamageFactor": 3,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],

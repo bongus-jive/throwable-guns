@@ -46,7 +46,7 @@
 
     "projectileType": "pat_throwingplasmarifle_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 1.4,
+    "projectileDamageFactor": 1.5,
     "projectileParameters": { },
 
     "muzzleOffset": [ 2.375, 0 ],

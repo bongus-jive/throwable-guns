@@ -43,7 +43,7 @@
 
     "projectileType": "pat_throwingplasmapistol_bullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 2,
+    "projectileDamageFactor": 2.2,
 
     "muzzleOffset": [ 1.75, 0 ],
     "muzzleflash": "pat_throwinggun_muzzleflash",

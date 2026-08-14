@@ -2,7 +2,7 @@
   "projectileName": "pat_throwingminigun",
   "image": "images/minigun.png",
   "timeToLive": 15,
-  "power": 12,
+  "power": 11,
   "speed": 46,
   "orientationLocked": true,
   "bounces": -1,
@@ -44,7 +44,7 @@
 
     "projectileType": "standardbullet",
     "projectileCount": 1,
-    "projectileDamageFactor": 10,
+    "projectileDamageFactor": 9,
     "projectileSpeedRange": [ 140, 180 ],
     "projectileParameters": { },
 
