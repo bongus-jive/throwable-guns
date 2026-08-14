@@ -1,0 +1,69 @@
+{
+  "pat_thrownGun": [
+    [ 0,
+      {
+        "pool": [
+          { "weight": 1, "item": [ "pat_throwinggun", 5 ] },
+          { "weight": 1, "item": [ "pat_throwingshotgun", 3 ] },
+          { "weight": 1, "item": [ "pat_throwingassaultrifle", 3 ] },
+          { "weight": 1, "item": [ "pat_throwingrevolver", 3 ] }
+        ]
+      }
+    ],
+    [ 2.9,
+      {
+        "pool": [
+          { "weight": 1, "item": [ "pat_throwinggun", 15 ] },
+          { "weight": 1, "item": [ "pat_throwingshotgun", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingassaultrifle", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingrevolver", 10 ] }
+        ]
+      }
+    ],
+    [ 3.9,
+      {
+        "pool": [
+          { "weight": 0.5, "item": [ "pat_throwinggun", 25 ] },
+          { "weight": 0.5, "item": [ "pat_throwingshotgun", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingassaultrifle", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingrevolver", 20 ] },
+
+          { "weight": 1, "item": [ "pat_throwingminigun", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingmgl", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingrpg", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingflamethrower", 10 ] }
+        ]
+      }
+    ],
+    [ 4.9,
+      {
+        "pool": [
+          { "weight": 0.5, "item": [ "pat_throwingminigun", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingmgl", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingrpg", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingflamethrower", 20 ] },
+
+          { "weight": 1, "item": [ "pat_throwingplasmapistol", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingplasmarifle", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingicegun", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingpoisonlauncher", 10 ] }
+        ]
+      }
+    ],
+    [ 5.9,
+      {
+        "pool": [
+          { "weight": 0.5, "item": [ "pat_throwingplasmapistol", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingplasmarifle", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingicegun", 20 ] },
+          { "weight": 0.5, "item": [ "pat_throwingpoisonlauncher", 20 ] },
+
+          { "weight": 1, "item": [ "pat_throwingavianpistol", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingplasmashotgun", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingrailgun", 10 ] },
+          { "weight": 1, "item": [ "pat_throwingbfg", 10 ] }
+        ]
+      }
+    ]
+  ]
+}

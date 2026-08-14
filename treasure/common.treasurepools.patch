@@ -1,0 +1,7 @@
+[
+  { "op": "add", "path": "/thrownWeapon/1/1/pool/-", "value": { "weight": 0.3, "pool": "pat_thrownGun" } },
+  { "op": "add", "path": "/thrownWeapon/2/1/pool/-", "value": { "weight": 0.6, "pool": "pat_thrownGun" } },
+  { "op": "add", "path": "/thrownWeapon/3/1/pool/-", "value": { "weight": 0.6, "pool": "pat_thrownGun" } },
+  { "op": "add", "path": "/thrownWeapon/4/1/pool/-", "value": { "weight": 0.6, "pool": "pat_thrownGun" } },
+  { "op": "add", "path": "/thrownWeapon/5/1/pool/-", "value": { "weight": 0.6, "pool": "pat_thrownGun" } }
+]
