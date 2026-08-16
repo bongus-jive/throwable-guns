@@ -20,6 +20,7 @@
   "scripts": [ "bfgtracer.lua" ],
 
   "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/erchiuseyebeam_start.ogg" ] },
     { "action": "projectile", "type": "pat_throwingbfg_smallexplosion", "inheritDamageFactor": 0.4, "fuzzAngle": 180 }
   ],
 

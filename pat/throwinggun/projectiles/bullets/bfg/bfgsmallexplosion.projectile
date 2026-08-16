@@ -25,10 +25,6 @@
           "options": [ "/sfx/gun/pulsecannon_blast1.ogg" ]
         },
         {
-          "action": "sound",
-          "options": [ "/sfx/gun/erchiuseyebeam_start.ogg" ]
-        },
-        {
           "action": "particle",
           "specification": {
             "type": "ember",
