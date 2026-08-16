@@ -16,7 +16,6 @@
   },
 
   "actionOnReap": [
-    { "action": "sound", "options": [ "/sfx/tools/pickaxe_break.ogg" ] },
     {
       "action": "loop",
       "count": 3,

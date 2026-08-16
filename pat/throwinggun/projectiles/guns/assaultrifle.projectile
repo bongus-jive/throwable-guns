@@ -17,7 +17,6 @@
   },
 
   "actionOnReap": [
-    { "action": "sound", "options": [ "/sfx/tools/pickaxe_break.ogg" ] },
     { "action": "particle", "specification": "pat_throwinggun_shardmetal" },
     {
       "action": "loop",
