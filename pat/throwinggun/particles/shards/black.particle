@@ -1,0 +1,27 @@
+{
+  "kind": "pat_throwinggun_shardblack",
+  "definition": {
+    "type": "animated",
+    "animation": "/pat/throwinggun/particles/shards/black.particle:animation",
+    "initialVelocity": [ 0, 8 ],
+    "finalVelocity": [ 0, -60 ],
+    "approach": [ 0.3, 60 ],
+    "timeToLive": 0,
+    "destructionTime": 0.5,
+    "destructionAction": "shrink",
+    "layer": "middle",
+    "collidesForeground": true,
+    "variance": {
+      "initialVelocity": [ 5, 3 ],
+      "finalVelocity": [ 0, 20 ],
+      "rotation": 180,
+      "angularVelocity": 180,
+      "position": [ 0.4, 0.25 ]
+    }
+  },
+  "animation": {
+    "frames": "black.png:<index>",
+    "frameNumber": 5,
+    "animationCycle": 0.5
+  }
+}
