@@ -17,6 +17,19 @@
     "stopOnFirstBounce": true,
     "collisionPoly": [ [ -0.375, -0.375 ], [ 0.375, -0.375 ], [ 0.375, 0.375 ], [ -0.375, 0.375 ] ]
   },
+
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/shotgun_kill_robotic3.ogg" ] },
+    { "action": "particle", "specification": "electricswoosh1" },
+    { "action": "particle", "specification": "pat_throwinggun_shardsteel" },
+    { "action": "particle", "specification": "pat_throwinggun_shardblack" },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [ { "action": "particle", "specification": "pat_throwinggun_shardmetal" } ]
+    }
+  ],
+
   "actionOnCollide": [
     {
       "action": "sound",

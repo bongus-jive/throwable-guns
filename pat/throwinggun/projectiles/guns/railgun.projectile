@@ -17,6 +17,19 @@
     "stopOnFirstBounce": true,
     "collisionPoly": [ [ -0.5, -0.5 ], [ 0.5, -0.5 ], [ 0.5, 0.5 ], [ -0.5, 0.5 ] ]
   },
+
+  "actionOnReap": [
+    { "action": "projectile", "type": "pat_throwingrailgun_poof", "inheritDamageFactor": 0.2, "fuzzAngle": 360 },
+    {
+      "action": "loop",
+      "count": 5,
+      "body": [
+        { "action": "particle", "specification": "pat_throwinggun_shardblack" },
+        { "action": "particle", "specification": "pat_throwinggun_shardmetal3" }
+      ]
+    }
+  ],
+
   "actionOnCollide": [
     {
       "action": "sound",

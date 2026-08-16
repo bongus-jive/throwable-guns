@@ -14,6 +14,16 @@
     "bounceFactor": 0.65,
     "stopOnFirstBounce": true
   },
+
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/tools/pickaxe_break.ogg" ] },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [ { "action": "particle", "specification": "pat_throwinggun_shardblack" } ]
+    }
+  ],
+
   "actionOnCollide": [
     {
       "action": "sound",

@@ -26,7 +26,14 @@
   ],
 
   "actionOnReap": [
-    { "action": "projectile", "type": "fuelairignition" }
+    { "action": "projectile", "type": "fuelairignition", "inheritDamageFactor": 0.3, "fuzzAngle": 360 },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [
+        { "action": "particle", "specification": "pat_throwinggun_shardsteel" }
+      ]
+    }
   ],
 
   "scripts": [ "throwngun.lua" ],

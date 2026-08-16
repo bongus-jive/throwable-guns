@@ -14,6 +14,18 @@
     "bounceFactor": 0.7,
     "stopOnFirstBounce": true
   },
+
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/gun/aegisaltpistol_stop.ogg" ] },
+    { "action": "particle", "specification": "energybeamimpact" },
+    { "action": "particle", "specification": "pat_throwinggun_shardgold" },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [ { "action": "particle", "specification": "pat_throwinggun_shardaegisalt" } ]
+    }
+  ],
+
   "actionOnCollide": [
     {
       "action": "sound",

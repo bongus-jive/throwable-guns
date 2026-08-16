@@ -15,6 +15,20 @@
     "stopOnFirstBounce": true,
     "collisionPoly": [ [ -0.625, -0.5 ], [ 0.625, -0.5 ], [ 0.625, 0.375 ], [ -0.625, 0.375 ] ]
   },
+
+  "actionOnReap": [
+    { "action": "sound", "options": [ "/sfx/tools/pickaxe_break.ogg" ] },
+    {
+      "action": "loop",
+      "count": 3,
+      "body": [
+        { "action": "particle", "specification": "pat_throwinggun_shardgreen" },
+        { "action": "particle", "specification": "pat_throwinggun_shardblack" },
+        { "action": "particle", "specification": "pat_throwinggun_shardmetal" }
+      ]
+    }
+  ],
+
   "actionOnCollide": [
     {
       "action": "sound",
