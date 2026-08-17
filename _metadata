@@ -1,11 +1,11 @@
 {
-  "author" : "2.0",
+  "author" : "patman",
   "description" : "adds 16 guns that you can throw\nthey will shoot at nearby enemies when they hit something",
-  "friendlyName" : "throwing guns",
+  "friendlyName" : "throwable guns",
   "link" : "steam://url/CommunityFilePage/2846221219",
   "name" : "pat_throwingguns",
   "steamContentId" : "2846221219",
   "steamDescription" : "adds 16 guns that you can throw\nthey will shoot at nearby enemies when they hit something\n\nthey can all be crafted at anvils\nthey can also be found as loot like other throwables\n\n\n[img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV\n[img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar\n[img]https://i.imgur.com/xVfcRRH.gif[/img]https://ko-fi.com/patmanf\n[img]https://i.imgur.com/jJAj6jF.gif[/img]https://github.com/bongus-jive/throwable-guns\n",
   "tags" : "Musical Instruments and Songs|Weapons",
-  "version" : "patman"
+  "version" : "2.0"
 }
