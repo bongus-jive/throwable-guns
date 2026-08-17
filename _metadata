@@ -1,10 +1,11 @@
 {
-  "version" : "patman",
-  "author" : "1.0",
-  "tags" : "Musical Instruments and Songs|Weapons",
-  "description" : "adds guns that you throw\nthey will shoot at nearby enemies when they hit something\n\nmake at tier 2 anvil with stuff\n\n\n[url=https://discord.gg/GdsQSgV][img]https://i.imgur.com/wXjYMqP.gif[/img][/url]\n[url=https://www.patreon.com/pathiccstar][img]https://i.imgur.com/uyG8oTa.gif[/img][/url]\n[url=https://link.clashofclans.com/en?action=OpenClanProfi",
+  "author" : "2.0",
+  "description" : "adds 16 guns that you can throw\nthey will shoot at nearby enemies when they hit something",
+  "friendlyName" : "throwing guns",
+  "link" : "steam://url/CommunityFilePage/2846221219",
   "name" : "pat_throwingguns",
-  "friendlyName" : "throwable guns",
   "steamContentId" : "2846221219",
-  "link" : "steam://url/CommunityFilePage/2846221219"
+  "steamDescription" : "adds 16 guns that you can throw\nthey will shoot at nearby enemies when they hit something\n\nthey can all be crafted at anvils\nthey can also be found as loot like other throwables\n\n\n[img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV\n[img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar\n[img]https://i.imgur.com/xVfcRRH.gif[/img]https://ko-fi.com/patmanf\n[img]https://i.imgur.com/jJAj6jF.gif[/img]https://github.com/bongus-jive/throwable-guns\n",
+  "tags" : "Musical Instruments and Songs|Weapons",
+  "version" : "patman"
 }
