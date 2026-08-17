@@ -223,6 +223,7 @@ function findTarget()
   if self.targetQueryRange <= 0 then return end
   
   local targets = world.entityQuery(mcontroller.position(), self.targetQueryRange, self.targetQueryOptions)
+  local firstId
 
   for _, id in ipairs(targets) do
     if isValidTarget(id) then
